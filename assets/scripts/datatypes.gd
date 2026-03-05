@@ -1,0 +1,16 @@
+class_name DataTypes
+extends Node
+
+enum Tools {
+	None,
+	Hoe,
+	Axe,
+	WateringCan
+}
+
+enum Seeds {
+	None,
+	Wheat,
+	Potato,
+	Lettuce
+}

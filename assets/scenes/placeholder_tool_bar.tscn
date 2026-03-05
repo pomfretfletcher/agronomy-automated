@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://shpuvjx0liyn"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://assets/themes/placeholder_theme.tres" id="1_mhld0"]
+[ext_resource type="Script" uid="uid://c5lk36afblftb" path="res://assets/scripts/inventory_panel.gd" id="2_f2u5r"]
+[ext_resource type="Texture2D" uid="uid://vrlcm7qavgxd" path="res://assets/tool_spritesheet.png" id="2_uwg0s"]
+[ext_resource type="Script" uid="uid://g48oj6752ijj" path="res://assets/scenes/tool_slot.gd" id="4_f2u5r"]
+[ext_resource type="Texture2D" uid="uid://cvvdq4fvsr3ac" path="res://assets/seed_spritesheet.png" id="5_84lun"]
+[ext_resource type="Script" uid="uid://d0630b3g8iru7" path="res://assets/scenes/seed_slot.gd" id="6_s7k3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2u5r"]
+atlas = ExtResource("2_uwg0s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4px6k"]
+atlas = ExtResource("2_uwg0s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84lun"]
+atlas = ExtResource("2_uwg0s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7k3l"]
+atlas = ExtResource("2_uwg0s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixboa"]
+atlas = ExtResource("5_84lun")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eua8x"]
+atlas = ExtResource("5_84lun")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx885"]
+atlas = ExtResource("5_84lun")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8hru"]
+atlas = ExtResource("5_84lun")
+region = Rect2(32, 0, 16, 16)
+
+[node name="PlaceholderToolBar" type="PanelContainer"]
+offset_right = 70.0
+offset_bottom = 44.0
+theme = ExtResource("1_mhld0")
+theme_type_variation = &"InventoryPanel"
+script = ExtResource("2_f2u5r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ToolSlot" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 1
+theme_type_variation = &"ToolPanel"
+button_mask = 0
+icon = SubResource("AtlasTexture_f2u5r")
+icon_alignment = 1
+script = ExtResource("4_f2u5r")
+items = Array[String](["hoe", "axe", "wateringcan"])
+icons = Array[Texture2D]([SubResource("AtlasTexture_4px6k"), SubResource("AtlasTexture_84lun"), SubResource("AtlasTexture_s7k3l")])
+
+[node name="SeedSlot" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 1
+theme_type_variation = &"ToolPanel"
+button_mask = 0
+icon = SubResource("AtlasTexture_ixboa")
+icon_alignment = 1
+script = ExtResource("6_s7k3l")
+items = Array[String](["wheatseed", "potatoseed", "lettuceseed"])
+icons = Array[Texture2D]([SubResource("AtlasTexture_eua8x"), SubResource("AtlasTexture_mx885"), SubResource("AtlasTexture_h8hru")])
