@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://mh13s32mmfaw"]
+
+[ext_resource type="Script" uid="uid://bcxnpktyrdg08" path="res://scripts/item.gd" id="1_keydj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_keydj"]
+radius = 3.0
+
+[node name="GeneralItem" type="Node2D" unique_id=1066554783]
+script = ExtResource("1_keydj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=501489143]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1971968161]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1411285777]
+shape = SubResource("CircleShape2D_keydj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
