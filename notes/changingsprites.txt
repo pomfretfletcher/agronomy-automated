@@ -1,0 +1,2 @@
+when changing sprites, if same name reference:
+	change texture in nametexturedict

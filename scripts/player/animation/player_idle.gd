@@ -20,11 +20,11 @@ func _on_next_transitions() -> void:
 	GameInputEvents.GetMoveDirection()
 	
 	if GameInputEvents.IsUsingTool():
-		hit_component.current_tool = player.current_tool
-		if player.current_tool == DataTypes.Tools.Hoe:
+		hit_component.current_tool = ToolManager.selected_tool
+		if ToolManager.selected_tool == DataTypes.Tools.Hoe:
 			transition.emit("Tilling")
 			
-		if player.current_tool == DataTypes.Tools.WateringCan:
+		if ToolManager.selected_tool == DataTypes.Tools.WateringCan:
 			transition.emit("Watering")
 			
 	if GameInputEvents.IsPlayerMoving():

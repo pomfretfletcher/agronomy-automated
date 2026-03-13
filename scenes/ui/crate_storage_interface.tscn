@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bwx2t8ndork2r"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://themes/placeholder_theme.tres" id="1_7ewnp"]
+[ext_resource type="Script" uid="uid://dtmbdtkwgjt5x" path="res://scripts/crate_storage_interface.gd" id="2_eu1qn"]
+[ext_resource type="PackedScene" uid="uid://4k7bsw42v5r0" path="res://scenes/ui/frameworks/inventory_slot.tscn" id="3_7ewnp"]
+[ext_resource type="PackedScene" uid="uid://bre3x3juy43m7" path="res://scenes/ui/frameworks/inventory_row.tscn" id="4_eu1qn"]
+[ext_resource type="PackedScene" uid="uid://dxjtjpgwnrale" path="res://scenes/components/objectcomponents/slot_item_assignment_component.tscn" id="5_wcoy0"]
+[ext_resource type="Script" uid="uid://c02en7yx47v5k" path="res://scripts/components/slot_item_assignment_component.gd" id="6_hvv8a"]
+
+[node name="CrateStorageInterface" type="PanelContainer" unique_id=1048215501]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+theme = ExtResource("1_7ewnp")
+theme_type_variation = &"InventoryPanel"
+script = ExtResource("2_eu1qn")
+horizontal_slot_count = 3
+vertical_slot_count = 2
+inventory_slot_framework = ExtResource("3_7ewnp")
+inventory_row_framework = ExtResource("4_eu1qn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=227755995]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1533035114]
+layout_mode = 2
+
+[node name="SlotItemAssignmentComponent" parent="." unique_id=550056062 instance=ExtResource("5_wcoy0")]
+layout_mode = 2
+script = ExtResource("6_hvv8a")

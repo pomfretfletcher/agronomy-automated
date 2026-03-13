@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bd7eag1vi5e12"]
-
-[ext_resource type="Script" uid="uid://vwqlnkpqkb54" path="res://scripts/crops/crop_harvest_componet.gd" id="1_5uqne"]
-
-[node name="CropHarvestComponent" type="Node2D" unique_id=1042068280]
-script = ExtResource("1_5uqne")

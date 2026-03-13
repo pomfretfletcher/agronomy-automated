@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b8eokfhtovyrw"]
+
+[ext_resource type="Script" uid="uid://nblltco81kyb" path="res://scripts/globals/name_texture_dictionary.gd" id="1_b7713"]
+[ext_resource type="Texture2D" uid="uid://7kn2qmr50wdo" path="res://assets/placeholder/crops/crop_items_spritesheet.png" id="2_ie4yo"]
+[ext_resource type="Texture2D" uid="uid://cvvdq4fvsr3ac" path="res://assets/placeholder/crops/seed_spritesheet.png" id="3_aks4j"]
+[ext_resource type="Texture2D" uid="uid://vrlcm7qavgxd" path="res://assets/placeholder/player/tool_spritesheet.png" id="4_knvv7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifwsx"]
+atlas = ExtResource("2_ie4yo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oxtm"]
+atlas = ExtResource("3_aks4j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8qml"]
+atlas = ExtResource("2_ie4yo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax2si"]
+atlas = ExtResource("3_aks4j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmx4d"]
+atlas = ExtResource("2_ie4yo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_036rv"]
+atlas = ExtResource("3_aks4j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvq8k"]
+atlas = ExtResource("4_knvv7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45gx0"]
+atlas = ExtResource("4_knvv7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvw0p"]
+atlas = ExtResource("4_knvv7")
+region = Rect2(32, 0, 16, 16)
+
+[node name="NameTextureDictionary" type="Node" unique_id=674591751]
+script = ExtResource("1_b7713")
+texture_dictionary = Dictionary[String, Texture2D]({
+"axe": SubResource("AtlasTexture_nvw0p"),
+"hoe": SubResource("AtlasTexture_nvq8k"),
+"lettuce_item": SubResource("AtlasTexture_ifwsx"),
+"lettuce_seed": SubResource("AtlasTexture_3oxtm"),
+"potato_item": SubResource("AtlasTexture_u8qml"),
+"potato_seed": SubResource("AtlasTexture_ax2si"),
+"wateringcan": SubResource("AtlasTexture_45gx0"),
+"wheat_item": SubResource("AtlasTexture_mmx4d"),
+"wheat_seed": SubResource("AtlasTexture_036rv")
+})
+backup_dict = Dictionary[String, Texture2D]({
+"axe": SubResource("AtlasTexture_nvw0p"),
+"hoe": SubResource("AtlasTexture_nvq8k"),
+"lettuce_item": SubResource("AtlasTexture_ifwsx"),
+"lettuce_seed": SubResource("AtlasTexture_3oxtm"),
+"potato_item": SubResource("AtlasTexture_u8qml"),
+"potato_seed": SubResource("AtlasTexture_ax2si"),
+"wateringcan": SubResource("AtlasTexture_45gx0"),
+"wheat_item": SubResource("AtlasTexture_mmx4d"),
+"wheat_seed": SubResource("AtlasTexture_036rv")
+})

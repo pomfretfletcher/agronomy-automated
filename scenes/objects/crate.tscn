@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dk2mveqs5ck2o"]
+
+[ext_resource type="Script" uid="uid://c3h7ddt0xg5l0" path="res://scripts/crate.gd" id="1_ls5c6"]
+[ext_resource type="Texture2D" uid="uid://c485tp1bsg8f8" path="res://assets/crate_sprite.png" id="1_yourn"]
+[ext_resource type="PackedScene" uid="uid://bff771bj6gu80" path="res://scenes/components/objectcomponents/interaction_range_component.tscn" id="3_xu5n6"]
+[ext_resource type="Script" uid="uid://caqwgqqw516uj" path="res://scripts/components/open_close_interaction_range_component.gd" id="4_m8sg4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ls5c6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yourn"]
+size = Vector2(14, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sg4"]
+size = Vector2(14, 24)
+
+[node name="Crate" type="Node2D" unique_id=2141773489]
+script = ExtResource("1_ls5c6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649253566]
+position = Vector2(0, -1)
+texture = ExtResource("1_yourn")
+offset = Vector2(0, -6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1144715287]
+collision_layer = 32
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ls5c6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110003966]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_yourn")
+
+[node name="InteractionRangeComponent" parent="." unique_id=1023982529 node_paths=PackedStringArray("using_node") instance=ExtResource("3_xu5n6")]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("4_m8sg4")
+using_node = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRangeComponent" unique_id=155612327]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_m8sg4")
+
+[connection signal="body_entered" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_exited"]

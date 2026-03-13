@@ -1,4 +1,4 @@
-extends Slot
+extends EquipmentSlot
 
 @export var default_tool: DataTypes.Tools = DataTypes.Tools.Hoe
 

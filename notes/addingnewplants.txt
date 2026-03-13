@@ -1,0 +1,7 @@
+To add new plants, do the following:
+	
+	Create scene based on a copy of another crop scene
+	Add to seed datatype
+	Add item, seed to nametexturedict
+	Add crop scene to seedcropdict
+	In seed slot, add option to switch to new seed

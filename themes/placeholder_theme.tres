@@ -4,6 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://d081rqvdjos6n" path="res://assets/placeholder/ui/inventory_slot_focused.png" id="2_s87b1"]
 [ext_resource type="Texture2D" uid="uid://cauvsuc44tmj6" path="res://assets/placeholder/ui/inventory_slot.png" id="2_s807l"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygtid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygtid"]
+atlas = ExtResource("1_vpm02")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxtyd"]
+texture = SubResource("AtlasTexture_ygtid")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s87b1"]
 atlas = ExtResource("1_vpm02")
 
@@ -33,6 +45,10 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
 [resource]
+BlankPanel/base_type = &"PanelContainer"
+BlankPanel/styles/panel = SubResource("StyleBoxEmpty_ygtid")
+DisplayPanel/base_type = &"PanelContainer"
+DisplayPanel/styles/panel = SubResource("StyleBoxTexture_gxtyd")
 InventoryPanel/base_type = &"PanelContainer"
 InventoryPanel/styles/panel = SubResource("StyleBoxTexture_ygtid")
 ToolPanel/base_type = &"Panel"

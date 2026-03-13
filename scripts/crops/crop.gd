@@ -5,10 +5,10 @@ extends Node2D
 @onready var watering_particles: GPUParticles2D = $WateringParticles
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var crop_growth_component: CropGrowthComponent = $CropGrowthComponent
-@onready var dropped_item = preload("res://scenes/objects/item.tscn")
 
+@export var crop_name: String
+@export var dropped_item_framework: PackedScene
 @export var dropped_item_name: String
-@export var dropped_item_sprite: AtlasTexture
 
 var is_watered: bool = false
 var watering_animation_time: float = 3.0
@@ -24,11 +24,14 @@ func OnWater(hit_damage: int) -> void:
 	watering_particles.emitting = false
 	is_watered = true
 	
-func OnHarvest() -> void:
+func OnHarvest() -> bool:
 	if crop_growth_component.growth_progress >= crop_growth_component.growth_total:
-		var item_instance = dropped_item.instantiate() as Item
+		var item_instance = dropped_item_framework.instantiate() as Item
 		item_instance.global_position = global_position
 		item_instance.ChangeItemName(dropped_item_name)
-		item_instance.ChangeItemSprite(dropped_item_sprite)
+		item_instance.ChangeItemSprite(NameTextureDictionary.texture_dictionary.get(dropped_item_name))
 		get_parent().get_parent().add_child(item_instance)
 		queue_free()
+		return true
+	else:
+		return false

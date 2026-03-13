@@ -1,0 +1,2 @@
+class_name InteractionRangeComponent
+extends Area2D

@@ -22,6 +22,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=43552880]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

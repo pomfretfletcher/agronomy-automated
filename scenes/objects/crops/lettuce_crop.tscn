@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ign1cm24w57g"]
+
+[ext_resource type="Script" uid="uid://dsy0hrea1nrk6" path="res://scripts/crops/crop.gd" id="1_rkm4r"]
+[ext_resource type="PackedScene" uid="uid://bqk3e7fku04gg" path="res://scenes/components/objectcomponents/crop_growth_component.tscn" id="2_7tmp5"]
+[ext_resource type="Script" uid="uid://bcxnpktyrdg08" path="res://scripts/frameworks/item.gd" id="2_f1b3e"]
+[ext_resource type="Texture2D" uid="uid://chwxm6016hpq6" path="res://assets/placeholder/crops/lettuce-spritesheet.png" id="3_qvnw6"]
+[ext_resource type="PackedScene" uid="uid://dmwqlbttxxseo" path="res://scenes/particles/watering_particles.tscn" id="4_oqfer"]
+[ext_resource type="PackedScene" uid="uid://cgdoolh37t4r3" path="res://scenes/components/objectcomponents/hurt_component.tscn" id="5_c6kbg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_keydj"]
+radius = 3.0
+
+[sub_resource type="PackedScene" id="PackedScene_npowy"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741828, 1073741827, 13, 12, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("GeneralItem", "Node2D", "script", "Sprite2D", "Sprite2D", "Area2D", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "OnPickup", "body_entered"),
+"node_count": 4,
+"node_ids": PackedInt32Array(1066554783, 501489143, 1971968161, 1411285777),
+"node_paths": [NodePath("."), NodePath("."), NodePath("./Area2D"), NodePath("."), NodePath("Area2D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 0, 0, 1073741825, 0, 6, 5, -1, 2, 7, 1, 8, 2, 0, 1073741826, 0, 10, 9, -1, 1, 11, 3, 0),
+"variants": [ExtResource("2_f1b3e"), 8, 4, SubResource("CircleShape2D_keydj")],
+"version": 3
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t6je"]
+atlas = ExtResource("3_qvnw6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmp5"]
+size = Vector2(8, 4)
+
+[node name="Lettuce" type="Node2D" unique_id=2108306375]
+y_sort_enabled = true
+script = ExtResource("1_rkm4r")
+crop_name = "Lettuce"
+dropped_item_framework = SubResource("PackedScene_npowy")
+dropped_item_name = "lettuce_item"
+
+[node name="CropGrowthComponent" parent="." unique_id=1046199290 instance=ExtResource("2_7tmp5")]
+base_growth_days = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=545031657]
+texture = SubResource("AtlasTexture_2t6je")
+offset = Vector2(0, -6)
+hframes = 5
+
+[node name="WateringParticles" parent="." unique_id=745848436 instance=ExtResource("4_oqfer")]
+
+[node name="HurtComponent" parent="." unique_id=1921135595 instance=ExtResource("5_c6kbg")]
+collision_layer = 2
+tool = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=282351824]
+shape = SubResource("RectangleShape2D_7tmp5")

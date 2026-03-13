@@ -1,0 +1,2 @@
+when changing folder orders:
+	always check global references are still correct

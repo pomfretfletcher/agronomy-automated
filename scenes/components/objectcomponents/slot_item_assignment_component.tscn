@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dxjtjpgwnrale"]
+
+[node name="SlotItemAssignmentComponent" type="Control" unique_id=550056062]
+layout_mode = 3
+anchors_preset = 0

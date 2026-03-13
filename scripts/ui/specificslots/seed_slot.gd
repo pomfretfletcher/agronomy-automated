@@ -1,4 +1,4 @@
-extends Slot
+extends EquipmentSlot
 
 @export var default_seed: DataTypes.Seeds = DataTypes.Seeds.None
 
@@ -13,16 +13,14 @@ func ChangeItem(item_num: int) -> void:
 	var crop_scene
 	
 	# Tell tool manager which seed to store that it has switched to
-	if current_item == "wheatseed":
+	if current_item == "wheat_seed":
 		seed = DataTypes.Seeds.Wheat
-		crop_scene = preload("res://scenes/objects/wheat_crop.tscn")
-	elif current_item == "potatoseed":
+	elif current_item == "potato_seed":
 		seed = DataTypes.Seeds.Potato
-		crop_scene = preload("res://scenes/objects/potato_crop.tscn")
-	elif current_item == "lettuceseed":
+	elif current_item == "lettuce_seed":
 		seed = DataTypes.Seeds.Lettuce
-		crop_scene = preload("res://scenes/objects/lettuce_crop.tscn")
 		
+	crop_scene = SeedCropDictionary.crop_scene_dictionary.get(seed)
 	ToolManager.SelectSeed(seed, crop_scene)
 
 func UnequipSlot() -> void:

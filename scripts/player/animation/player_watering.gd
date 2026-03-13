@@ -12,13 +12,13 @@ func _on_next_transitions() -> void:
 func _on_enter() -> void:
 	if player.player_anim_direction == Vector2.LEFT:
 		animated_sprite_2d.play("watering_left")
-		hit_component_collision_shape.position = Vector2(-12, 2)
+		hit_component_collision_shape.position = Vector2(-16, -8)
 	elif player.player_anim_direction == Vector2.RIGHT:
 		animated_sprite_2d.play("watering_right")
-		hit_component_collision_shape.position = Vector2(12, 2)
+		hit_component_collision_shape.position = Vector2(16, -8)
 	elif player.player_anim_direction == Vector2.UP:
 		animated_sprite_2d.play("watering_back")
-		hit_component_collision_shape.position = Vector2(0, -16)
+		hit_component_collision_shape.position = Vector2(0, -24)
 	elif player.player_anim_direction == Vector2.DOWN:
 		animated_sprite_2d.play("watering_front")
 		hit_component_collision_shape.position = Vector2(0, 8)
