@@ -1,0 +1,38 @@
+class_name Crop
+extends Node2D
+
+@export var sprite_2d: Sprite2D
+@export var watering_particles: GPUParticles2D
+@export var crop_growth_component: CropGrowthComponent
+
+@export var crop_name: String
+var dropped_item_framework: PackedScene = ReusedPackedSceneDictionary.packed_scene_dictionary["item_framework"]
+@export var dropped_item_name: String
+
+var is_watered: bool = false
+var watering_animation_time: float = 3.0
+@export var water_retention_days: int = 1
+var days_until_water_reset: int
+
+func _ready() -> void:
+	watering_particles.emitting = false
+	
+	days_until_water_reset = water_retention_days
+		
+func OnWater() -> void:
+	watering_particles.emitting = true
+	await get_tree().create_timer(watering_animation_time).timeout
+	watering_particles.emitting = false
+	is_watered = true
+	
+func OnHarvest() -> bool:
+	if crop_growth_component.growth_progress >= crop_growth_component.growth_total:
+		var item_instance = dropped_item_framework.instantiate() as Item
+		item_instance.global_position = global_position
+		item_instance.ChangeItemName(dropped_item_name)
+		item_instance.ChangeItemSprite(NameTextureDictionary.texture_dictionary.get(dropped_item_name))
+		get_parent().get_parent().add_child(item_instance)
+		queue_free()
+		return true
+	else:
+		return false

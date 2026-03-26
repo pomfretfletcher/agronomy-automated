@@ -1,21 +1,41 @@
 class_name InventorySlot
-extends Slot
-
-var item_name: String
+extends InterfaceSlot
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", theme.get_stylebox("normal", "ToolPanel"))
-	InventoryManager.inventory_changed.connect(AssignAmountLabel)
-	
-func AssignItem(given_name: String) -> void:
-	item_name = given_name
-	
-func AssignIcon(icon: Texture2D) -> void:
-	var slot_icon: TextureRect = $MarginContainer/Icon
-	slot_icon.texture = icon
+	super._ready()
+	InventoryManager.inventory_changed.connect(UpdateAmountLabel)
+
+func UpdateAmountLabel(item_changed: String) -> void:
+	if item_changed != item_name:
+		return
+	else:
+		AssignAmountLabel()
 
 func AssignAmountLabel() -> void:
-	var amount = InventoryManager.inventory.get(item_name)
-	var label: Label = $Label
-	if amount > 1:
-		label.text = "x" + str(amount)
+	amount = InventoryManager.inventory[item_name]
+	super.AssignAmountLabel()
+
+func _drop_data(_at_position, data):
+	var from_slot = data["from"]
+	var dragged_item = data["item"]
+	var temp = item_name
+	
+	if interface != from_slot.interface and interface.being_used_in_interface_interaction:
+		data["to"] = self
+		interface.drop_data_occuring.emit(data)
+		
+	if from_slot == self:
+		return
+	
+	if interface == from_slot.interface:
+		# Sets up new data in this slot
+		if dragged_item != "":
+			SetItem(dragged_item, NameTextureDictionary.texture_dictionary.get(dragged_item))
+		
+		# Changes data in previous slot
+		if temp != "":
+			from_slot.SetItem(temp, NameTextureDictionary.texture_dictionary.get(temp))
+		else:
+			from_slot.RemoveItem()
+
+	from_slot.RemoveFocusFromSlot()

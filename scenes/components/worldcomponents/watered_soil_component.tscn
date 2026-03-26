@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://crq0114n4xuqv"]
+
+[ext_resource type="Script" uid="uid://b2vme33vx5joh" path="res://scripts/components/worldcomponents/watered_soil_component.gd" id="1_pxi6o"]
+
+[node name="WateredSoilComponent" type="Node2D" unique_id=1803548869]
+script = ExtResource("1_pxi6o")

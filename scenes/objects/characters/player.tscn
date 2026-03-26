@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d011s6hh8qi6k"]
 
-[ext_resource type="Script" uid="uid://b4kvpoamje37b" path="res://scripts/player/player.gd" id="1_4wcc8"]
+[ext_resource type="Script" uid="uid://b4kvpoamje37b" path="res://scripts/objects/player/player.gd" id="1_4wcc8"]
 [ext_resource type="Texture2D" uid="uid://baayppfebohfi" path="res://assets/placeholder/player/character_sprites.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://dt0yib1n770lt" path="res://scripts/animation/node_state_machine.gd" id="2_s027a"]
-[ext_resource type="Script" uid="uid://dcnb0lcyj1d0g" path="res://scripts/player/animation/player_idle.gd" id="4_8sknh"]
-[ext_resource type="Script" uid="uid://72awpp5h7gr8" path="res://scripts/player/animation/player_walk.gd" id="5_8sknh"]
-[ext_resource type="Script" uid="uid://cufx7aj84tj8u" path="res://scripts/player/animation/player_watering.gd" id="6_2rlf8"]
+[ext_resource type="Script" uid="uid://dcnb0lcyj1d0g" path="res://scripts/objects/player/animation/player_idle.gd" id="4_8sknh"]
+[ext_resource type="Script" uid="uid://72awpp5h7gr8" path="res://scripts/objects/player/animation/player_walk.gd" id="5_8sknh"]
+[ext_resource type="Script" uid="uid://cufx7aj84tj8u" path="res://scripts/objects/player/animation/player_watering.gd" id="6_2rlf8"]
 [ext_resource type="PackedScene" uid="uid://cmy5qb5gbntdl" path="res://scenes/components/objectcomponents/hit_component.tscn" id="6_ksjmp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
@@ -245,11 +245,12 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rlf8"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=1203717483 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1203717483 node_paths=PackedStringArray("hit_component_collision_shape") groups=["player"]]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 56
 script = ExtResource("1_4wcc8")
+hit_component_collision_shape = NodePath("HitComponent/CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=323504214]
 sprite_frames = SubResource("SpriteFrames_fulsm")
@@ -265,23 +266,25 @@ shape = SubResource("CircleShape2D_s027a")
 script = ExtResource("2_s027a")
 initial_node_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=214855569 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=214855569 node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component")]
 script = ExtResource("4_8sknh")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+hit_component = NodePath("../../HitComponent")
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=975928374 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=975928374 node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component")]
 script = ExtResource("5_8sknh")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+hit_component = NodePath("../../HitComponent")
 
-[node name="Watering" type="Node" parent="StateMachine" unique_id=486079614 node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision_shape")]
+[node name="Watering" type="Node" parent="StateMachine" unique_id=486079614 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("6_2rlf8")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-hit_component_collision_shape = NodePath("../../HitComponent/CollisionShape2D")
 
 [node name="HitComponent" parent="." unique_id=1981248233 instance=ExtResource("6_ksjmp")]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1309602542]

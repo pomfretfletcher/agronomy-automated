@@ -1,13 +1,13 @@
 extends PanelContainer
 
-@onready var tool_slot: EquipmentSlot = $MarginContainer/HBoxContainer/ToolSlot
-@onready var seed_slot: EquipmentSlot = $MarginContainer/HBoxContainer/SeedSlot
-@onready var slot_container: HBoxContainer = $MarginContainer/HBoxContainer
+@export var tool_slot: EquipmentSlot
+@export var seed_slot: EquipmentSlot
+@export var slot_container: HBoxContainer
 
-@export var inventory_slot_framework: PackedScene
+var inventory_slot_framework: PackedScene = ReusedPackedSceneDictionary.packed_scene_dictionary["inventory_slot_framework"]
 
 var equipment_slots: Array[EquipmentSlot]
-var inventory_slots: Dictionary[String, InventorySlot]
+#var inventory_slots: Dictionary[String, InventorySlot]
 var slots: Array
 
 var current_slot: int = 0
@@ -19,7 +19,7 @@ func _ready() -> void:
 	FocusSlots()
 	
 	# Make it so whenever the inventory changes, we display the new inventory
-	HotbarManager.hotbar_changed.connect(DisplayItems)
+	#HotbarManager.hotbar_changed.connect(DisplayItems)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# If attempting to access a slot with a numbered input
@@ -61,30 +61,36 @@ func FocusSlots() -> void:
 	# Change theme of slot depending on whether it is the currently selected slot
 	for i in range(slots.size()):
 		if i == current_slot:
-			slots[i].add_theme_stylebox_override("panel", slots[i].theme.get_stylebox("selected", "ToolPanel"))
+			SetSelectedStyle(slots[i])
 			slots[i].EquipSlot()
 		else:
-			slots[i].add_theme_stylebox_override("panel", slots[i].theme.get_stylebox("normal", "ToolPanel"))
+			SetNormalStyle(slots[i])
 			slots[i].UnequipSlot()
 
-func DisplayItems() -> void:
-	for item in HotbarManager.hotbar_inventory_slots:
-		if item not in inventory_slots.keys():
-			# Create slot
-			var new_slot: InventorySlot = inventory_slot_framework.instantiate() as InventorySlot
-			
-			# Set its display settings
-			new_slot.AssignItem(item)
-			new_slot.AssignIcon(NameTextureDictionary.texture_dictionary.get(item))
-			new_slot.AssignAmountLabel()
-				
-			# Assign it to its node path and array reference
-			slot_container.add_child(new_slot)
-			inventory_slots[item] = new_slot
-			slots.append(new_slot)
+func SetNormalStyle(obj: Node) -> void:
+	obj.add_theme_stylebox_override("panel", obj.get_theme_stylebox("normal", "HotbarSlot"))
+
+func SetSelectedStyle(obj: Node) -> void:
+	obj.add_theme_stylebox_override("panel", obj.get_theme_stylebox("selected", "HotbarSlot"))
 	
-	for slot in inventory_slots.keys():
-		if slot not in HotbarManager.hotbar_inventory_slots:
-			# Delete slot
-			inventory_slots[slot].queue_free()
-			inventory_slots.erase(slot)
+#func DisplayItems() -> void:
+	#for item in HotbarManager.hotbar_inventory_slots:
+		#if item not in inventory_slots.keys():
+			## Create slot
+			#var new_slot: InventorySlot = inventory_slot_framework.instantiate() as InventorySlot
+			#
+			## Set its display settings
+			#new_slot.AssignItem(item)
+			#new_slot.AssignIcon(NameTextureDictionary.texture_dictionary.get(item))
+			#new_slot.AssignAmountLabel()
+				#
+			## Assign it to its node path and array reference
+			#slot_container.add_child(new_slot)
+			#inventory_slots[item] = new_slot
+			#slots.append(new_slot)
+	#
+	#for slot in inventory_slots.keys():
+		#if slot not in HotbarManager.hotbar_inventory_slots:
+			## Delete slot
+			#inventory_slots[slot].queue_free()
+			#inventory_slots.erase(slot)

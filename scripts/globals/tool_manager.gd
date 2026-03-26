@@ -11,7 +11,7 @@ func SelectTool(tool: DataTypes.Tools) -> void:
 	tool_selected.emit(tool)
 	selected_tool = tool
 	
-func SelectSeed(seed: DataTypes.Seeds, crop_scene: PackedScene) -> void:
-	seed_selected.emit(seed)
-	selected_seed = seed
+func SelectSeed(new_seed: DataTypes.Seeds, crop_scene: PackedScene) -> void:
+	seed_selected.emit(new_seed)
+	selected_seed = new_seed
 	selected_seed_crop_scene = crop_scene

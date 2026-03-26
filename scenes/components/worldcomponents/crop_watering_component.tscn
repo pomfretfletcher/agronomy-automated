@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dagbauowqc6nc"]
+
+[ext_resource type="Script" uid="uid://dsiioyukdr5lv" path="res://scripts/components/worldcomponents/crop_watering_component.gd" id="1_vbf21"]
+
+[node name="CropWateringComponent" type="Node2D" unique_id=369769255]
+script = ExtResource("1_vbf21")

@@ -5,6 +5,7 @@
 [node name="InventoryRow" type="PanelContainer" unique_id=1762234503]
 offset_right = 4.0
 offset_bottom = 4.0
+mouse_filter = 1
 theme = ExtResource("1_kwj2c")
 theme_type_variation = &"BlankPanel"
 

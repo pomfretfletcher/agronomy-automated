@@ -28,7 +28,7 @@ font = SubResource("FontVariation_u0l55")
 font_size = 5
 font_color = Color(0, 0, 0, 1)
 
-[node name="CropDisplayInterface" type="PanelContainer" unique_id=690390973]
+[node name="CropDisplayInterface" type="PanelContainer" unique_id=690390973 node_paths=PackedStringArray("name_label", "percent_label")]
 custom_minimum_size = Vector2(30, 30)
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +40,8 @@ grow_vertical = 2
 theme = ExtResource("1_uepw1")
 theme_type_variation = &"DisplayPanel"
 script = ExtResource("2_skjma")
+name_label = NodePath("MarginContainer/NameLabel")
+percent_label = NodePath("MarginContainer/PercentLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=723212374]
 layout_mode = 2

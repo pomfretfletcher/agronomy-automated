@@ -1,6 +1,7 @@
+class_name GameInputEvents
 extends Node
 
-static var anim_direction: Vector2
+static var anim_direction: Vector2 = Vector2.DOWN
 static var move_direction: Vector2
 
 static var up_flag: float = 0.0
@@ -18,6 +19,8 @@ static func GetMoveDirection() -> Vector2:
 	return move_direction.normalized()
 	
 static func GetAnimDirection() -> Vector2:
+	var prev_anim_direction: Vector2 = anim_direction
+	
 	if Input.is_action_pressed("walk_up"):
 		anim_direction = Vector2.UP
 	elif Input.is_action_pressed("walk_down"):
@@ -27,7 +30,7 @@ static func GetAnimDirection() -> Vector2:
 	elif Input.is_action_pressed("walk_right"):
 		anim_direction = Vector2.RIGHT
 	else:
-		anim_direction = Vector2.ZERO
+		anim_direction = prev_anim_direction
 		
 	return anim_direction
 	

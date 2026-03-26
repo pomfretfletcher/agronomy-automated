@@ -2,43 +2,18 @@
 
 [ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://themes/placeholder_theme.tres" id="1_mhld0"]
 [ext_resource type="Script" uid="uid://c5lk36afblftb" path="res://scripts/ui/modules/tool_panel.gd" id="2_f2u5r"]
-[ext_resource type="Script" uid="uid://brsdnpvwyyb82" path="res://scripts/ui/slots/inventory_slot.gd" id="3_g1pp2"]
-[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://assets/placeholder/fonts/zx_palm.ttf" id="4_1dft4"]
 [ext_resource type="Script" uid="uid://g48oj6752ijj" path="res://scripts/ui/specificslots/tool_slot.gd" id="4_f2u5r"]
 [ext_resource type="Script" uid="uid://d0630b3g8iru7" path="res://scripts/ui/specificslots/seed_slot.gd" id="6_s7k3l"]
 
-[sub_resource type="FontVariation" id="FontVariation_bngwc"]
-base_font = ExtResource("4_1dft4")
-spacing_glyph = -3
-spacing_bottom = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_uda2d"]
-line_spacing = 0.0
-font = SubResource("FontVariation_bngwc")
-font_size = 8
-
-[sub_resource type="PackedScene" id="PackedScene_4oe4c"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("InventorySlot", "Panel", "custom_minimum_size", "offset_right", "offset_bottom", "theme", "theme_type_variation", "script", "MarginContainer", "MarginContainer", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme_override_constants/margin_left", "theme_override_constants/margin_top", "theme_override_constants/margin_right", "theme_override_constants/margin_bottom", "Icon", "TextureRect", "layout_mode", "expand_mode", "stretch_mode", "Label", "Label", "layout_mode", "offset_top", "offset_right", "offset_bottom", "label_settings", "horizontal_alignment", "vertical_alignment"),
-"node_count": 4,
-"node_ids": PackedInt32Array(1095460296, 437550236, 777158176, 1213195132),
-"node_paths": [NodePath("."), NodePath("./MarginContainer"), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 1073741824, 0, 9, 8, -1, 10, 10, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 18, 14, 19, 15, 0, 1073741825, 0, 21, 20, -1, 3, 22, 16, 23, 17, 24, 18, 0, 1073741826, 0, 26, 25, -1, 7, 27, 19, 28, 20, 29, 21, 30, 22, 31, 23, 32, 24, 33, 25, 0),
-"variants": [Vector2(30, 30), 30.0, 30.0, ExtResource("1_mhld0"), &"ToolPanel", ExtResource("3_g1pp2"), 1, 15, 1.0, 1.0, 2, 2, 4, 4, 4, 4, 2, 2, 5, 0, -9.0, 30.0, -1.0, SubResource("LabelSettings_uda2d"), 1, 2],
-"version": 3
-}
-
-[node name="PlaceholderToolBar" type="PanelContainer" unique_id=1062709116]
+[node name="PlaceholderToolBar" type="PanelContainer" unique_id=1062709116 node_paths=PackedStringArray("tool_slot", "seed_slot", "slot_container")]
 offset_right = 70.0
 offset_bottom = 34.0
 theme = ExtResource("1_mhld0")
 theme_type_variation = &"BlankPanel"
 script = ExtResource("2_f2u5r")
-inventory_slot_framework = SubResource("PackedScene_4oe4c")
+tool_slot = NodePath("MarginContainer/HBoxContainer/ToolSlot")
+seed_slot = NodePath("MarginContainer/HBoxContainer/SeedSlot")
+slot_container = NodePath("MarginContainer/HBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1820988555]
 layout_mode = 2
