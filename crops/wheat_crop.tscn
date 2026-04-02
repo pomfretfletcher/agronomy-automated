@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://g2xphcytxk3f"]
+
+[ext_resource type="Script" uid="uid://dsy0hrea1nrk6" path="res://crops/crop.gd" id="1_mmrkv"]
+[ext_resource type="PackedScene" uid="uid://bqk3e7fku04gg" path="res://crops/crop_growth_component.tscn" id="2_ddhby"]
+[ext_resource type="Texture2D" uid="uid://dgkycx0w03raw" path="res://art/assets/placeholder/crops/wheat-spritesheet.png" id="3_prnw7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi1ry"]
+atlas = ExtResource("3_prnw7")
+
+[node name="Wheat" type="Node2D" unique_id=497755270 node_paths=PackedStringArray("sprite_2d", "crop_growth_component")]
+position = Vector2(0, 2)
+script = ExtResource("1_mmrkv")
+sprite_2d = NodePath("Sprite2D")
+crop_growth_component = NodePath("CropGrowthComponent")
+crop_name = "Wheat"
+dropped_item_name = "wheat_item"
+water_retention_days = 2
+
+[node name="CropGrowthComponent" parent="." unique_id=1046199290 node_paths=PackedStringArray("sprite_2d", "parent_crop") instance=ExtResource("2_ddhby")]
+y_sort_enabled = true
+sprite_2d = NodePath("../Sprite2D")
+parent_crop = NodePath("..")
+growth_sprite_amount = 7
+base_growth_days = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=732102255]
+texture = SubResource("AtlasTexture_qi1ry")
+offset = Vector2(0, -16)
+hframes = 7

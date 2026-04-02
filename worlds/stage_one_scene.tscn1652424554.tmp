@@ -1,0 +1,128 @@
+[gd_scene format=4 uid="uid://cmh8gnviwgpcx"]
+
+[ext_resource type="TileSet" uid="uid://bhv21wx1wwpi6" path="res://tilemaps/stage_one_tileset.tres" id="1_1gs7t"]
+[ext_resource type="PackedScene" uid="uid://d011s6hh8qi6k" path="res://scenes/objects/characters/player.tscn" id="2_jashs"]
+[ext_resource type="Script" uid="uid://c84j2suc4mkjn" path="res://scripts/ui/ui.gd" id="3_7hmt2"]
+[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://scenes/ui/interfaces/inventory_interface.tscn" id="3_m84qc"]
+[ext_resource type="PackedScene" uid="uid://d0snyd86x8xp3" path="res://scenes/ui/ui.tscn" id="3_nym67"]
+[ext_resource type="PackedScene" uid="uid://70fowkdvyd5r" path="res://scenes/components/worldcomponents/land_tilling_component.tscn" id="4_8rit2"]
+[ext_resource type="PackedScene" uid="uid://dlti58wru1h65" path="res://scenes/components/worldcomponents/crop_planting_component.tscn" id="6_5ckdo"]
+[ext_resource type="PackedScene" uid="uid://bt6swo7drjsxb" path="res://scenes/ui/interfaces/selling_interface.tscn" id="6_k7kwt"]
+[ext_resource type="PackedScene" uid="uid://bd7eag1vi5e12" path="res://scenes/components/worldcomponents/crop_harvest_component.tscn" id="6_x78tl"]
+[ext_resource type="PackedScene" uid="uid://bw2qfibb4d8wa" path="res://scenes/components/worldcomponents/crop_display_component.tscn" id="7_1lopb"]
+[ext_resource type="PackedScene" uid="uid://16sb342i2c85" path="res://scenes/components/worldcomponents/selected_tile_component.tscn" id="7_x78tl"]
+[ext_resource type="Script" uid="uid://clscnvyjrg2qr" path="res://scripts/components/worldcomponents/crop_display_component.gd" id="8_b8r5g"]
+[ext_resource type="PackedScene" uid="uid://crxjclsabdv0t" path="res://scenes/ui/modules/crop_display_interface.tscn" id="9_b8r5g"]
+[ext_resource type="PackedScene" uid="uid://dagbauowqc6nc" path="res://scenes/components/worldcomponents/crop_watering_component.tscn" id="10_45rtk"]
+[ext_resource type="PackedScene" uid="uid://dk2mveqs5ck2o" path="res://scenes/objects/storage/crate.tscn" id="11_6hkvd"]
+[ext_resource type="PackedScene" uid="uid://crq0114n4xuqv" path="res://scenes/components/worldcomponents/watered_soil_component.tscn" id="11_m84qc"]
+[ext_resource type="PackedScene" uid="uid://ckq7hhclkhf4a" path="res://scenes/components/worldcomponents/storage_inventory_interaction_component.tscn" id="13_1kyl5"]
+[ext_resource type="PackedScene" uid="uid://bwx2t8ndork2r" path="res://scenes/ui/interfaces/storage_interface.tscn" id="17_eoum2"]
+[ext_resource type="PackedScene" uid="uid://dhgwwf2xlawbl" path="res://scenes/components/worldcomponents/day_night_component.tscn" id="18_c8wfs"]
+[ext_resource type="PackedScene" uid="uid://dxsl8dngkyccf" path="res://scenes/components/worldcomponents/sell_point_interaction_component.tscn" id="18_xqusc"]
+[ext_resource type="PackedScene" uid="uid://d20ykf7fp5pcs" path="res://scenes/objects/storage/sell_point.tscn" id="19_t8r38"]
+
+[node name="StageOneScene" type="Node2D" unique_id=1325143091]
+y_sort_enabled = true
+
+[node name="World Map" type="Node2D" parent="." unique_id=825266959]
+y_sort_enabled = true
+
+[node name="Tilemap" type="Node2D" parent="World Map" unique_id=755304769]
+z_index = -2
+
+[node name="Grass" type="TileMapLayer" parent="World Map/Tilemap" unique_id=1338455181]
+tile_map_data = PackedByteArray("AAADAAMAAAAAAAEAAAAEAAMAAAABAAEAAAAFAAMAAAABAAEAAAAEAAQAAAABAAEAAAADAAQAAAAGAAIAAAAEAAUAAAABAAEAAAALAAYAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAALAAcAAAABAAEAAAALAAUAAAABAAEAAAAMAAUAAAABAAEAAAAMAAYAAAABAAEAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAARAAUAAAABAAEAAAASAAYAAAABAAEAAAATAAUAAAABAAEAAAAUAAUAAAABAAEAAAAUAAYAAAABAAEAAAAUAAQAAAABAAEAAAAVAAUAAAABAAEAAAAUAAcAAAABAAEAAAATAAcAAAABAAEAAAASAAcAAAABAAEAAAARAAcAAAABAAEAAAASAAgAAAABAAEAAAAVAAcAAAAFAAEAAAAIAAEAAAABAAEAAAAJAAEAAAABAAEAAAAJAAMAAAABAAEAAAAIAAMAAAABAAEAAAAOAAMAAAABAAEAAAAMAAEAAAABAAEAAAAPAAEAAAABAAEAAAAPAAQAAAABAAEAAAAOAAQAAAABAAEAAAAPAAMAAAABAAEAAAAPAAUAAAABAAEAAAAPAAYAAAABAAEAAAAPAAcAAAABAAEAAAAPAAgAAAABAAEAAAAWAAUAAAABAAEAAAAWAAQAAAAFAAIAAAAVAAYAAAABAAEAAAAVAAQAAAABAAEAAAATAAgAAAAFAAEAAAATAAYAAAABAAEAAAATAAQAAAABAAEAAAATAAMAAAABAAEAAAATAAIAAAABAAEAAAASAAMAAAABAAEAAAASAAIAAAABAAEAAAARAAgAAAABAAEAAAARAAYAAAABAAEAAAARAAQAAAABAAEAAAARAAMAAAABAAEAAAARAAIAAAABAAEAAAARAAEAAAABAAAAAAAQAAgAAAABAAEAAAAQAAcAAAABAAEAAAAQAAYAAAABAAEAAAAQAAUAAAABAAEAAAAQAAQAAAABAAEAAAAQAAMAAAABAAEAAAAQAAIAAAABAAEAAAAQAAEAAAAFAAIAAAAPAAkAAAABAAEAAAAPAAIAAAABAAEAAAAOAAkAAAABAAEAAAAOAAgAAAABAAEAAAAOAAcAAAABAAEAAAAOAAYAAAABAAEAAAAOAAUAAAABAAEAAAANAAkAAAABAAEAAAANAAgAAAABAAEAAAANAAcAAAABAAEAAAANAAYAAAABAAEAAAANAAUAAAABAAEAAAANAAQAAAABAAEAAAANAAAAAAABAAAAAAAMAAkAAAABAAEAAAAMAAgAAAABAAEAAAAMAAcAAAABAAEAAAAMAAQAAAABAAEAAAALAAkAAAABAAEAAAALAAgAAAABAAEAAAALAAQAAAABAAEAAAAKAAkAAAABAAEAAAAKAAgAAAABAAEAAAAKAAUAAAABAAEAAAAJAAkAAAABAAEAAAAJAAgAAAABAAEAAAAJAAcAAAABAAEAAAAJAAIAAAABAAEAAAAJAAAAAAABAAAAAAAIAAkAAAABAAEAAAAIAAgAAAABAAEAAAAIAAcAAAABAAEAAAAIAAYAAAABAAEAAAAIAAQAAAABAAEAAAAIAAIAAAABAAEAAAAIAAAAAAABAAAAAAAHAAgAAAABAAEAAAAHAAcAAAABAAEAAAAHAAYAAAABAAEAAAAHAAQAAAABAAEAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAHAAEAAAAGAAIAAAAHAAAAAAAAAAAAAAAGAAgAAAABAAEAAAAGAAcAAAABAAEAAAAGAAYAAAABAAEAAAAGAAMAAAABAAEAAAAGAAEAAAABAAAAAAAFAAgAAAABAAEAAAAFAAcAAAABAAEAAAAFAAYAAAABAAEAAAAFAAUAAAABAAEAAAAFAAIAAAAGAAIAAAAFAAEAAAAAAAAAAAAEAAgAAAABAAEAAAAEAAcAAAABAAEAAAAEAAYAAAABAAEAAAAEAAIAAAABAAAAAAADAAIAAAAAAAAAAAAFAAQAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAHAAUAAAABAAEAAAAIAAUAAAABAAEAAAAGAAIAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAQAAAABAAEAAAAKAAQAAAABAAEAAAANAAEAAAABAAEAAAAMAAAAAAABAAAAAAALAAEAAAABAAEAAAALAAIAAAABAAEAAAAMAAIAAAABAAEAAAANAAMAAAABAAEAAAALAAMAAAABAAEAAAAKAAMAAAABAAEAAAAKAAIAAAABAAEAAAAKAAEAAAABAAEAAAANAAIAAAABAAEAAAAOAAIAAAABAAEAAAAOAAEAAAABAAEAAAAKAAAAAAABAAAAAAALAAAAAAABAAAAAAAMAAMAAAABAAEAAAACAAQAAAAAAAAAAAACAAUAAAAAAAEAAAACAAYAAAAAAAIAAAADAAYAAAAGAAEAAAADAAUAAAABAAEAAAADAAcAAAAAAAEAAAADAAgAAAAAAAEAAAADAAkAAAAAAAIAAAAEAAkAAAAGAAEAAAAFAAkAAAABAAEAAAAHAAkAAAABAAEAAAAGAAkAAAABAAEAAAAFAAoAAAABAAIAAAAGAAoAAAAGAAEAAAAHAAoAAAABAAEAAAAEAAoAAAAAAAIAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAALAAoAAAABAAEAAAAMAAoAAAABAAEAAAANAAoAAAABAAEAAAAOAAoAAAAFAAEAAAAQAAkAAAABAAEAAAAQAAoAAAABAAIAAAAPAAoAAAABAAIAAAARAAkAAAAFAAEAAAAUAAgAAAABAAIAAAATAAkAAAACAAIAAAASAAkAAAABAAIAAAAOAAAAAAABAAAAAAAPAAAAAAABAAAAAAAQAAAAAAACAAAAAAASAAEAAAABAAAAAAATAAEAAAABAAAAAAAUAAIAAAAFAAIAAAAUAAMAAAABAAEAAAAUAAEAAAACAAAAAAAVAAIAAAACAAAAAAAWAAMAAAACAAAAAAAVAAMAAAAFAAIAAAAXAAQAAAABAAAAAAAYAAQAAAACAAAAAAAYAAUAAAACAAEAAAAXAAUAAAABAAEAAAAXAAYAAAAFAAEAAAAWAAYAAAABAAEAAAAWAAcAAAABAAIAAAAYAAYAAAACAAIAAAAXAAcAAAACAAIAAAAVAAgAAAACAAIAAAARAAoAAAACAAIAAAAOAAsAAAACAAIAAAANAAsAAAABAAIAAAAMAAsAAAABAAIAAAALAAsAAAABAAIAAAAKAAsAAAABAAIAAAAIAAsAAAABAAIAAAAJAAsAAAABAAIAAAAHAAsAAAABAAIAAAAGAAsAAAAAAAIAAAA=")
+tile_set = ExtResource("1_1gs7t")
+
+[node name="Soil" type="TileMapLayer" parent="World Map/Tilemap" unique_id=1316292970]
+tile_set = ExtResource("1_1gs7t")
+
+[node name="WateredSoil" type="TileMapLayer" parent="World Map/Tilemap" unique_id=935196190]
+tile_set = ExtResource("1_1gs7t")
+
+[node name="CropFields" type="Node2D" parent="World Map" unique_id=797122281]
+y_sort_enabled = true
+
+[node name="UI" parent="." unique_id=1874955413 instance=ExtResource("3_nym67")]
+visible = false
+script = ExtResource("3_7hmt2")
+
+[node name="InventoryInterface" parent="UI" unique_id=642928065 instance=ExtResource("3_m84qc")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StorageInterface" parent="UI" unique_id=1048215501 node_paths=PackedStringArray("using_crate") instance=ExtResource("17_eoum2")]
+using_crate = NodePath("../../Crate")
+
+[node name="SellingInterface" parent="UI" unique_id=233436892 instance=ExtResource("6_k7kwt")]
+
+[node name="WorldComponents" type="Node" parent="." unique_id=1165545554]
+
+[node name="CropHarvestComponent" parent="WorldComponents" unique_id=1042068280 node_paths=PackedStringArray("crop_fields", "clickable_tilemap_layer") instance=ExtResource("6_x78tl")]
+crop_fields = NodePath("../../World Map/CropFields")
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+
+[node name="CropPlantingComponent" parent="WorldComponents" unique_id=1666948399 node_paths=PackedStringArray("crop_fields", "clickable_tilemap_layer") instance=ExtResource("6_5ckdo")]
+crop_fields = NodePath("../../World Map/CropFields")
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+
+[node name="LandTillingComponent" parent="WorldComponents" unique_id=813751801 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "clickable_tilemap_layer") instance=ExtResource("4_8rit2")]
+tilled_soil_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+
+[node name="SelectedTileComponent" parent="WorldComponents" unique_id=929923616 node_paths=PackedStringArray("player", "tilemap_layer") instance=ExtResource("7_x78tl")]
+visible = false
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = -1
+player = NodePath("../../Player")
+tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+
+[node name="CropDisplayComponent" parent="WorldComponents" unique_id=666532382 node_paths=PackedStringArray("crop_fields", "crop_display_interface", "clickable_tilemap_layer") instance=ExtResource("7_1lopb")]
+script = ExtResource("8_b8r5g")
+crop_fields = NodePath("../../World Map/CropFields")
+crop_display_interface = NodePath("../CropDisplayInterface")
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+
+[node name="CropDisplayInterface" parent="WorldComponents" unique_id=690390973 instance=ExtResource("9_b8r5g")]
+visible = false
+z_index = 1
+
+[node name="CropWateringComponent" parent="WorldComponents" unique_id=369769255 node_paths=PackedStringArray("watered_soil_component", "clickable_tilemap_layer") instance=ExtResource("10_45rtk")]
+watered_soil_component = NodePath("../WateredSoilComponent")
+watering_animation_time = 1.0
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+
+[node name="WateredSoilComponent" parent="WorldComponents" unique_id=1803548869 node_paths=PackedStringArray("watered_soil_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("11_m84qc")]
+watered_soil_tilemap_layer = NodePath("../../World Map/Tilemap/WateredSoil")
+tilled_soil_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+
+[node name="StorageInventoryInteractionComponent" parent="WorldComponents" unique_id=1589574802 node_paths=PackedStringArray("inventory_interface") groups=["storageinventoryinteractioncomponent"] instance=ExtResource("13_1kyl5")]
+inventory_interface = NodePath("../../UI/InventoryInterface")
+
+[node name="SellPointInteractionComponent" parent="WorldComponents" unique_id=1398001794 node_paths=PackedStringArray("inventory_interface") groups=["sellpointinteractioncomponent"] instance=ExtResource("18_xqusc")]
+inventory_interface = NodePath("../../UI/InventoryInterface")
+
+[node name="DayNightComponent" parent="WorldComponents" unique_id=1577317201 instance=ExtResource("18_c8wfs")]
+
+[node name="Player" parent="." unique_id=1935320690 instance=ExtResource("2_jashs")]
+position = Vector2(184, 96)
+
+[node name="Crate" parent="." unique_id=2141773489 node_paths=PackedStringArray("inworld_storage_interface") instance=ExtResource("11_6hkvd")]
+position = Vector2(152, 96)
+inworld_storage_interface = NodePath("../UI/StorageInterface")
+
+[node name="SellPoint" parent="." unique_id=403232499 node_paths=PackedStringArray("selling_interface") instance=ExtResource("19_t8r38")]
+position = Vector2(216, 96)
+selling_interface = NodePath("../UI/SellingInterface")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dgwthxirj1gqt"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_rcwlc"]
+[ext_resource type="Script" uid="uid://bqmepakt2fr0t" path="res://game-ui/game_info_interface.gd" id="2_8ayom"]
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="2_a68o5"]
+
+[sub_resource type="FontVariation" id="FontVariation_skjma"]
+base_font = ExtResource("2_a68o5")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ayom"]
+line_spacing = 0.0
+font = SubResource("FontVariation_skjma")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_30pnv"]
+line_spacing = 0.0
+font = SubResource("FontVariation_skjma")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameInfoInterface" type="PanelContainer" unique_id=1351549965 node_paths=PackedStringArray("time_label", "day_label")]
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_rcwlc")
+theme_type_variation = &"DisplayPanel"
+script = ExtResource("2_8ayom")
+time_label = NodePath("MarginContainer/VBoxContainer/TimeLabel")
+day_label = NodePath("MarginContainer/VBoxContainer/DayLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1663169464]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=685810432]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1029228127]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "Summer 30"
+label_settings = SubResource("LabelSettings_8ayom")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1638885663]
+layout_mode = 2
+text = "19:30"
+label_settings = SubResource("LabelSettings_30pnv")
+horizontal_alignment = 1

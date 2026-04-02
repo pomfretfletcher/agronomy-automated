@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b47xgpv03uw4k"]
+
+[ext_resource type="Script" uid="uid://c3bjpk7pgm4uq" path="res://non-specific/globals/reused_packed_scene_dictionary.gd" id="1_bi3tq"]
+[ext_resource type="PackedScene" uid="uid://4k7bsw42v5r0" path="res://game-ui/inventory/inventory_slot.tscn" id="2_e2qp1"]
+[ext_resource type="PackedScene" uid="uid://bre3x3juy43m7" path="res://game-ui/inventory/inventory_row.tscn" id="3_2xcop"]
+[ext_resource type="PackedScene" uid="uid://mh13s32mmfaw" path="res://non-specific/frameworks/item.tscn" id="4_ogkgg"]
+[ext_resource type="PackedScene" uid="uid://caer6cwu3q0qi" path="res://buildings/interfaces/rows-slots/storage_row.tscn" id="5_ogkgg"]
+[ext_resource type="PackedScene" uid="uid://clghbr4q12xds" path="res://buildings/interfaces/rows-slots/storage_slot.tscn" id="6_3dinf"]
+[ext_resource type="PackedScene" uid="uid://cuvlud05kdog8" path="res://buildings/interfaces/rows-slots/shop_slot.tscn" id="7_o4yg7"]
+[ext_resource type="PackedScene" uid="uid://quhjtewa066d" path="res://buildings/interfaces/rows-slots/shop_row.tscn" id="8_0dug5"]
+[ext_resource type="PackedScene" uid="uid://dmwqlbttxxseo" path="res://art/themes-assets-tilemaps/watering_particles.tscn" id="9_0dug5"]
+
+[node name="ReusedPackedSceneDictionary" type="Node" unique_id=44313284]
+script = ExtResource("1_bi3tq")
+packed_scene_dictionary = Dictionary[String, PackedScene]({
+"inventory_row_framework": ExtResource("3_2xcop"),
+"inventory_slot_framework": ExtResource("2_e2qp1"),
+"item_framework": ExtResource("4_ogkgg"),
+"shop_row_framework": ExtResource("8_0dug5"),
+"shop_slot_framework": ExtResource("7_o4yg7"),
+"storage_row_framework": ExtResource("5_ogkgg"),
+"storage_slot_framework": ExtResource("6_3dinf"),
+"watering_particles_framework": ExtResource("9_0dug5")
+})
+backup_dict = Dictionary[String, PackedScene]({
+"inventory_row_framework": ExtResource("3_2xcop"),
+"inventory_slot_framework": ExtResource("2_e2qp1"),
+"item_framework": ExtResource("4_ogkgg"),
+"selling_row_framework": ExtResource("8_0dug5"),
+"selling_slot_framework": ExtResource("7_o4yg7"),
+"storage_row_framework": ExtResource("5_ogkgg"),
+"storage_slot_framework": ExtResource("6_3dinf"),
+"watering_particles_framework": ExtResource("9_0dug5")
+})

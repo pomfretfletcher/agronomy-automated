@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://beuhtk26ds6ud"]
+
+[ext_resource type="Script" uid="uid://bklcilsbv36k1" path="res://worlds/worldcomponents/visuals/day_night_component.gd" id="1_0hk57"]
+[ext_resource type="Texture2D" uid="uid://cuqwox2r4wjgo" path="res://art/themes-assets-tilemaps/placeholder_spring_sky_gradient.tres" id="2_c61v3"]
+
+[node name="DayNightComponent" type="CanvasModulate" unique_id=1577317201]
+script = ExtResource("1_0hk57")
+spring_gradient = ExtResource("2_c61v3")

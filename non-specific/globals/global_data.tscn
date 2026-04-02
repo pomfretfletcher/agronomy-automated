@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvtfx77i7wqvm"]
+
+[ext_resource type="Script" uid="uid://do113cmwm6xaa" path="res://non-specific/globals/global_data.gd" id="1_dbodk"]
+
+[node name="GlobalData" type="Node" unique_id=1765806011]
+script = ExtResource("1_dbodk")
+currency_symbol = "£"

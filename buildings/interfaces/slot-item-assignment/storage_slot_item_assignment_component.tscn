@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddajxlmcigkyd"]
+
+[ext_resource type="Script" uid="uid://irbk7dpsrpp8" path="res://buildings/interfaces/slot-item-assignment/storage_slot_item_assignment_component.gd" id="1_74wpl"]
+
+[node name="StorageSlotItemAssignmentComponent" type="Control" unique_id=2042414911]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_74wpl")

@@ -1,0 +1,15 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dsbcbodb7u88v"]
+
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="1_mm2mr"]
+
+[sub_resource type="FontVariation" id="FontVariation_skjma"]
+base_font = ExtResource("1_mm2mr")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[resource]
+line_spacing = 0.0
+font = SubResource("FontVariation_skjma")
+font_size = 5
+font_color = Color(0, 0, 0, 1)

@@ -1,0 +1,92 @@
+[gd_resource type="Theme" format=3 uid="uid://cdfmexnbew1ku"]
+
+[ext_resource type="Texture2D" uid="uid://dv1mou6xfgsj4" path="res://art/assets/placeholder/ui/inventory_bar.png" id="1_vpm02"]
+[ext_resource type="Texture2D" uid="uid://ciyg8qovqq6rw" path="res://art/assets/placeholder/ui/inventory_slot_selected.png" id="2_pr8he"]
+[ext_resource type="Texture2D" uid="uid://d081rqvdjos6n" path="res://art/assets/placeholder/ui/inventory_slot_focused.png" id="2_s87b1"]
+[ext_resource type="Texture2D" uid="uid://cauvsuc44tmj6" path="res://art/assets/placeholder/ui/inventory_slot.png" id="2_s807l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygtid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygtid"]
+atlas = ExtResource("1_vpm02")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxtyd"]
+texture = SubResource("AtlasTexture_ygtid")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ygtid"]
+load_path = "res://.godot/imported/inventory_slot.png-a4e3287026fb414ec9111926966c925a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr8he"]
+atlas = SubResource("CompressedTexture2D_ygtid")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3drh"]
+texture = SubResource("AtlasTexture_pr8he")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 20, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_76nlr"]
+load_path = "res://.godot/imported/inventory_slot_focused.png-fe1916cb24c9f265e991098f9a5fd40c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp0ko"]
+texture = SubResource("CompressedTexture2D_76nlr")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s87b1"]
+atlas = ExtResource("1_vpm02")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pr8he"]
+texture = SubResource("AtlasTexture_s87b1")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5oho7"]
+texture = ExtResource("2_pr8he")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_th20q"]
+texture = ExtResource("2_s87b1")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eckh"]
+atlas = ExtResource("2_s807l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k3c37"]
+texture = SubResource("AtlasTexture_0eckh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 20, 20)
+
+[resource]
+BlankPanel/base_type = &"PanelContainer"
+BlankPanel/styles/panel = SubResource("StyleBoxEmpty_ygtid")
+DisplayPanel/base_type = &"PanelContainer"
+DisplayPanel/styles/panel = SubResource("StyleBoxTexture_gxtyd")
+HotbarSlot/base_type = &"Panel"
+HotbarSlot/styles/normal = SubResource("StyleBoxTexture_s3drh")
+HotbarSlot/styles/selected = SubResource("StyleBoxTexture_wp0ko")
+InventoryPanel/base_type = &"PanelContainer"
+InventoryPanel/styles/panel = SubResource("StyleBoxTexture_pr8he")
+OnInterfaceSlot/base_type = &"Panel"
+OnInterfaceSlot/styles/focused = SubResource("StyleBoxTexture_5oho7")
+OnInterfaceSlot/styles/hovered = SubResource("StyleBoxTexture_th20q")
+OnInterfaceSlot/styles/normal = SubResource("StyleBoxTexture_k3c37")

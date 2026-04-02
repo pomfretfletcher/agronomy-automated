@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://16sb342i2c85"]
+
+[ext_resource type="Texture2D" uid="uid://cjg0t8qwkwdie" path="res://art/assets/placeholder/player/tile_selected_overlay.png" id="1_dqks3"]
+[ext_resource type="Script" uid="uid://bh6i4mhiur6vx" path="res://worlds/worldcomponents/ui/selected_tile_component.gd" id="1_l3kbt"]
+
+[node name="SelectedTileComponent" type="Node2D" unique_id=929923616]
+script = ExtResource("1_l3kbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=878273128]
+position = Vector2(8, 8)
+texture = ExtResource("1_dqks3")

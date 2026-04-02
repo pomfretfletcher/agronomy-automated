@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlti58wru1h65"]
+
+[ext_resource type="Script" uid="uid://dyy4gh2fn7ox8" path="res://worlds/worldcomponents/crops/crop_planting_component.gd" id="1_3nyp8"]
+
+[node name="CropPlantingComponent" type="Node2D" unique_id=1666948399]
+script = ExtResource("1_3nyp8")

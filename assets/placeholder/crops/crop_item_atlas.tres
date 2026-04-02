@@ -1,6 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://cjrmn478swwib"]
-
-[ext_resource type="Texture2D" uid="uid://7kn2qmr50wdo" path="res://assets/placeholder/crops/crop_items_spritesheet.png" id="1_ru6al"]
-
-[resource]
-atlas = ExtResource("1_ru6al")

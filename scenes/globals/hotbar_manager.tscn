@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://fqfnfmn2rmvp"]
-
-[ext_resource type="Script" uid="uid://375k0xtygrq7" path="res://notinuse/hotbar_manager.gd" id="1_cfc6q"]
-
-[node name="HotbarManager" type="Node" unique_id=1703629564]
-script = ExtResource("1_cfc6q")
-preset_hotbar = Array[String](["tool_slot", "seed_slot"])

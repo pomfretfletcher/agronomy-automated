@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://crxjclsabdv0t"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_uepw1"]
+[ext_resource type="Script" uid="uid://d0ud0altsyffg" path="res://worlds/worldcomponents/ui/crop_display_interface.gd" id="2_skjma"]
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="2_u0l55"]
+[ext_resource type="LabelSettings" uid="uid://dsbcbodb7u88v" path="res://art/themes-assets-tilemaps/text_label_font.tres" id="3_pqfe5"]
+
+[sub_resource type="FontVariation" id="FontVariation_u0l55"]
+base_font = ExtResource("2_u0l55")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_skjma"]
+line_spacing = 0.0
+font = SubResource("FontVariation_u0l55")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="CropDisplayInterface" type="PanelContainer" unique_id=690390973 node_paths=PackedStringArray("name_label", "percent_label")]
+custom_minimum_size = Vector2(30, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -606.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uepw1")
+theme_type_variation = &"DisplayPanel"
+script = ExtResource("2_skjma")
+name_label = NodePath("MarginContainer/NameLabel")
+percent_label = NodePath("MarginContainer/PercentLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=723212374]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 1
+
+[node name="NameLabel" type="Label" parent="MarginContainer" unique_id=316974038]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Name"
+label_settings = ExtResource("3_pqfe5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PercentLabel" type="Label" parent="MarginContainer" unique_id=2005277035]
+layout_mode = 2
+size_flags_vertical = 8
+text = "100%"
+label_settings = SubResource("LabelSettings_skjma")
+horizontal_alignment = 1
+vertical_alignment = 1

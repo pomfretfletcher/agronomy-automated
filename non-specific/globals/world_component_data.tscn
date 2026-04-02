@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3c2mpcunp80w"]
+
+[ext_resource type="Script" uid="uid://4eyj0m5kx8mq" path="res://non-specific/globals/world_component_data.gd" id="1_powdd"]
+
+[node name="WorldComponentData" type="Node" unique_id=1447058209]
+script = ExtResource("1_powdd")

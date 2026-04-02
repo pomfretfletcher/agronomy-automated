@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Argonomy Automated"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://assets/icon.svg"
+config/icon="res://art/assets/icon.svg"
 
 [autoload]
 
@@ -29,6 +29,10 @@ ToolManager="*uid://dbv5cngb7w63v"
 SeedCropDictionary="*uid://nas7qhopht2j"
 ReusedPackedSceneDictionary="*uid://b47xgpv03uw4k"
 WorldComponentData="*uid://c3c2mpcunp80w"
+GlobalData="*uid://dvtfx77i7wqvm"
+BaseSellPriceDictionary="*uid://sxttvb1bfnqe"
+CurrencyManager="*uid://ddc7djq66sa2n"
+SeasonManager="*uid://bubk8o4coy326"
 
 [display]
 
@@ -43,18 +47,21 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
-"res://assets/": "red",
-"res://notes/": "orange",
-"res://scenes/": "yellow",
-"res://scripts/": "green",
-"res://themes/": "blue",
-"res://tilemaps/": "purple"
+"res://art/": "red",
+"res://buildings/": "orange",
+"res://characters/": "yellow",
+"res://crops/": "green",
+"res://game-ui/": "teal",
+"res://non-code-or-art/": "blue",
+"res://non-specific/": "purple",
+"res://worlds/": "pink"
 }
 
 [global_group]
 
 player=""
-storageinterfaceinteractioncomponent=""
+storageinventoryinteractioncomponent=""
+sellpointinventoryinteractioncomponent=""
 
 [input]
 
