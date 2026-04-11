@@ -36,10 +36,10 @@ func _on_physics_process(delta : float) -> void:
 func _on_next_transitions() -> void:
 	GameInputEvents.GetMoveDirection()
 	
-	if (!GameInputEvents.IsPlayerMoving() or !player.can_move) and !GameInputEvents.IsUsingTool():
+	if (!GameInputEvents.IsPlayerMoving() or !player.can_move) and !GameInputEvents.IsUsingEquipment():
 		transition.emit("Idle")
 	
-	CheckToolTransitions()
+	CheckEquipmentTransitions()
 
 func _on_exit() -> void:
 	animated_sprite_2d.stop()

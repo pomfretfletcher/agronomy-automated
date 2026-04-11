@@ -1,11 +1,8 @@
 extends CanvasLayer
 
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Shows ui interface
-# Explanation -
-#	Shows ui interface [So it can be hidden in editor]
+# Function Information
+# Use - Game UI
+# Does - Shows ui on game start
 # Debug - N/A
 func _ready() -> void:
 	show()

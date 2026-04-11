@@ -6,16 +6,20 @@ var watering_particles_framework: PackedScene = ReusedPackedSceneDictionary.pack
 @export var watering_animation_time: float = 3.0
 var tiles_emitting_in: Array[Vector2i]
 
+# Function Information
+# Use - Crop Watering
+# Does - If under correct situation, water cell in front of player
+# Debug - N/A
 func _unhandled_input(event: InputEvent) -> void:
-	if !player.can_use_tools:
+	if !player.can_use_equipment:
 		return
 		
-	if event.is_action_pressed("use_tool"):
-		if ToolManager.selected_tool == DataTypes.Tools.WateringCan:
+	if event.is_action_pressed("use_equipment"):
+		if ToolManager.selected_equipment == DataTypes.Equipments.WATERING_CAN:
 			GetCellInFrontOfPlayer()
-			WaterCrop()
+			WaterCell()
 
-func WaterCrop() -> void:
+func WaterCell() -> void:
 	if WorldComponentData.planted_crops.has(cell_position):
 		WorldComponentData.planted_crops[cell_position].OnWater()
 	if cell_position not in WorldComponentData.watered_tiles:

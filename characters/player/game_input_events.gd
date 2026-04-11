@@ -40,6 +40,5 @@ static func IsPlayerMoving() -> bool:
 	else:
 		return true
 
-static func IsUsingTool() -> bool:
-	var use_tool_value: bool = Input.is_action_just_pressed("use_tool")
-	return use_tool_value
+static func IsUsingEquipment() -> bool:
+	return Input.is_action_just_pressed("use_equipment")

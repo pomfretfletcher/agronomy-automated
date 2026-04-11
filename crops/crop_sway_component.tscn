@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1jmk04aa0rbp"]
+
+[ext_resource type="Script" uid="uid://d31icapg6ueaf" path="res://crops/crop_sway_component.gd" id="1_qa65c"]
+
+[node name="CropSwayComponent" type="Node2D" unique_id=1366439034]
+script = ExtResource("1_qa65c")

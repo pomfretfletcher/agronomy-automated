@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://byrn2gtr4jx5f"]
+
+[ext_resource type="Script" uid="uid://bk3b2bplft0pd" path="res://data/building_data.gd" id="1_mjkl4"]
+[ext_resource type="PackedScene" uid="uid://d20ykf7fp5pcs" path="res://buildings/shopping_point.tscn" id="1_ry70b"]
+[ext_resource type="Texture2D" uid="uid://d168j4cglfe4x" path="res://art/assets/placeholder/shop_bay.png" id="3_eis4o"]
+
+[resource]
+script = ExtResource("1_mjkl4")
+building_scene = ExtResource("1_ry70b")
+interface_name = "shopping_interface"
+texture = ExtResource("3_eis4o")
+internal_name = "shop_point"
+display_name = "Shop Point"
+metadata/_custom_type_script = "uid://bk3b2bplft0pd"

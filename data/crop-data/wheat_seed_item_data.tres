@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SeedItemData" format=3 uid="uid://cvbud4wdyn3r7"]
+
+[ext_resource type="Script" uid="uid://b85ypq0lghu2a" path="res://data/seed_item_data.gd" id="1_gs3fo"]
+[ext_resource type="Texture2D" uid="uid://cvvdq4fvsr3ac" path="res://art/assets/placeholder/crops/seed_spritesheet.png" id="2_su8da"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eudm"]
+atlas = ExtResource("2_su8da")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_gs3fo")
+seed_enum = 1
+crop_name = "wheat_crop"
+item_type = 3
+base_sell_price = 1
+texture = SubResource("AtlasTexture_7eudm")
+internal_name = "wheat_seed"
+display_name = "Wheat Seed"
+metadata/_custom_type_script = "uid://b85ypq0lghu2a"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drv6vrbsrmsuc"]
+
+[ext_resource type="Script" uid="uid://c181qaepdww5w" path="res://worlds/worldcomponents/grass_storage_component.gd" id="1_ao6ft"]
+
+[node name="GrassStorageComponent" type="Node2D" unique_id=1887614850]
+script = ExtResource("1_ao6ft")

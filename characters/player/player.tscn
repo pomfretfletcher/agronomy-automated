@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://72awpp5h7gr8" path="res://characters/player/animation/player_walk.gd" id="5_8sknh"]
 [ext_resource type="Script" uid="uid://cufx7aj84tj8u" path="res://characters/player/animation/player_watering.gd" id="6_2rlf8"]
 [ext_resource type="PackedScene" uid="uid://cmy5qb5gbntdl" path="res://non-code-or-art/notinuse/hit_component.tscn" id="6_ksjmp"]
+[ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="8_idpv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_rwm0n")
@@ -290,3 +291,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent" unique_id=1309602542]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_2rlf8")
+
+[node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("8_idpv6")]

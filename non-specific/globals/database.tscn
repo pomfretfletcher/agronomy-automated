@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bschm8i1ni3d2"]
+
+[ext_resource type="Script" uid="uid://b3v7j3hdgqje3" path="res://non-specific/globals/database.gd" id="1_lutyc"]
+[ext_resource type="Script" uid="uid://t64im28v7nhf" path="res://data/data.gd" id="2_4we8j"]
+[ext_resource type="Resource" uid="uid://c752v47lu6tm" path="res://data/crop-data/wheat_crop_data.tres" id="3_4we8j"]
+[ext_resource type="Resource" uid="uid://ccntkwyibq3uk" path="res://data/crop-data/lettuce_crop_data.tres" id="4_wayqt"]
+[ext_resource type="Resource" uid="uid://chxe84naqa8ly" path="res://data/crop-data/potato_crop_data.tres" id="5_hdv4a"]
+[ext_resource type="Resource" uid="uid://dmx6kff6y3jkr" path="res://data/crop-data/wheat_crop_item_data.tres" id="6_lisl3"]
+[ext_resource type="Resource" uid="uid://bggjlm0lnacwe" path="res://data/crop-data/lettuce_crop_item_data.tres" id="7_nsqou"]
+[ext_resource type="Resource" uid="uid://b246qnclprl1a" path="res://data/crop-data/potato_crop_item_data.tres" id="8_qn8on"]
+[ext_resource type="Resource" uid="uid://c841htlgo7600" path="res://data/equipment-data/hoe_item_data.tres" id="9_rle6h"]
+[ext_resource type="Resource" uid="uid://cmku5ehfgaw8k" path="res://data/equipment-data/axe_item_data.tres" id="10_s4ibd"]
+[ext_resource type="Resource" uid="uid://bqx0y57a7qxtt" path="res://data/equipment-data/wateringcan_item_data.tres" id="11_hnq8a"]
+[ext_resource type="Resource" uid="uid://cvbud4wdyn3r7" path="res://data/crop-data/wheat_seed_item_data.tres" id="12_hvc8a"]
+[ext_resource type="Resource" uid="uid://cqrc55w8mtrmb" path="res://data/crop-data/lettuce_seed_item_data.tres" id="13_6w7l4"]
+[ext_resource type="Resource" uid="uid://b180gkraxt7mj" path="res://data/crop-data/potato_seed_item_data.tres" id="14_3j3d3"]
+[ext_resource type="Resource" uid="uid://fan5kp6hu2ku" path="res://data/building-data/crate_data.tres" id="15_3j3d3"]
+[ext_resource type="Resource" uid="uid://byrn2gtr4jx5f" path="res://data/building-data/shopping_point_data.tres" id="16_gghn8"]
+[ext_resource type="Resource" uid="uid://di7a1mespyvw4" path="res://data/interface-data/hotbar_interface_data.tres" id="17_prtq6"]
+[ext_resource type="Resource" uid="uid://hdme75rjum2c" path="res://data/interface-data/storage_interface_data.tres" id="18_hiv4t"]
+[ext_resource type="Resource" uid="uid://c5mue2kpjtvlt" path="res://data/interface-data/shopping_interface_data.tres" id="19_mpb23"]
+[ext_resource type="Resource" uid="uid://cytw8hgymagbp" path="res://data/interface-data/inventory_interface_data.tres" id="20_fvxw6"]
+[ext_resource type="Resource" uid="uid://3e1bkwgo3m5f" path="res://data/building-data/crate_item_data.tres" id="21_mpb23"]
+[ext_resource type="Resource" uid="uid://ddan6vf3by5" path="res://data/building-data/shopping_point_item_data.tres" id="22_fvxw6"]
+
+[node name="Database" type="Node" unique_id=148834324]
+script = ExtResource("1_lutyc")
+database = Dictionary[String, ExtResource("2_4we8j")]({
+"axe": ExtResource("10_s4ibd"),
+"crate": ExtResource("15_3j3d3"),
+"crate_item": ExtResource("21_mpb23"),
+"hoe": ExtResource("9_rle6h"),
+"hotbar_interface": ExtResource("17_prtq6"),
+"inventory_interface": ExtResource("20_fvxw6"),
+"lettuce_crop": ExtResource("4_wayqt"),
+"lettuce_item": ExtResource("7_nsqou"),
+"lettuce_seed": ExtResource("13_6w7l4"),
+"potato_crop": ExtResource("5_hdv4a"),
+"potato_item": ExtResource("8_qn8on"),
+"potato_seed": ExtResource("14_3j3d3"),
+"shopping_interface": ExtResource("19_mpb23"),
+"shopping_point": ExtResource("16_gghn8"),
+"shopping_point_item": ExtResource("22_fvxw6"),
+"storage_interface": ExtResource("18_hiv4t"),
+"watering_can": ExtResource("11_hnq8a"),
+"wheat_crop": ExtResource("3_4we8j"),
+"wheat_item": ExtResource("6_lisl3"),
+"wheat_seed": ExtResource("12_hvc8a")
+})
+backup_dictionary = Dictionary[String, ExtResource("2_4we8j")]({
+"axe": ExtResource("10_s4ibd"),
+"crate": ExtResource("15_3j3d3"),
+"crate_item": ExtResource("21_mpb23"),
+"hoe": ExtResource("9_rle6h"),
+"hotbar_interface": ExtResource("17_prtq6"),
+"inventory_interface": ExtResource("20_fvxw6"),
+"lettuce_crop": ExtResource("4_wayqt"),
+"lettuce_item": ExtResource("7_nsqou"),
+"lettuce_seed": ExtResource("13_6w7l4"),
+"potato_crop": ExtResource("5_hdv4a"),
+"potato_item": ExtResource("8_qn8on"),
+"potato_seed": ExtResource("14_3j3d3"),
+"shop_point": ExtResource("16_gghn8"),
+"shopping_interface": ExtResource("19_mpb23"),
+"shopping_point_item": ExtResource("22_fvxw6"),
+"storage_interface": ExtResource("18_hiv4t"),
+"watering_can": ExtResource("11_hnq8a"),
+"wheat_crop": ExtResource("3_4we8j"),
+"wheat_item": ExtResource("6_lisl3"),
+"wheat_seed": ExtResource("12_hvc8a")
+})

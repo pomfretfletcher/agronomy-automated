@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d20ykf7fp5pcs"]
+
+[ext_resource type="Script" uid="uid://dkxuqm6fuo8x" path="res://buildings/shopping_point.gd" id="1_al63h"]
+[ext_resource type="Texture2D" uid="uid://d168j4cglfe4x" path="res://art/assets/placeholder/shop_bay.png" id="1_m4vbu"]
+[ext_resource type="PackedScene" uid="uid://bff771bj6gu80" path="res://buildings/interaction_range_component.tscn" id="3_h33jv"]
+[ext_resource type="Script" uid="uid://caqwgqqw516uj" path="res://buildings/open_close_interaction_range_component.gd" id="4_eqqnl"]
+[ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="5_fqov1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ls5c6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yourn"]
+size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sg4"]
+size = Vector2(14, 26)
+
+[node name="ShopPoint" type="Node2D" unique_id=2141773489]
+script = ExtResource("1_al63h")
+internal_name = "shopping_point"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649253566]
+position = Vector2(0, -1)
+texture = ExtResource("1_m4vbu")
+offset = Vector2(0, -7)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1144715287]
+collision_layer = 32
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ls5c6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110003966]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_yourn")
+
+[node name="InteractionRangeComponent" parent="." unique_id=1023982529 instance=ExtResource("3_h33jv")]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("4_eqqnl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRangeComponent" unique_id=155612327]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_m8sg4")
+
+[node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("5_fqov1")]
+
+[connection signal="body_entered" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_exited"]

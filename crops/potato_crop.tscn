@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://c0dle1qieiqct"]
 
 [ext_resource type="Script" uid="uid://dsy0hrea1nrk6" path="res://crops/crop.gd" id="1_6rik8"]
-[ext_resource type="Texture2D" uid="uid://dvba35kabe7ry" path="res://art/assets/placeholder/crops/potato_sprite_sheet.png" id="1_s03si"]
+[ext_resource type="Texture2D" uid="uid://dvba35kabe7ry" path="res://art/assets/placeholder/crops/potato_spritesheet.png" id="1_s03si"]
 [ext_resource type="PackedScene" uid="uid://bqk3e7fku04gg" path="res://crops/crop_growth_component.tscn" id="2_pabrh"]
+[ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="4_fcyey"]
+[ext_resource type="PackedScene" uid="uid://c1jmk04aa0rbp" path="res://crops/crop_sway_component.tscn" id="5_k5b3a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pabrh"]
 atlas = ExtResource("1_s03si")
 
-[node name="PotatoCrop" type="Node2D" unique_id=1495588980 node_paths=PackedStringArray("sprite_2d", "crop_growth_component")]
+[node name="Potato" type="Node2D" unique_id=1495588980 node_paths=PackedStringArray("sprite_2d")]
 y_sort_enabled = true
 position = Vector2(0, 2)
 script = ExtResource("1_6rik8")
 sprite_2d = NodePath("Sprite2D")
-crop_growth_component = NodePath("CropGrowthComponent")
-crop_name = "Potato"
-dropped_item_name = "potato_item"
+internal_name = "potato_crop"
 
 [node name="CropGrowthComponent" parent="." unique_id=1046199290 node_paths=PackedStringArray("sprite_2d", "parent_crop") instance=ExtResource("2_pabrh")]
 sprite_2d = NodePath("../Sprite2D")
@@ -25,3 +25,10 @@ base_growth_days = 0.1
 texture = SubResource("AtlasTexture_pabrh")
 offset = Vector2(0, -8)
 hframes = 5
+
+[node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("4_fcyey")]
+
+[node name="CropSwayComponent" parent="." unique_id=1366439034 node_paths=PackedStringArray("parent_crop") instance=ExtResource("5_k5b3a")]
+max_sway_degree = 12.0
+parent_crop = NodePath("..")
+sway_speed = 6.0

@@ -2,9 +2,23 @@
 
 [ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_xoqf5"]
 [ext_resource type="LabelSettings" uid="uid://bo8wnephgr41r" path="res://art/themes-assets-tilemaps/slot_amount_label_font.tres" id="3_xoqf5"]
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="4_mqk71"]
 [ext_resource type="Script" uid="uid://bclh6gk65wmk0" path="res://buildings/interfaces/rows-slots/storage_slot.gd" id="5_o3nl7"]
 
-[node name="StorageSlot" type="Panel" unique_id=1095460296 node_paths=PackedStringArray("slot_icon", "slot_label")]
+[sub_resource type="FontVariation" id="FontVariation_bngwc"]
+base_font = ExtResource("4_mqk71")
+spacing_glyph = -3
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0qg7"]
+line_spacing = 0.0
+font = SubResource("FontVariation_bngwc")
+font_size = 8
+font_color = Color(0.8363938, 0.49665132, 0.11118583, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StorageSlot" type="Panel" unique_id=1095460296 node_paths=PackedStringArray("slot_icon", "amount_label", "price_label")]
 custom_minimum_size = Vector2(30, 30)
 offset_right = 30.0
 offset_bottom = 30.0
@@ -13,7 +27,8 @@ theme = ExtResource("1_xoqf5")
 theme_type_variation = &"OnInterfaceSlot"
 script = ExtResource("5_o3nl7")
 slot_icon = NodePath("MarginContainer/Icon")
-slot_label = NodePath("AmountLabel")
+amount_label = NodePath("AmountLabel")
+price_label = NodePath("PriceLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=437550236]
 layout_mode = 1
@@ -42,6 +57,15 @@ offset_right = 28.0
 offset_bottom = 28.0
 label_settings = ExtResource("3_xoqf5")
 horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="." unique_id=103248367]
+layout_mode = 0
+offset_top = -9.0
+offset_right = 30.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_f0qg7")
+horizontal_alignment = 1
 vertical_alignment = 2
 
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

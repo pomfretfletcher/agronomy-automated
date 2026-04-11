@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingItemData" format=3 uid="uid://3e1bkwgo3m5f"]
+
+[ext_resource type="Script" uid="uid://bik5blckadjwk" path="res://data/building_item_data.gd" id="1_1q7wt"]
+[ext_resource type="Texture2D" uid="uid://c485tp1bsg8f8" path="res://art/assets/placeholder/objects/crate_sprite.png" id="2_r3dr0"]
+
+[resource]
+script = ExtResource("1_1q7wt")
+building_name = "crate"
+item_type = 4
+texture = ExtResource("2_r3dr0")
+internal_name = "crate_item"
+display_name = "Crate"
+metadata/_custom_type_script = "uid://bik5blckadjwk"

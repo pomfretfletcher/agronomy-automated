@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SeedItemData" format=3 uid="uid://cqrc55w8mtrmb"]
+
+[ext_resource type="Script" uid="uid://b85ypq0lghu2a" path="res://data/seed_item_data.gd" id="1_v221f"]
+[ext_resource type="Texture2D" uid="uid://cvvdq4fvsr3ac" path="res://art/assets/placeholder/crops/seed_spritesheet.png" id="2_j2cm1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iih5d"]
+atlas = ExtResource("2_j2cm1")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_v221f")
+seed_enum = 3
+crop_name = "lettuce_crop"
+item_type = 3
+base_sell_price = 1
+texture = SubResource("AtlasTexture_iih5d")
+internal_name = "lettuce_seed"
+display_name = "Lettuce Seed"
+metadata/_custom_type_script = "uid://b85ypq0lghu2a"

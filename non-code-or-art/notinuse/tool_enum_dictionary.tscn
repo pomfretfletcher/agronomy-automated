@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cgmgvie5n8sdl"]
+
+[ext_resource type="Script" uid="uid://cwc4gkvnh07cs" path="res://non-code-or-art/notinuse/tool_enum_dictionary.gd" id="1_63euc"]
+
+[node name="ToolEnumDictionary" type="Node" unique_id=845133378]
+script = ExtResource("1_63euc")
+equipment_enum_dictionary = Dictionary[String, int]({
+"axe": 2,
+"hoe": 1,
+"wateringcan": 3
+})
+seed_enum_dictionary = Dictionary[String, int]({
+"lettuce_seed": 3,
+"potato_seed": 2,
+"wheat_seed": 1
+})

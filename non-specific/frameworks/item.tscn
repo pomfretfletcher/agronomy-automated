@@ -5,8 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_keydj"]
 radius = 3.0
 
-[node name="GeneralItem" type="Node2D" unique_id=1066554783]
+[node name="GeneralItem" type="Node2D" unique_id=1066554783 node_paths=PackedStringArray("sprite_2d")]
 script = ExtResource("1_keydj")
+sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=501489143]
 

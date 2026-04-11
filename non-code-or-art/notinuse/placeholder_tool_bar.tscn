@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://shpuvjx0liyn"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_mhld0"]
+[ext_resource type="Script" uid="uid://c5lk36afblftb" path="res://non-code-or-art/notinuse/tool_panel.gd" id="2_f2u5r"]
+[ext_resource type="Script" uid="uid://g48oj6752ijj" path="res://non-code-or-art/notinuse/tool_slot.gd" id="4_f2u5r"]
+[ext_resource type="Script" uid="uid://d0630b3g8iru7" path="res://non-code-or-art/notinuse/seed_slot.gd" id="6_s7k3l"]
+
+[node name="PlaceholderToolBar" type="PanelContainer" unique_id=1062709116 node_paths=PackedStringArray("tool_slot", "seed_slot", "slot_container")]
+offset_right = 70.0
+offset_bottom = 34.0
+theme = ExtResource("1_mhld0")
+theme_type_variation = &"BlankPanel"
+script = ExtResource("2_f2u5r")
+tool_slot = NodePath("MarginContainer/HBoxContainer/ToolSlot")
+seed_slot = NodePath("MarginContainer/HBoxContainer/SeedSlot")
+slot_container = NodePath("MarginContainer/HBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1820988555]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2092445003]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ToolSlot" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1092082029 node_paths=PackedStringArray("icon")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_mhld0")
+theme_type_variation = &"ToolPanel"
+script = ExtResource("4_f2u5r")
+items = Array[String](["hoe", "axe", "wateringcan"])
+icon = NodePath("MarginContainer/Icon")
+default_item = "hoe"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/ToolSlot" unique_id=188682294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/ToolSlot/MarginContainer" unique_id=1484891072]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SeedSlot" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1528754721 node_paths=PackedStringArray("icon")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_mhld0")
+theme_type_variation = &"ToolPanel"
+script = ExtResource("6_s7k3l")
+items = Array[String](["wheat_seed", "potato_seed", "lettuce_seed"])
+icon = NodePath("MarginContainer/Icon")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/SeedSlot" unique_id=1980226531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/SeedSlot/MarginContainer" unique_id=569076899]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5

@@ -1,22 +1,33 @@
 extends Node
 
-enum Tools {
-	None,
-	Hoe,
-	Axe,
-	WateringCan
+var not_saveable: bool = true
+
+enum Equipments {
+	NONE,
+	HOE,
+	AXE,
+	WATERING_CAN
 }
 
 enum Seeds {
-	None,
-	Wheat,
-	Potato,
-	Lettuce
+	NONE,
+	WHEAT,
+	POTATO,
+	LETTUCE
 }
 
 enum Seasons {
-	Spring,
-	Summer,
-	Autumn,
-	Winter
+	SPRING,
+	SUMMER,
+	AUTUMN,
+	WINTER
+}
+
+enum ItemTypes {
+	NONE,
+	PROCESSED_GOOD,
+	EQUIPMENT,
+	SEED,
+	BUILDING,
+	RAW_RESOURCE
 }

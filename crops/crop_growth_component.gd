@@ -1,41 +1,51 @@
 class_name CropGrowthComponent
 extends Node2D
 
-@export var sprite_2d: Sprite2D
-@export var parent_crop: Crop
+@onready var sprite_2d: Sprite2D = $"../Sprite2D"
+@onready var parent_crop: Crop = $".."
+var crop_data: CropData
 
-@export var growth_sprite_amount: int = 5
-@export var base_growth_days: float = 1.0
-var growth_per_minute: int = 100
-var growth_total_per_day: int = 100 * Constants.MINUTES_PER_DAY
 var growth_total: int = 0
 var growth_progress: int = 0
-var current_growth_sprite: int = 0
 
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Initialises data
-# Explanation -
-#	Connects time passing signal from time manager
-#	Calculate how much progress it will take to grow the crop
+# Function Information
+# Use - Crop Growth
+# Does - Grabs data for specific crop attached to, connects appropiate signals, then calculates how much 
+#		required to grow
 # Debug - N/A
 func _ready() -> void:
+	crop_data = Database.database[parent_crop.internal_name]
 	TimeManager.minute_passed.connect(OnMinutePassed)
 	CalculateGrowth()
-	
+
+# Function Information
+# Use - Crop Growth
+# Does - Calculates how much/long the crop will have to grow
+# Debug - N/A
 func CalculateGrowth() -> void:
-	growth_total = (int)(growth_total_per_day * base_growth_days)
-	
+	growth_total = (int)(GlobalData.crop_growth_per_minute * Constants.MINUTES_PER_DAY * crop_data.base_growth_days)
+
+# Function Information
+# Use - Crop Growth
+# Does - Grows the crop by a certain amount each minute if able to grow, then updates sprites
+# Debug - N/A
 func OnMinutePassed() -> void:
 	if (growth_progress < growth_total) and parent_crop.is_watered:
 		var growth_amount: int = FactorInExternalGrowthChanges()
 		growth_progress += growth_amount
 	DecideSprite()
 
+# Function Information
+# Use - Crop Growth
+# Does - Decides how much crop will grow each minute
+# Debug - N/A
 func FactorInExternalGrowthChanges() -> int:
-	return growth_per_minute
-	
+	return GlobalData.crop_growth_per_minute
+
+# Function Information
+# Use - Crop Growth
+# Does - Decides the frame the crop will be at each time it grows
+# Debug - N/A
 func DecideSprite() -> void:
-	var frame: int = int(growth_progress / (float(growth_total) / growth_sprite_amount))
-	sprite_2d.frame = frame if frame < growth_sprite_amount else growth_sprite_amount - 1
+	var frame: int = int(growth_progress / (float(growth_total) / crop_data.sprite_count))
+	sprite_2d.frame = frame if frame < crop_data.sprite_count else crop_data.sprite_count - 1

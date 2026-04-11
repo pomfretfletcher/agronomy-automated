@@ -1,47 +1,66 @@
 class_name InventorySlotItemAssignmentComponent
 extends SlotItemAssignmentComponent
 
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Initialises data
-# Explanation -
-#	Connect appropiate signals to inventory manager signals
+var hotbar_slots: Array[HotbarSlot]
+var hotbar_interface: HotbarInterface
+
+# Function Information
+# Use - Interface Use, Inventory
+# Does - Connect signals and reference to hotbar
 # Debug - N/A
 func _ready() -> void:
 	InventoryManager.inventory_changed.connect(UpdateSlots)
 	InventoryManager.inventory_cleared.connect(UpdateSlotsAfterClear)
+	hotbar_interface = interface.get("hotbar_interface")
 	
+# Function Information
+# Use - Interface Use, Inventory
+# Does - Adds or removes slot references to items that are changed in contents
+# Debug - N/A
 func UpdateSlots(item_changed: String) -> void:
-	# If new item, add to contents and assign it to first avaiable slot
 	if item_changed not in current_contents.keys():
 		AddItemToSlots(item_changed)
 	
-	# If item not in inventory, it has been removed, and can be removed from slots
 	if item_changed not in InventoryManager.inventory.keys():
 		RemoveItemFromSlots(item_changed)
 
+# Function Information
+# Use - Interface Use, Inventory
+# Does - Removes all slot references to items
+# Debug - N/A
 func UpdateSlotsAfterClear() -> void:
 	# Clears all items in slots if inventory cleared
 	for item in current_contents.keys():
 		RemoveItemFromSlots(item)
-	
+
+# Function Information
+# Use - Interface Use, Inventory
+# Does - Setup a slot to have reference to new item to interface, add item to interface contents
+# Debug - Optional Error Statements
+#		Item already present in slots/contents
 func AddItemToSlots(item: String) -> void:
-	# Set contents value of item to amount in inventory
-	current_contents[item] = InventoryManager.inventory[item]
-	
-	# Cycle through for first empty slot, set slot to show item
-	#adderror
-	var slot = FindFirstEmptySlot()
-	slot.SetItem(item)
-	
-func RemoveItemFromSlots(item: String) -> void:
-	if item not in current_contents.keys():
-		print("Error trying to remove " + item + " from inventory contents. It is not present.")
+	if item in current_contents.keys():
+		#print("Error adding " + item + " to slots. Already present.")
 		return
 	
-	# Cycle through to find slot holding item and stop it showing said item
-	#adderror
+	var slot = FindFirstEmptySlot()
+	if slot:
+		slot.SetItem(item)
+		current_contents[item] = InventoryManager.inventory[item]
+	if slot == null:
+		print("Error adding " + item + " to slots. No space.")
+
+# Function Information
+# Use - Interface Use, Inventory
+# Does - Remove reference of given item from its corresponding slot, remove item from interface contents
+# Debug - Optional Error Statements
+#		Item not present in slots/contents
+func RemoveItemFromSlots(item: String) -> void:
+	if item not in current_contents.keys():
+		#print("Error trying to remove " + item + " from inventory contents. It is not present.")
+		return
+		
 	var slot = FindSlotWithItem(item)
-	slot.RemoveItem()
-	current_contents.erase(item)
+	if slot:
+		slot.RemoveItem()
+		current_contents.erase(item)

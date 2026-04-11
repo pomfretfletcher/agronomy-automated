@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1vvlnvlxhb4o"]
+
+[ext_resource type="Script" uid="uid://bq2i5jp3awlgv" path="res://worlds/worldcomponents/buildings/building_placing_component.gd" id="1_dwy5u"]
+
+[node name="BuildingPlacingComponent" type="Node2D" unique_id=1926762490]
+script = ExtResource("1_dwy5u")

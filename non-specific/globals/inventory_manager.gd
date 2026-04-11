@@ -35,3 +35,15 @@ func RemoveItemFromInventoryWithoutSignal(item_name: String) -> void:
 func ClearInventory() -> void:
 	inventory.clear()
 	inventory_cleared.emit()
+
+func GetSaveData() -> Dictionary:
+	var save_data = {
+		"inventory": inventory
+	}
+	return save_data
+
+func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
+	var applied = ["inventory"]	
+	SaveLoadManager.CheckLoadedDataIsValid(applied, loaded_save_data.keys(), self)
+	
+	if loaded_save_data.has("inventory"): inventory = loaded_save_data["inventory"]

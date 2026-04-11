@@ -1,15 +1,9 @@
 class_name StorageInterface
-extends Interface
+extends BuildingInterface
 
-@export var using_crate: Crate
-
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Initialises data
-# Explanation -
-#	Grabs packed scenes used for creating new rows and slots
-#	Calls setup interface method next frame (so all data needed for it is ready)
+# Function Information
+# Use - Interface Use, Item Storage
+# Does - Gets needed frameworks for constructing interface, then calls for interface to be setup
 # Debug - N/A
 func _ready() -> void:
 	slot_framework = ReusedPackedSceneDictionary.packed_scene_dictionary["storage_slot_framework"]

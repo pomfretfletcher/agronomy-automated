@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CropData" format=3 uid="uid://c752v47lu6tm"]
+
+[ext_resource type="PackedScene" uid="uid://g2xphcytxk3f" path="res://crops/wheat_crop.tscn" id="1_hphn3"]
+[ext_resource type="Texture2D" uid="uid://dgkycx0w03raw" path="res://art/assets/placeholder/crops/wheat_spritesheet.png" id="2_pl3b3"]
+[ext_resource type="Script" uid="uid://dtng8jg8d3wus" path="res://data/crop_data.gd" id="2_x2m7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hphn3"]
+atlas = ExtResource("2_pl3b3")
+
+[resource]
+script = ExtResource("2_x2m7t")
+seed_name = "wheat_seed"
+seed_enum = 1
+item_name = "wheat_item"
+water_retention_days = 2
+sprite_count = 7
+base_growth_days = 0.1
+max_sway_degree = 4.0
+sway_speed = 3.0
+crop_scene = ExtResource("1_hphn3")
+texture = SubResource("AtlasTexture_hphn3")
+internal_name = "wheat_crop"
+display_name = "Wheat Crop"
+metadata/_custom_type_script = "uid://dtng8jg8d3wus"

@@ -4,14 +4,14 @@ extends MouseComponent
 var displaying: bool = true
 
 @export var crop_fields: Node2D
-@export var crop_display_interface: CropDisplayInterface
+@export var display: CropDisplayInterface
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	GetTargetedCell()
 
 	if displaying == false:
-		crop_display_interface.visible = false
+		display.visible = false
 		return
 		
 	var crop_nodes = crop_fields.get_children()
@@ -26,15 +26,22 @@ func _process(delta: float) -> void:
 				
 			var growth_decimal: float = snapped((float(cgc.growth_progress) / float(cgc.growth_total)), 0.01)
 			var growth_percent: int = (int)(100 * growth_decimal)
-			var cdi: CropDisplayInterface = crop_display_interface
-			cdi.name_label.text = crop.crop_name
-			cdi.percent_label.text = str(growth_percent) + "%"
-			cdi.position = local_cell_position - Vector2(cdi.size.x / 2, cdi.size.y + 16)
-			cdi.visible = true
+			display.name_label.text = Database.database[crop.internal_name].display_name
+			display.percent_label.text = str(growth_percent) + "%"
+			display.position = local_cell_position - Vector2(display.size.x / 2, display.size.y + 16)
+			display.visible = true
 		
 	if not viewing_crop:
-		crop_display_interface.visible = false
+		display.visible = false
 
+# Information
+# Use - External
+# By - Player Input Map
+# For - Either starts or stops displaying crop info interface
+# Explanation -
+#	If correct input:
+#		Toggle displaying
+# Debug - N/A
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("alternate_crop_info"):
 		if displaying:

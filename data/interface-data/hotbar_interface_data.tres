@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InterfaceData" format=3 uid="uid://di7a1mespyvw4"]
+
+[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://game-ui/inventory/hotbar_interface.tscn" id="1_v45gc"]
+[ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="1_w0j6d"]
+
+[resource]
+script = ExtResource("1_w0j6d")
+interface_scene = ExtResource("1_v45gc")
+internal_name = "hotbar_interface"
+display_name = "Hotbar Interface"
+metadata/_custom_type_script = "uid://b76dbbjea0843"

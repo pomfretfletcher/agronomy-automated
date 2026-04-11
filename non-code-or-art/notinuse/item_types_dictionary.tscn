@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dc4l3sdbvqoju"]
+
+[ext_resource type="Script" uid="uid://tu3qstupetvd" path="res://non-code-or-art/notinuse/item_types_dictionary.gd" id="1_78pvr"]
+
+[node name="ItemTypesDictionary" type="Node" unique_id=276075980]
+script = ExtResource("1_78pvr")
+item_type_dictionary = Dictionary[String, String]({
+"axe": "Equipment",
+"hoe": "Equipment",
+"lettuce_item": "Item",
+"lettuce_seed": "Seed",
+"potato_item": "Item",
+"potato_seed": "Seed",
+"wateringcan": "Equipment",
+"wheat_item": "Item",
+"wheat_seed": "Seed"
+})
+backup_dictionary = Dictionary[String, String]({
+"axe": "Tool",
+"hoe": "Tool",
+"lettuce_item": "Item",
+"lettuce_seed": "Seed",
+"potato_item": "Item",
+"potato_seed": "Seed",
+"wateringcan": "Tool",
+"wheat_item": "Item",
+"wheat_seed": "Seed"
+})

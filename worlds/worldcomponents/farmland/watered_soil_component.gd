@@ -6,12 +6,9 @@ extends Node2D
 @export var terrain_set: int = 0
 @export var watered_soil_terrain: int = 2
 
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Initialises data
-# Explanation -
-#	Connects internal function to time manager day passed signal
+# Function Information
+# Use - Crop Watering
+# Does - Connect signal
 # Debug - N/A
 func _ready() -> void:
 	TimeManager.day_passed.connect(ResetTileWateredStatus)
@@ -25,7 +22,6 @@ func ResetTileWateredStatus() -> void:
 			var crop = WorldComponentData.planted_crops[tile]
 			if crop.days_until_water_reset == 1:
 				crop.is_watered = false
-				crop.days_until_water_reset = crop.water_retention_days
 				WorldComponentData.watered_tiles.erase(tile)
 				watered_soil_tilemap_layer.set_cells_terrain_connect([tile], 0, -1, true)
 			else:
@@ -36,3 +32,10 @@ func WaterTile(tile_position: Vector2i) -> void:
 	if cell_source_id != -1:
 		WorldComponentData.watered_tiles.append(tile_position)
 		watered_soil_tilemap_layer.set_cells_terrain_connect([tile_position], terrain_set, watered_soil_terrain, true)
+
+func EraseWateredTiles() -> void:
+	gdExtensions.ClearTileMapLayer(watered_soil_tilemap_layer)
+	WorldComponentData.grass_tiles.clear()
+	
+func SetupWateredTiles() -> void:
+	watered_soil_tilemap_layer.set_cells_terrain_connect(WorldComponentData.watered_tiles, terrain_set, watered_soil_terrain)	

@@ -5,11 +5,10 @@ extends NodeState
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var hit_component: HitComponent
 
-func CheckToolTransitions() -> void:
-	if GameInputEvents.IsUsingTool() and player.can_use_tools:
-		hit_component.current_tool = ToolManager.selected_tool
-		if ToolManager.selected_tool == DataTypes.Tools.Hoe:
+func CheckEquipmentTransitions() -> void:
+	if GameInputEvents.IsUsingEquipment() and player.can_use_equipment:
+		if ToolManager.selected_equipment == DataTypes.Equipments.HOE:
 			transition.emit("Tilling")
 			
-		if ToolManager.selected_tool == DataTypes.Tools.WateringCan:
+		if ToolManager.selected_equipment == DataTypes.Equipments.WATERING_CAN:
 			transition.emit("Watering")

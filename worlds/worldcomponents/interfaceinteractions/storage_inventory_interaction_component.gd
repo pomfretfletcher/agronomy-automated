@@ -13,7 +13,7 @@ func DoFullStackInteraction(data: Dictionary) -> void:
 	if (data["from"] is StorageSlot or data["to"] is StorageSlot) and (data["to"] is InventorySlot or data["from"] is InventorySlot):
 		FullStackInteraction(data)
 
-# Information - Redo Explanation?
+# Information - OOD
 # Use - Internal
 # By - DoFullStackInteraction
 # For - Moving of all of an item from inventory to storage or vice verca
@@ -53,9 +53,18 @@ func FullStackInteraction(data: Dictionary) -> void:
 	var inventory_to_storage: bool = (used_inventory_slot == data["from"])
 	var storage_to_inventory: bool = (used_inventory_slot == data["to"])
 	
-	var from_slot: Slot; var to_slot: Slot
-	if storage_to_inventory: from_slot = used_storage_slot; to_slot = used_inventory_slot
-	if inventory_to_storage: from_slot = used_inventory_slot; to_slot = used_storage_slot
+	# No interaction if both empty
+	if used_inventory_slot.item_name == "" and used_storage_slot.item_name == "":
+		return
+	
+	if storage_to_inventory: 
+		FullStackInteractionFromStorage(data)
+	elif inventory_to_storage:
+		FullStackInteractionFromInventory(data)
+	
+func FullStackInteractionFromInventory(data: Dictionary) -> void:
+	var from_slot: InventorySlot = data["from"]
+	var to_slot: StorageSlot = data["to"]
 	
 	var moved_item = {
 		"name": from_slot.item_name,
@@ -66,12 +75,56 @@ func FullStackInteraction(data: Dictionary) -> void:
 		"amount": to_slot.amount,
 	}
 	
-	# No interaction if both empty
-	if used_inventory_slot.item_name == "" and used_storage_slot.item_name == "":
-		return
+	if to_slot.is_empty:
+		if moved_item["name"] in interacting_interface.slot_item_assignment_component.current_contents:
+			# Add to existing slot within the storage interface
+			UpdateStorageAmounts(moved_item["name"], moved_item["amount"])
+			UpdateStorageSlotAmounts(moved_item["name"])
+			RemoveFromInventory(moved_item["name"])
+			ClearInventorySlot(from_slot)
+		else:
+			# Add to the new slot within the storage interface 
+			AddToStorage(moved_item["name"], moved_item["amount"])
+			SetupStorageSlot(moved_item["name"], to_slot)
+			RemoveFromInventory(moved_item["name"])
+			ClearInventorySlot(from_slot)
+	else:
+		if moved_item["name"] in interacting_interface.slot_item_assignment_component.current_contents:
+			# Add to existing slot within the storage interface, place item from
+			# storage into inventory
+			UpdateStorageAmounts(moved_item["name"], moved_item["amount"])
+			UpdateStorageSlotAmounts(moved_item["name"])
+			RemoveFromInventory(moved_item["name"])
+			ClearInventorySlot(from_slot)
+		else:
+			# Place item from inventory into storage slot, place item from
+			# storage into inventory
+			AddToStorage(moved_item["name"], moved_item["amount"])
+			RemoveFromInventory(moved_item["name"])
+			RemoveFromStorage(swapped_item["name"])
+			SetupStorageSlot(moved_item["name"], to_slot)
+			if swapped_item["name"] in inventory_interface.slot_item_assignment_component.current_contents:
+				UpdateInventoryAmounts(swapped_item["name"], swapped_item["amount"])
+				UpdateInventorySlotAmounts(swapped_item["name"])
+				ClearInventorySlot(from_slot)
+			else:
+				AddToInventory(swapped_item["name"], swapped_item["amount"])
+				SetupInventorySlot(swapped_item["name"], from_slot)
+		
+func FullStackInteractionFromStorage(data: Dictionary) -> void:
+	var from_slot: StorageSlot = data["from"]
+	var to_slot: InventorySlot = data["to"]
 	
-	# Storage item into empty inventory slot
-	if to_slot.is_empty and storage_to_inventory:
+	var moved_item = {
+		"name": from_slot.item_name,
+		"amount": from_slot.amount,
+	}
+	var swapped_item = {
+		"name": to_slot.item_name,
+		"amount": to_slot.amount,
+	}
+	
+	if to_slot.is_empty:
 		if moved_item["name"] in InventoryManager.inventory.keys():
 			# Add to existing slot within the inventory interface
 			UpdateInventoryAmounts(moved_item["name"], moved_item["amount"])
@@ -84,9 +137,7 @@ func FullStackInteraction(data: Dictionary) -> void:
 			SetupInventorySlot(moved_item["name"], to_slot)
 			RemoveFromStorage(moved_item["name"])
 			ClearStorageSlot(from_slot)
-	
-	# Storage item into non-empty inventory slot
-	elif !to_slot.is_empty and storage_to_inventory:
+	else:
 		if moved_item["name"] in InventoryManager.inventory.keys():
 			# Add to existing slot within the inventory interface, place item from
 			# inventory into storage
@@ -109,45 +160,6 @@ func FullStackInteraction(data: Dictionary) -> void:
 				AddToStorage(swapped_item["name"], swapped_item["amount"])
 				SetupStorageSlot(swapped_item["name"], from_slot)
 	
-	# Inventory item into empty storage slot
-	elif to_slot.is_empty and inventory_to_storage:
-		if moved_item["name"] in interacting_interface.slot_item_assignment_component.current_contents:
-			# Add to existing slot within the storage interface
-			UpdateStorageAmounts(moved_item["name"], moved_item["amount"])
-			UpdateStorageSlotAmounts(moved_item["name"])
-			RemoveFromInventory(moved_item["name"])
-			ClearInventorySlot(from_slot)
-		else:
-			# Add to the new slot within the storage interface 
-			AddToStorage(moved_item["name"], moved_item["amount"])
-			SetupStorageSlot(moved_item["name"], to_slot)
-			RemoveFromInventory(moved_item["name"])
-			ClearInventorySlot(from_slot)
-			
-	# Inventory item into non empty storage slot
-	elif !to_slot.is_empty and inventory_to_storage:
-		if moved_item["name"] in interacting_interface.slot_item_assignment_component.current_contents:
-			# Add to existing slot within the storage interface, place item from
-			# storage into inventory
-			UpdateStorageAmounts(moved_item["name"], moved_item["amount"])
-			UpdateStorageSlotAmounts(moved_item["name"])
-			RemoveFromInventory(moved_item["name"])
-			ClearInventorySlot(from_slot)
-		else:
-			# Place item from inventory into storage slot, place item from
-			# storage into inventory
-			AddToStorage(moved_item["name"], moved_item["amount"])
-			RemoveFromInventory(moved_item["name"])
-			RemoveFromStorage(swapped_item["name"])
-			SetupStorageSlot(moved_item["name"], to_slot)
-			if swapped_item["name"] in inventory_interface.slot_item_assignment_component.current_contents:
-				UpdateInventoryAmounts(swapped_item["name"], swapped_item["amount"])
-				UpdateInventorySlotAmounts(swapped_item["name"])
-				ClearInventorySlot(from_slot)
-			else:
-				AddToInventory(swapped_item["name"], swapped_item["amount"])
-				SetupInventorySlot(swapped_item["name"], from_slot)
-
 # Information
 # Use - External
 # By - Connected to signal of opened interfaces

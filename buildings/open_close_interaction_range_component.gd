@@ -1,19 +1,31 @@
 class_name OpenCloseInteractionRangeComponent
 extends InteractionRangeComponent
 
-@export var using_node: Node2D
+@onready var using_node: Node2D = $".."
 
 var can_be_interacted_with: bool = false
 var currently_interacting: bool = false
 
-@warning_ignore("unused_parameter")
+# Function Information
+# Use - Node Interaction [Likely Building]
+# Does - Allows interaction to occur
+# Debug - N/A
 func _on_body_entered(body: Node2D) -> void:
-	can_be_interacted_with = true
+	if body is Player:
+		can_be_interacted_with = true
 
-@warning_ignore("unused_parameter")
+# Function Information
+# Use - Node Interaction [Likely Building]
+# Does - Disallows interaction to occur
+# Debug - N/A
 func _on_body_exited(body: Node2D) -> void:
-	can_be_interacted_with = false
-	
+	if body is Player:
+		can_be_interacted_with = false
+
+# Function Information
+# Use - Node Interaction [Likely Building]
+# Does - Lets player interact with building and calls appropiate methods
+# Debug - N/A
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if can_be_interacted_with and not currently_interacting:
@@ -24,8 +36,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			UninteractWith()
 			currently_interacting = false
 
+# Function Information
+# Use - Node Interaction [Likely Building]
+# Does - Calls appropiate method in node component is attached to
+# Debug - N/A
 func InteractWith() -> void:
 	using_node.call("interact_with")
-	
+
+# Function Information
+# Use - Node Interaction [Likely Building]
+# Does - Calls appropiate method in node component is attached to
+# Debug - N/A
 func UninteractWith() -> void:
 	using_node.call("uninteract_with")

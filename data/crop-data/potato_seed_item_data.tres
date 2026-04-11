@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SeedItemData" format=3 uid="uid://b180gkraxt7mj"]
+
+[ext_resource type="Script" uid="uid://b85ypq0lghu2a" path="res://data/seed_item_data.gd" id="1_bp774"]
+[ext_resource type="Texture2D" uid="uid://cvvdq4fvsr3ac" path="res://art/assets/placeholder/crops/seed_spritesheet.png" id="2_f7cbg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpjco"]
+atlas = ExtResource("2_f7cbg")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_bp774")
+seed_enum = 2
+crop_name = "potato_crop"
+item_type = 3
+base_sell_price = 1
+texture = SubResource("AtlasTexture_vpjco")
+internal_name = "potato_seed"
+display_name = "Potato Seed"
+metadata/_custom_type_script = "uid://b85ypq0lghu2a"

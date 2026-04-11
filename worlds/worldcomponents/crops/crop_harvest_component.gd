@@ -3,6 +3,10 @@ extends MouseComponent
 
 @export var crop_fields: Node2D
 
+# Function Information
+# Use - Crop Harvesting
+# Does - If under correct situation, harvest cell under mouse
+# Debug - N/A
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("harvest_crop"):
 		GetTargetedCell()

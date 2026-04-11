@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" uid="uid://dsy0hrea1nrk6" path="res://crops/crop.gd" id="1_rkm4r"]
 [ext_resource type="PackedScene" uid="uid://bqk3e7fku04gg" path="res://crops/crop_growth_component.tscn" id="2_7tmp5"]
-[ext_resource type="Texture2D" uid="uid://chwxm6016hpq6" path="res://art/assets/placeholder/crops/lettuce-spritesheet.png" id="3_qvnw6"]
+[ext_resource type="Texture2D" uid="uid://chwxm6016hpq6" path="res://art/assets/placeholder/crops/lettuce_spritesheet.png" id="3_qvnw6"]
+[ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="4_iyxbw"]
+[ext_resource type="PackedScene" uid="uid://c1jmk04aa0rbp" path="res://crops/crop_sway_component.tscn" id="5_bgq4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2t6je"]
 atlas = ExtResource("3_qvnw6")
 
-[node name="Lettuce" type="Node2D" unique_id=2108306375 node_paths=PackedStringArray("sprite_2d", "crop_growth_component")]
+[node name="Lettuce" type="Node2D" unique_id=2108306375]
 y_sort_enabled = true
 position = Vector2(0, 2)
 script = ExtResource("1_rkm4r")
-sprite_2d = NodePath("Sprite2D")
-crop_growth_component = NodePath("CropGrowthComponent")
-crop_name = "Lettuce"
-dropped_item_name = "lettuce_item"
+internal_name = "lettuce_crop"
 
-[node name="CropGrowthComponent" parent="." unique_id=1046199290 node_paths=PackedStringArray("sprite_2d", "parent_crop") instance=ExtResource("2_7tmp5")]
-sprite_2d = NodePath("../Sprite2D")
-parent_crop = NodePath("..")
-base_growth_days = 0.1
+[node name="CropGrowthComponent" parent="." unique_id=1046199290 instance=ExtResource("2_7tmp5")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=545031657]
 texture = SubResource("AtlasTexture_2t6je")
 offset = Vector2(0, -8)
 hframes = 5
+
+[node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("4_iyxbw")]
+
+[node name="CropSwayComponent" parent="." unique_id=1366439034 instance=ExtResource("5_bgq4c")]

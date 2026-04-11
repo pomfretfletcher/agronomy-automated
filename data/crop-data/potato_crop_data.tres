@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CropData" format=3 uid="uid://chxe84naqa8ly"]
+
+[ext_resource type="PackedScene" uid="uid://c0dle1qieiqct" path="res://crops/potato_crop.tscn" id="1_ouuww"]
+[ext_resource type="Texture2D" uid="uid://dvba35kabe7ry" path="res://art/assets/placeholder/crops/potato_spritesheet.png" id="2_8o4ao"]
+[ext_resource type="Script" uid="uid://dtng8jg8d3wus" path="res://data/crop_data.gd" id="2_21q5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7eai"]
+atlas = ExtResource("2_8o4ao")
+
+[resource]
+script = ExtResource("2_21q5n")
+seed_name = "potato_seed"
+seed_enum = 2
+item_name = "potato_item"
+water_retention_days = 1
+sprite_count = 5
+base_growth_days = 0.1
+max_sway_degree = 12.0
+sway_speed = 6.0
+crop_scene = ExtResource("1_ouuww")
+texture = SubResource("AtlasTexture_p7eai")
+internal_name = "potato_crop"
+display_name = "Potato Crop"
+metadata/_custom_type_script = "uid://dtng8jg8d3wus"

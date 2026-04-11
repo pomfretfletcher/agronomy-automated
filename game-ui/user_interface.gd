@@ -1,0 +1,2 @@
+class_name UserInterface
+extends Interface

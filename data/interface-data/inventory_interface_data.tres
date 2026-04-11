@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InterfaceData" format=3 uid="uid://cytw8hgymagbp"]
+
+[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://game-ui/inventory/inventory_interface.tscn" id="1_e1u5d"]
+[ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="1_uuoq1"]
+
+[resource]
+script = ExtResource("1_uuoq1")
+interface_scene = ExtResource("1_e1u5d")
+internal_name = "inventory_interface"
+display_name = "Inventory Interface"
+metadata/_custom_type_script = "uid://b76dbbjea0843"

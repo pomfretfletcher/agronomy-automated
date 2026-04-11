@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dtmbdtkwgjt5x" path="res://buildings/interfaces/storage_interface.gd" id="2_eu1qn"]
 [ext_resource type="PackedScene" uid="uid://ddajxlmcigkyd" path="res://buildings/interfaces/slot-item-assignment/storage_slot_item_assignment_component.tscn" id="3_ausdj"]
 
-[node name="StorageInterface" type="PanelContainer" unique_id=1048215501 node_paths=PackedStringArray("row_container", "slot_item_assignment_component")]
+[node name="StorageInterface" type="PanelContainer" unique_id=1048215501 node_paths=PackedStringArray("slot_item_assignment_component")]
 z_index = 10
 offset_right = 18.0
 offset_bottom = 18.0
@@ -12,9 +12,9 @@ mouse_filter = 1
 theme = ExtResource("1_7ewnp")
 theme_type_variation = &"InventoryPanel"
 script = ExtResource("2_eu1qn")
+internal_name = "storage_interface"
 horizontal_slot_count = 3
 vertical_slot_count = 2
-row_container = NodePath("MarginContainer/VBoxContainer")
 slot_item_assignment_component = NodePath("StorageSlotItemAssignmentComponent")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=227755995]

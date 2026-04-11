@@ -1,43 +1,43 @@
 extends Node
 
-var starting_season: DataTypes.Seasons = DataTypes.Seasons.Spring
+var starting_season: DataTypes.Seasons = DataTypes.Seasons.SPRING
 var current_season: DataTypes.Seasons
 var season_length: int = 30
 
-# Information
-# Use - Internal
-# By - Game Startup
-# For - Initialises data
-# Explanation -
-#	Sets initial current season value
-#	Connects internal check function to time passed signal
+# Function Information
+# Use - Seasons
+# Does - Sets initial season, connects signal
 # Debug - N/A
 func _ready() -> void:
 	current_season = starting_season
 	TimeManager.day_passed_with_parameters.connect(CheckSeasonPassed)
 
-# Information
-# Use - Internal
-# By - Connected to signal of day passing in time manager
-# For - Checks whether the length of a season has passed
-# Explanation -
-#	If on first day of what would be the next season, advance the internal data
-#	Fe [Season Length = 30, day = 31 -> day % length = 1 -> advance season]
+# Function Information
+# Use - Seasons
+# Does - Check if a whole season has passed. If so, move to next
 # Debug - N/A
 func CheckSeasonPassed(day_passed: int) -> void:
 	if day_passed % season_length == 1:
 		MoveToNextSeason()
 
-# Information
-# Use - Internal
-# By - CheckSeasonPassed
-# For - Changes the value of the current season to the next in order
-# Explanation -
-#	If not in final season, move onto next season
-#	If in final season, move onto first season
+# Function Information
+# Use - Seasons
+# Does - Move to next season in order (either next in enum, or first in enum)
 # Debug - N/A
 func MoveToNextSeason():
 	if current_season < len(DataTypes.Seasons.keys()) - 1:
 		current_season = DataTypes.Seasons[DataTypes.Seasons.find_key(current_season + 1)]
 	elif current_season == len(DataTypes.Seasons.keys()) - 1:
 		current_season = DataTypes.Seasons[DataTypes.Seasons.find_key(0)]
+
+func GetSaveData() -> Dictionary:
+	var save_data = {
+		"current_season": current_season
+	}
+	return save_data
+
+func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
+	var applied = ["current_season"]	
+	SaveLoadManager.CheckLoadedDataIsValid(applied, loaded_save_data.keys(), self)
+
+	if loaded_save_data.has("current_season"): current_season = loaded_save_data["current_season"]

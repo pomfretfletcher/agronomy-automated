@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://07ncmib4pu83"]
-
-[ext_resource type="Script" uid="uid://cbefrh2ryyrjr" path="res://buildings/interfaces/slot-item-assignment/shop_slot_item_assignment_component.gd" id="1_2lf6t"]
-
-[node name="SellingSlotItemAssignmentComponent" type="Control" unique_id=1598666074]
-layout_mode = 3
-anchors_preset = 0
-mouse_filter = 2
-script = ExtResource("1_2lf6t")

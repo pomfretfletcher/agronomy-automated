@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dxsl8dngkyccf"]
-
-[ext_resource type="Script" uid="uid://2ous36giymxf" path="res://worlds/worldcomponents/interfaceinteractions/shop_point_inventory_interaction_component.gd" id="1_gqenf"]
-
-[node name="SellPointInteractionComponent" type="Node2D" unique_id=1398001794]
-script = ExtResource("1_gqenf")

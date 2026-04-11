@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://fan5kp6hu2ku"]
+
+[ext_resource type="Script" uid="uid://bk3b2bplft0pd" path="res://data/building_data.gd" id="1_h5g27"]
+[ext_resource type="PackedScene" uid="uid://dk2mveqs5ck2o" path="res://buildings/crate.tscn" id="1_kcfhe"]
+[ext_resource type="Texture2D" uid="uid://c485tp1bsg8f8" path="res://art/assets/placeholder/objects/crate_sprite.png" id="3_pjqpg"]
+
+[resource]
+script = ExtResource("1_h5g27")
+building_scene = ExtResource("1_kcfhe")
+interface_name = "storage_interface"
+texture = ExtResource("3_pjqpg")
+internal_name = "crate"
+display_name = "Crate"
+metadata/_custom_type_script = "uid://bk3b2bplft0pd"

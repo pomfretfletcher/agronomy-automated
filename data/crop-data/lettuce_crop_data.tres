@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CropData" format=3 uid="uid://ccntkwyibq3uk"]
+
+[ext_resource type="PackedScene" uid="uid://ign1cm24w57g" path="res://crops/lettuce_crop.tscn" id="1_nyof2"]
+[ext_resource type="Script" uid="uid://dtng8jg8d3wus" path="res://data/crop_data.gd" id="2_qto0u"]
+[ext_resource type="Texture2D" uid="uid://chwxm6016hpq6" path="res://art/assets/placeholder/crops/lettuce_spritesheet.png" id="2_suj76"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k4jj"]
+atlas = ExtResource("2_suj76")
+
+[resource]
+script = ExtResource("2_qto0u")
+seed_name = "lettuce_seed"
+seed_enum = 3
+item_name = "lettuce_item"
+water_retention_days = 1
+sprite_count = 5
+base_growth_days = 0.1
+max_sway_degree = 15.0
+sway_speed = 8.0
+crop_scene = ExtResource("1_nyof2")
+texture = SubResource("AtlasTexture_5k4jj")
+internal_name = "lettuce_crop"
+display_name = "Lettuce Crop"
+metadata/_custom_type_script = "uid://dtng8jg8d3wus"

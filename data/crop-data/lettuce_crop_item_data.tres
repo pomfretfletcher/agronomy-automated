@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CropItemData" format=3 uid="uid://bggjlm0lnacwe"]
+
+[ext_resource type="Script" uid="uid://cjdy0vc36rjak" path="res://data/crop_item_data.gd" id="1_xdi8d"]
+[ext_resource type="Texture2D" uid="uid://7kn2qmr50wdo" path="res://art/assets/placeholder/crops/crop_items_spritesheet.png" id="2_p414c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p414c"]
+atlas = ExtResource("2_p414c")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_xdi8d")
+crop = "lettuce_crop"
+item_type = 5
+base_sell_price = 12
+texture = SubResource("AtlasTexture_p414c")
+internal_name = "potato_item"
+display_name = "Potato"
+metadata/_custom_type_script = "uid://cjdy0vc36rjak"

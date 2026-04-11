@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EquipmentItemData" format=3 uid="uid://cmku5ehfgaw8k"]
+
+[ext_resource type="Script" uid="uid://ixb4nhq82wdd" path="res://data/equipment_item_data.gd" id="1_r68pb"]
+[ext_resource type="Texture2D" uid="uid://vrlcm7qavgxd" path="res://art/assets/placeholder/player/tool_spritesheet.png" id="2_bauvj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buifm"]
+atlas = ExtResource("2_bauvj")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_r68pb")
+equipment_enum = 2
+item_type = 2
+texture = SubResource("AtlasTexture_buifm")
+internal_name = "axe"
+display_name = "Axe"
+metadata/_custom_type_script = "uid://ixb4nhq82wdd"

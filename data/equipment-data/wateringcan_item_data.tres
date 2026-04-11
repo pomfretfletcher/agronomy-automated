@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EquipmentItemData" format=3 uid="uid://bqx0y57a7qxtt"]
+
+[ext_resource type="Script" uid="uid://ixb4nhq82wdd" path="res://data/equipment_item_data.gd" id="1_6aev3"]
+[ext_resource type="Texture2D" uid="uid://vrlcm7qavgxd" path="res://art/assets/placeholder/player/tool_spritesheet.png" id="2_feykv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mg0p"]
+atlas = ExtResource("2_feykv")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_6aev3")
+equipment_enum = 3
+item_type = 2
+texture = SubResource("AtlasTexture_6mg0p")
+internal_name = "watering_can"
+display_name = "Watering Can"
+metadata/_custom_type_script = "uid://ixb4nhq82wdd"
