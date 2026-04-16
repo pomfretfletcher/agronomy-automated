@@ -10,17 +10,31 @@ var globals_as_strings: Array
 var root: Node
 var crop_fields: Node2D
 var buildings: Node2D
-var ui: CanvasLayer
+var interface_ui: CanvasLayer
 var inventory_interface: InventoryInterface
 var hotbar_interface: HotbarInterface
 
 const SAVE_PATH =  "res://savegame.json"
 
+var can_save: bool = true
+var can_load: bool = true
+
+
+func ToggleSaveLoad(mode: String) -> void:
+	if mode == "unlock":
+		can_save = true
+		can_load = true
+	elif mode == "lock":
+		can_save = false
+		can_load = false
+	else:
+		print("Invalid input into toggle save load method.")
+
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Obtains all references for nodes that will need to be saved, or parent nodes for saveable
 #		game components
-# Debug - N/A
 func _ready() -> void:
 	var globals_and_root = get_tree().current_scene.get_parent().get_children()
 	globals_and_root.erase(get_tree().current_scene)
@@ -32,17 +46,19 @@ func _ready() -> void:
 	# Access nodes that will be loaded and saved and kept between instances
 	crop_fields = gdExtensions.GetChildByName(root, "CropFields")
 	buildings = gdExtensions.GetChildByName(root, "Buildings")
-	ui = gdExtensions.GetChildByName(root, "UI")
+	interface_ui = gdExtensions.GetChildByName(root, "InterfaceUI")
 	inventory_interface = gdExtensions.GetChildByName(root, "InventoryInterface")
 	hotbar_interface = gdExtensions.GetChildByName(root, "HotbarInterface")
+
 
 # Placeholder Function
 func _unhandled_input(event: InputEvent) -> void:
 	# Placeholder methods - will make into menu called methods
-	if event.is_action_pressed("test_save"):
+	if event.is_action_pressed("test_save") and can_save:
 		SaveData()
-	elif event.is_action_pressed("test_load"):
+	elif event.is_action_pressed("test_load") and can_load:
 		LoadData()
+
 
 # Function Information
 # Use - Saving/Loading Game Data
@@ -74,6 +90,10 @@ func SaveData() -> void:
 			
 			var entry_key = internal_name + str(saveable_entries[internal_name])
 			var data = save_data_component.call("GetSaveData")
+			
+			if saveable.is_in_group("persisting_node"):
+				data.set("persisting_node", true)
+				
 			if data.has("internal_name"):
 				save_data.set(entry_key, data)
 			else:
@@ -87,6 +107,7 @@ func SaveData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(FormatJSON(save_data))
 	file.close()
+
 
 # Function Information
 # Use - Saving/Loading Game Data
@@ -102,9 +123,9 @@ func LoadData() -> void:
 	save_data = JSON.parse_string(file.get_as_text())
 	file.close()
 	
-	# Remove all entries that have missing data
 	var null_entries: Array[String]
 	for entry_key in save_data:
+		# Remove all entries that have missing data
 		if save_data[entry_key] == null:
 			print("Error loading save data of " + entry_key + ", its data dictionary is null.")
 			null_entries.append(entry_key)
@@ -117,13 +138,24 @@ func LoadData() -> void:
 	SetupBuildings()
 	LoadUserInterfaces()
 	
+	var applied_customly = ["inventory_interface", "hotbar_interface"]
+	""" Need to change following as it applies only really to persist nodes, must construct a persist
+		id sort of thing? Some way to identify different persist nodes from each other and apply their data.
+		Also, must make sure perissted nodes like buildings have tilemap cell position data inserted into
+		them throuhgh the persist save component. Could then use this as a way to load data for persist
+		components, by referencing their internal tilemap cell position and possibly parent later on should
+		we be able to place multiple on same tile.
+	"""
 	# For all nodes in the game that do not have a specific pre emptive for applying save data
 	for saveable in get_tree().get_nodes_in_group("has_save_data"):
+		#if saveable.is_in_group("persisting_node"):
+			#continue
+			
 		var internal_name = saveable.internal_name
 		var loaded_data = FindSaveDataEntryWithName(save_data, internal_name)
 		
 		# No data found for saveable node
-		if len(loaded_data) == 0:
+		if len(loaded_data) == 0 and internal_name not in applied_customly:
 			print("Issue applying loaded data to node " + str(saveable) + ", no data for it in save file.")
 			continue
 			
@@ -139,12 +171,12 @@ func LoadData() -> void:
 	# Any left over sections of save data are flagged. Reduces errors and can find data not being saved
 	# or used properly
 	for entry_key in save_data:
-		print("Issue loading data: " + save_data[entry_key] + ", it is not applicable to any nodes.")
+		print("Issue loading data: " + str(save_data[entry_key]) + ", it is not applicable to any nodes.")
+
 
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Formats save data in a more human readable format
-# Debug - N/A
 func FormatJSON(value, indent := 0) -> String:
 	var ind = "  ".repeat(indent)
 
@@ -177,16 +209,17 @@ func FormatJSON(value, indent := 0) -> String:
 	else:
 		return JSON.stringify(value)
 
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Returns the saved data associated to the given name
-# Debug - N/A
 func FindSaveDataEntryWithName(data: Dictionary, given_name: String) -> Dictionary:
 	for entry in data.values():
 		if entry.has("internal_name"):
 			if entry["internal_name"] == given_name:
 				return entry
 	return { }
+
 
 # Function Information
 # Use - Saving/Loading Game Data
@@ -203,7 +236,7 @@ func CheckLoadedDataIsValid(expected_fields: Array, given_fields: Array, node: N
 		if data not in given_fields:
 			missing_fields.append(data)
 	for data in given_fields:
-		if data not in expected_fields and data != "internal_name":
+		if data not in expected_fields and data != "internal_name" and data != "persisting_node":
 			leftover_fields.append(data)
 			
 	# Print error and return false if any fields missing or not used
@@ -212,10 +245,10 @@ func CheckLoadedDataIsValid(expected_fields: Array, given_fields: Array, node: N
 		return false
 	return true
 
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Apply loaded data to all global scripts/nodes that have save data
-# Debug - N/A
 func ApplyLoadedGlobalData() -> void:
 	var entries_to_remove: Array[String]
 	
@@ -235,10 +268,10 @@ func ApplyLoadedGlobalData() -> void:
 	for entry in entries_to_remove:
 		save_data.erase(entry)
 
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Create crop objects and apply loaded data for each crop
-# Debug - N/A
 func AssembleCropFields() -> void:
 	var entries_to_remove: Array[String]
 	
@@ -272,16 +305,21 @@ func AssembleCropFields() -> void:
 	for entry in entries_to_remove:
 		save_data.erase(entry)
 
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Create building objects, their associated interfaces and applies loaded data for each building
-# Debug - N/A
 func SetupBuildings() -> void:
 	var entries_to_remove: Array[String]
 	
 	for entry_key in save_data.keys():
 		var loaded_data = save_data[entry_key]
 		var object_internal_name = loaded_data["internal_name"]
+		
+		# Do not create new buildings for buildings that persist through saves, apply loaded data later
+		if loaded_data.has("persisting_node"):
+			continue
+			
 		if Database.database.has(object_internal_name) and Database.database[object_internal_name] is BuildingData:
 			# Setups more readable and usable variables for the data 
 			var building_data = Database.database[object_internal_name] as BuildingData
@@ -299,7 +337,7 @@ func SetupBuildings() -> void:
 			var interface = interface_data.interface_scene.instantiate() as BuildingInterface
 			
 			# Places interface in proper node structure, connects needed references and hides the interface
-			ui.add_child(interface)
+			interface_ui.add_child(interface)
 			building_instance.interface = interface
 			interface.associated_building = building_instance
 			interface.hide()
@@ -311,29 +349,29 @@ func SetupBuildings() -> void:
 	for entry in entries_to_remove:
 		save_data.erase(entry)
 
+
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Applies loaded data for each interface that sustains between game instances to the 
 #		corresponding interface
-# Debug - N/A
 func LoadUserInterfaces() -> void:
 	var entries_to_remove: Array[String]
 	
-	for entry_key in save_data.keys():
+	for entry_key in save_data:
 		var loaded_data = save_data[entry_key]
 		var interface_internal_name = loaded_data["internal_name"]
 		
 		# Applies loaded data to appropiate interface
 		if interface_internal_name == inventory_interface.internal_name:
-			inventory_interface.ApplyLoadedData(save_data[entry_key])
+			inventory_interface.ApplyLoadedData(loaded_data)
 		elif interface_internal_name == hotbar_interface.internal_name:
-			hotbar_interface.ApplyLoadedData(save_data[entry_key])
+			hotbar_interface.ApplyLoadedData(loaded_data)
 		else:
 			# If not one of the interfaces, avoid adding to entries to remove
 			continue
 		
 		# Marks data to not be used again
 		entries_to_remove.append(entry_key)
-		
+	
 	for entry in entries_to_remove:
 		save_data.erase(entry)

@@ -20,33 +20,33 @@ signal single_item_movement(data)
 var row_framework: PackedScene
 var slot_framework: PackedScene
 
+
 # Function Information
 # Use - Interface Use
 # Does - Sets internal state, visibility and external states to appropiate game state
-# Debug - N/A
 func OpenInterface() -> void:
 	show()
 	is_opened = true
 	if player != null: player.RemoveControl()
-	Statuses.ToggleSaveLoad("lock")
+	SaveLoadManager.ToggleSaveLoad("lock")
+
 
 # Function Information
 # Use - Interface Use
 # Does - Sets internal state, visibility and external states to appropiate game state
-# Debug - N/A
 func CloseInterface() -> void:
 	hide()
 	is_opened = false
 	if player != null: player.ReturnControl()
-	Statuses.ToggleSaveLoad("unlock")
+	SaveLoadManager.ToggleSaveLoad("unlock")
+
 
 # Function Information
 # Use - Interface Use
 # Does - Creates the required slots for the interface and sets their internal references
-# Debug - N/A
 func SetupInterface() -> void:
 	for y in range(vertical_slot_count):
-		var row: Array[Slot] = []
+		var row: Array[InterfaceSlot] = []
 		for x in range(horizontal_slot_count):
 			var new_slot: InterfaceSlot = slot_framework.instantiate() as InterfaceSlot
 			new_slot.slot_item_assignment_component = slot_item_assignment_component
@@ -59,11 +59,18 @@ func SetupInterface() -> void:
 		for slot in row:
 			row_margin_container.add_child(slot)
 		row_container.add_child(row_node)
+	
+	if self is BuildingInterface:
+		call_deferred("SetupInitialData")
+
+
+func SetupInitialData() -> void:
+	pass
+
 
 # Function Information
 # Use - Interface Saving
 # Does - Returns an array with the item names positioned within the interface's slots
-# Debug - N/A
 func GetSlotReferences() -> Array:
 	var reference_array: Array
 	# Create reference array with empty values that will be returned

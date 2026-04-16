@@ -1,7 +1,7 @@
 class_name TileComponent
-extends Node2D
+extends Node
 
-@export var clickable_tilemap_layer: TileMapLayer
+@export var effected_tilemap_layer: TileMapLayer
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
@@ -9,6 +9,7 @@ var mouse_position: Vector2
 var cell_position: Vector2i
 var cell_source_id: int
 var local_cell_position: Vector2
+
 
 # Information
 # Use - Internal by Child Classes
@@ -22,9 +23,8 @@ var local_cell_position: Vector2
 #			tileset, -1 for empty tile)
 #		Find the position of that cell in terms of the world node
 #	This information is then used by child classes for different uses
-# Debug - N/A
 func GetCellInFrontOfPlayer() -> void:
-	cell_position = clickable_tilemap_layer.local_to_map(player.position)
+	cell_position = effected_tilemap_layer.local_to_map(player.position)
 	cell_position += (Vector2i)(player.player_anim_direction)
-	cell_source_id = clickable_tilemap_layer.get_cell_source_id(cell_position)
-	local_cell_position = clickable_tilemap_layer.map_to_local(cell_position)
+	cell_source_id = effected_tilemap_layer.get_cell_source_id(cell_position)
+	local_cell_position = effected_tilemap_layer.map_to_local(cell_position)

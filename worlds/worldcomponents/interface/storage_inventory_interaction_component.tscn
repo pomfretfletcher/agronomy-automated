@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ckq7hhclkhf4a"]
+
+[ext_resource type="Script" uid="uid://cq2esac43ab5p" path="res://worlds/worldcomponents/interface/storage_inventory_interaction_component.gd" id="1_1wqwi"]
+
+[node name="StorageInventoryInteractionComponent" type="Node" unique_id=1676089061]
+script = ExtResource("1_1wqwi")

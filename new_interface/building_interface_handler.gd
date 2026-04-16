@@ -1,0 +1,4 @@
+class_name BuildingInterfaceHandler
+extends InterfaceHandler
+
+var connected_building: Building

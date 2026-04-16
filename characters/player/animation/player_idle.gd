@@ -1,7 +1,7 @@
 extends PlayerNodeState
 
-@warning_ignore("unused_parameter")
-func _on_physics_process(delta : float) -> void:
+
+func _on_physics_process(_delta : float) -> void:
 	if player.player_anim_direction == Vector2.LEFT:
 		animated_sprite_2d.play("idle_left")
 	elif player.player_anim_direction == Vector2.RIGHT:
@@ -13,6 +13,7 @@ func _on_physics_process(delta : float) -> void:
 	else:
 		animated_sprite_2d.play("idle_front")
 
+
 func _on_next_transitions() -> void:
 	GameInputEvents.GetMoveDirection()
 	
@@ -20,6 +21,7 @@ func _on_next_transitions() -> void:
 		transition.emit("Walk")
 	
 	CheckEquipmentTransitions()
+
 
 func _on_exit() -> void:
 	animated_sprite_2d.stop()

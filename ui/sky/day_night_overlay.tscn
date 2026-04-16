@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://beuhtk26ds6ud"]
+
+[ext_resource type="Script" uid="uid://bklcilsbv36k1" path="res://ui/sky/day_night_overlay.gd" id="1_0hk57"]
+[ext_resource type="Texture2D" uid="uid://cuqwox2r4wjgo" path="res://art/themes-assets-tilemaps/placeholder_spring_sky_gradient.tres" id="2_c61v3"]
+
+[sub_resource type="Gradient" id="Gradient_76coa"]
+offsets = PackedFloat32Array(0, 0.2, 0.5, 0.9, 0.99753696)
+colors = PackedColorArray(0.28235295, 0.15294118, 0.6313726, 1, 0.19607843, 0.15294118, 0.58431375, 1, 0.8666667, 0.627451, 0.34901962, 1, 0.7254902, 0.8392157, 0.6509804, 1, 0.6460658, 0.889722, 0.9875197, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mm4vt"]
+gradient = SubResource("Gradient_76coa")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b3qhl"]
+gradient = SubResource("Gradient_76coa")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u8vmc"]
+gradient = SubResource("Gradient_76coa")
+
+[node name="DayNightOverlay" type="CanvasModulate" unique_id=1577317201]
+script = ExtResource("1_0hk57")
+spring_gradient = ExtResource("2_c61v3")
+summer_gradient = SubResource("GradientTexture1D_mm4vt")
+autumn_gradient = SubResource("GradientTexture1D_b3qhl")
+winter_gradient = SubResource("GradientTexture1D_u8vmc")

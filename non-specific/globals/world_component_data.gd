@@ -6,14 +6,16 @@ var watered_tiles: Array[Vector2i]
 var tilled_tiles: Array[Vector2i]
 var built_tiles: Dictionary[Vector2i, Building]
 
-var grass_component: GrassStorageComponent
-var tilled_soil_component: LandTillingComponent
+var grass_component: GrassHandlingComponent
+var soil_component: SoilHandlingComponent
 var watered_soil_component: WateredSoilComponent
 
+
 func _ready() -> void:
-	grass_component = get_tree().current_scene.find_child("GrassStorageComponent", true, false)
-	tilled_soil_component = get_tree().current_scene.find_child("LandTillingComponent", true, false)
+	grass_component = get_tree().current_scene.find_child("GrassHandlingComponent", true, false)
+	soil_component = get_tree().current_scene.find_child("SoilHandlingComponent", true, false)
 	watered_soil_component = get_tree().current_scene.find_child("WateredSoilComponent", true, false)
+
 
 func GetSaveData() -> Dictionary:
 	var planted_crops_save_form = {}
@@ -31,6 +33,7 @@ func GetSaveData() -> Dictionary:
 		"built_tiles": built_tiles_save_form,
 	}
 	return save_data
+
 
 func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 	var applied = ["watered_tiles", "tilled_tiles", "planted_crops", "grass_tiles", "built_tiles"]	
@@ -50,6 +53,7 @@ func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 			built_tiles.set(tile_position, null)
 	SetupNewData()
 
+
 func RemoveCurrentData() -> void:
 	for crop in planted_crops.values():
 		crop.queue_free()
@@ -57,12 +61,13 @@ func RemoveCurrentData() -> void:
 		building.queue_free()
 	
 	grass_component.EraseGrassTiles()
-	tilled_soil_component.EraseSoilTiles()
+	soil_component.EraseSoilTiles()
 	watered_soil_component.EraseWateredTiles()
 	planted_crops.clear()
 	built_tiles.clear()
 
+
 func SetupNewData() -> void:
 	grass_component.SetupGrassTiles()
-	tilled_soil_component.SetupSoilTiles()
+	soil_component.SetupSoilTiles()
 	watered_soil_component.SetupWateredTiles()

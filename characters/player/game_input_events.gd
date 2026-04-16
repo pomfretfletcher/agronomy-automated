@@ -1,3 +1,6 @@
+## A static class used for measuring player input and translating it to usable variables.
+## Decides direction player sprite looks, direction player moves and whether player is
+## moving and using an equipment.
 class_name GameInputEvents
 extends Node
 
@@ -9,6 +12,7 @@ static var down_flag: float = 0.0
 static var left_flag: float = 0.0
 static var right_flag: float = 0.0
 
+
 static func GetMoveDirection() -> Vector2:
 	up_flag = 1.0 if Input.is_action_pressed("walk_up") else 0.0
 	down_flag = 1.0 if Input.is_action_pressed("walk_down") else 0.0
@@ -17,7 +21,8 @@ static func GetMoveDirection() -> Vector2:
 	move_direction = Vector2(right_flag - left_flag, down_flag - up_flag)
 	
 	return move_direction.normalized()
-	
+
+
 static func GetAnimDirection() -> Vector2:
 	var prev_anim_direction: Vector2 = anim_direction
 	
@@ -33,12 +38,14 @@ static func GetAnimDirection() -> Vector2:
 		anim_direction = prev_anim_direction
 		
 	return anim_direction
-	
+
+
 static func IsPlayerMoving() -> bool:
 	if move_direction == Vector2.ZERO:
 		return false
 	else:
 		return true
+
 
 static func IsUsingEquipment() -> bool:
 	return Input.is_action_just_pressed("use_equipment")

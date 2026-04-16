@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bw2qfibb4d8wa"]
+
+[node name="CropDisplayComponent" type="Control" unique_id=1923583515]
+layout_mode = 3
+anchors_preset = 0

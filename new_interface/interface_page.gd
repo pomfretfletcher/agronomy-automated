@@ -1,0 +1,2 @@
+class_name InterfacePage
+extends PanelContainer

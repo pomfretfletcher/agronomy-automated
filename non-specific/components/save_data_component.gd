@@ -4,9 +4,11 @@ extends Node
 var parent_node: Node
 var save_data: Dictionary
 
+
 func _ready() -> void:
 	parent_node = get_parent()
 	parent_node.add_to_group("has_save_data")
+
 
 func GetSaveData():
 	if parent_node.has_method("GetSaveData"):
@@ -15,6 +17,7 @@ func GetSaveData():
 	else:
 		print("Error saving data of node " + str(parent_node) + ", it is missing GetSaveData method.")
 		return null
+
 
 func ApplyLoadedData(loaded_save_data) -> void:
 	if loaded_save_data == null:
@@ -29,12 +32,14 @@ func ApplyLoadedData(loaded_save_data) -> void:
 	else:
 		print("Error applying loaded save data to node " + str(parent_node) + ", it is missing ApplyLoadedData method.")
 
+
 # GetSaveData template
 #func GetSaveData() -> Dictionary:
 	#var save_data = {
 		#
 	#}
 	#return save_data
+
 
 # ApplyLoadedData template
 #func ApplyLoadedData(loaded_save_data: Dictionary) -> void:

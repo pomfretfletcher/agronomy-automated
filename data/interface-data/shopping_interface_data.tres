@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="1_gpsul"]
 [ext_resource type="PackedScene" uid="uid://bt6swo7drjsxb" path="res://buildings/interfaces/shopping_interface.tscn" id="1_qhary"]
+[ext_resource type="PackedScene" uid="uid://cuvlud05kdog8" path="res://buildings/interfaces/rows-slots/shopping_slot.tscn" id="2_2d85r"]
 
 [resource]
 script = ExtResource("1_gpsul")
 interface_scene = ExtResource("1_qhary")
+slot_scene = ExtResource("2_2d85r")
+row_scene = ExtResource("2_2d85r")
 internal_name = "shopping_interface"
 display_name = "Shopping Interface"
 metadata/_custom_type_script = "uid://b76dbbjea0843"

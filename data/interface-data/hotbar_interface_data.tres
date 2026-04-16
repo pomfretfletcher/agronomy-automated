@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="InterfaceData" format=3 uid="uid://di7a1mespyvw4"]
 
-[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://game-ui/inventory/hotbar_interface.tscn" id="1_v45gc"]
+[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://ui/inventory/hotbar_interface.tscn" id="1_v45gc"]
 [ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="1_w0j6d"]
+[ext_resource type="PackedScene" uid="uid://dpcvcmeppb2q4" path="res://ui/inventory/hotbar_row.tscn" id="2_iaexe"]
+[ext_resource type="PackedScene" uid="uid://g27k3lpyhf1j" path="res://ui/inventory/hotbar_slot.tscn" id="4_5k130"]
 
 [resource]
 script = ExtResource("1_w0j6d")
 interface_scene = ExtResource("1_v45gc")
+slot_scene = ExtResource("4_5k130")
+row_scene = ExtResource("2_iaexe")
 internal_name = "hotbar_interface"
 display_name = "Hotbar Interface"
 metadata/_custom_type_script = "uid://b76dbbjea0843"

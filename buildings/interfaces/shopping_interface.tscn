@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_n30vm"]
 [ext_resource type="Script" uid="uid://dr2l8bj3wi8rp" path="res://buildings/interfaces/shopping_interface.gd" id="2_u41r6"]
-[ext_resource type="PackedScene" uid="uid://07ncmib4pu83" path="res://buildings/interfaces/slot-item-assignment/shopping_slot_item_assignment_component.tscn" id="3_pra5n"]
+[ext_resource type="PackedScene" uid="uid://cppb78cn1m2gw" path="res://buildings/interfaces/slot-item-assignment/slot_item_assignment_component.tscn" id="3_n30vm"]
 
-[node name="ShopInterface" type="PanelContainer" unique_id=642928065 node_paths=PackedStringArray("slot_item_assignment_component")]
+[node name="ShoppingInterface" type="PanelContainer" unique_id=642928065 node_paths=PackedStringArray("slot_item_assignment_component")]
 z_index = 10
 offset_right = 22.0
 offset_bottom = 22.0
@@ -14,10 +14,10 @@ mouse_filter = 1
 theme = ExtResource("1_n30vm")
 theme_type_variation = &"InventoryPanel"
 script = ExtResource("2_u41r6")
-internal_name = "shop_interface"
+internal_name = "shopping_interface"
 horizontal_slot_count = 3
-vertical_slot_count = 1
-slot_item_assignment_component = NodePath("ShopSlotItemAssignmentComponent")
+vertical_slot_count = 2
+slot_item_assignment_component = NodePath("SlotItemAssignmentComponent")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=733161225]
 layout_mode = 2
@@ -29,6 +29,5 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1280597234]
 layout_mode = 2
 
-[node name="ShopSlotItemAssignmentComponent" parent="." unique_id=1598666074 node_paths=PackedStringArray("interface") instance=ExtResource("3_pra5n")]
-layout_mode = 2
+[node name="SlotItemAssignmentComponent" parent="." unique_id=1074734077 node_paths=PackedStringArray("interface") instance=ExtResource("3_n30vm")]
 interface = NodePath("..")

@@ -12,6 +12,7 @@ script = ExtResource("1_78au6")
 crop = "wheat_crop"
 item_type = 5
 base_sell_price = 10
+base_purchase_price = 15
 texture = SubResource("AtlasTexture_ygkh0")
 internal_name = "wheat_item"
 display_name = "Wheat"

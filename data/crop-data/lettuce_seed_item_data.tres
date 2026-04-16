@@ -13,6 +13,7 @@ seed_enum = 3
 crop_name = "lettuce_crop"
 item_type = 3
 base_sell_price = 1
+base_purchase_price = 6
 texture = SubResource("AtlasTexture_iih5d")
 internal_name = "lettuce_seed"
 display_name = "Lettuce Seed"

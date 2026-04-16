@@ -12,6 +12,7 @@ script = ExtResource("1_fupwp")
 crop = "potato_item"
 item_type = 5
 base_sell_price = 15
+base_purchase_price = 22
 texture = SubResource("AtlasTexture_k87pi")
 internal_name = "lettuce_item"
 display_name = "Lettuce"

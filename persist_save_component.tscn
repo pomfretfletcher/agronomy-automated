@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drdy6a7ubjepa"]
+
+[ext_resource type="Script" uid="uid://dsoqw2ovdfo1" path="res://persist_save_component.gd" id="1_wk3e1"]
+
+[node name="PersistSaveComponent" type="Node" unique_id=116044357]
+script = ExtResource("1_wk3e1")

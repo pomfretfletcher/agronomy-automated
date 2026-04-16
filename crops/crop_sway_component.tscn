@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://d31icapg6ueaf" path="res://crops/crop_sway_component.gd" id="1_qa65c"]
 
-[node name="CropSwayComponent" type="Node2D" unique_id=1366439034]
+[node name="CropSwayComponent" type="Node" unique_id=171633262]
 script = ExtResource("1_qa65c")

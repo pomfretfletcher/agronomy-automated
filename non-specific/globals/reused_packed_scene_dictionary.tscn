@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://b47xgpv03uw4k"]
 
 [ext_resource type="Script" uid="uid://c3bjpk7pgm4uq" path="res://non-specific/globals/reused_packed_scene_dictionary.gd" id="1_bi3tq"]
-[ext_resource type="PackedScene" uid="uid://4k7bsw42v5r0" path="res://game-ui/inventory/inventory_slot.tscn" id="2_e2qp1"]
-[ext_resource type="PackedScene" uid="uid://bre3x3juy43m7" path="res://game-ui/inventory/inventory_row.tscn" id="3_2xcop"]
+[ext_resource type="PackedScene" uid="uid://4k7bsw42v5r0" path="res://ui/inventory/inventory_slot.tscn" id="2_e2qp1"]
+[ext_resource type="PackedScene" uid="uid://bre3x3juy43m7" path="res://ui/inventory/inventory_row.tscn" id="3_2xcop"]
 [ext_resource type="PackedScene" uid="uid://mh13s32mmfaw" path="res://non-specific/frameworks/item.tscn" id="4_ogkgg"]
 [ext_resource type="PackedScene" uid="uid://caer6cwu3q0qi" path="res://buildings/interfaces/rows-slots/storage_row.tscn" id="5_ogkgg"]
 [ext_resource type="PackedScene" uid="uid://clghbr4q12xds" path="res://buildings/interfaces/rows-slots/storage_slot.tscn" id="6_3dinf"]
 [ext_resource type="PackedScene" uid="uid://cuvlud05kdog8" path="res://buildings/interfaces/rows-slots/shopping_slot.tscn" id="7_o4yg7"]
 [ext_resource type="PackedScene" uid="uid://quhjtewa066d" path="res://buildings/interfaces/rows-slots/shopping_row.tscn" id="8_0dug5"]
 [ext_resource type="PackedScene" uid="uid://dmwqlbttxxseo" path="res://art/themes-assets-tilemaps/watering_particles.tscn" id="9_0dug5"]
-[ext_resource type="PackedScene" uid="uid://dpcvcmeppb2q4" path="res://game-ui/inventory/hotbar_row.tscn" id="10_gkkhg"]
-[ext_resource type="PackedScene" uid="uid://g27k3lpyhf1j" path="res://game-ui/inventory/hotbar_slot.tscn" id="11_i7vaw"]
+[ext_resource type="PackedScene" uid="uid://dpcvcmeppb2q4" path="res://ui/inventory/hotbar_row.tscn" id="10_gkkhg"]
+[ext_resource type="PackedScene" uid="uid://g27k3lpyhf1j" path="res://ui/inventory/hotbar_slot.tscn" id="11_i7vaw"]
 
 [node name="ReusedPackedSceneDictionary" type="Node" unique_id=44313284]
 script = ExtResource("1_bi3tq")

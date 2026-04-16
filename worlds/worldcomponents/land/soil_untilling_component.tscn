@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqle1skanwepp"]
+
+[ext_resource type="Script" uid="uid://br5qdg8dqog3f" path="res://worlds/worldcomponents/land/soil_untilling_component.gd" id="1_cd3q0"]
+
+[node name="SoilUntillingComponent" type="Node" unique_id=1504621414]
+script = ExtResource("1_cd3q0")

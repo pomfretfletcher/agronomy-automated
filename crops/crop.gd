@@ -12,26 +12,26 @@ var days_until_water_reset: int
 var tilemap_cell_position: Vector2i
 var crop_data: CropData
 
+
 # Function Information
 # Use - Crop Growth/Watering/Harvest
 # Does - Grabs data for crop, sets starting variables for watering
-# Debug - N/A
 func _ready() -> void:
 	crop_data = Database.database[internal_name] as CropData
 	days_until_water_reset = crop_data.water_retention_days
 
+
 # Function Information
 # Use - Crop Watering
 # Does - Sets internal state to being watered and resets how long left until must be watered again
-# Debug - N/A
 func OnWater() -> void:
 	is_watered = true
 	days_until_water_reset = crop_data.water_retention_days
 
+
 # Function Information
 # Use - Crop Harvest
 # Does - If able to be harvested, create an item at current position
-# Debug - N/A
 func OnHarvest() -> bool:
 	if crop_growth_component.growth_progress >= crop_growth_component.growth_total:
 		# Get and instantiate framework for item
@@ -51,6 +51,7 @@ func OnHarvest() -> bool:
 	else:
 		return false
 
+
 func GetSaveData() -> Dictionary:
 	var save_data = {
 		"is_watered": is_watered,
@@ -66,6 +67,7 @@ func GetSaveData() -> Dictionary:
 		"internal_name": internal_name,
 	}
 	return save_data
+
 
 func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 	var applied = ["is_watered", "days_until_water_reset", "global_position_x", "global_position_y", "tilemap_cell_position_x", "tilemap_cell_position_y", "growth_total", "growth_progress", "current_degree", "sway_direction"]	

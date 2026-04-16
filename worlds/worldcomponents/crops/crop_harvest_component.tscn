@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://vwqlnkpqkb54" path="res://worlds/worldcomponents/crops/crop_harvest_component.gd" id="1_5uqne"]
 
-[node name="CropHarvestComponent" type="Node2D" unique_id=1042068280]
+[node name="CropHarvestComponent" type="Node" unique_id=1653345004]
 script = ExtResource("1_5uqne")

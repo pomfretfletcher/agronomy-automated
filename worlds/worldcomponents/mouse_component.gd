@@ -1,5 +1,5 @@
 class_name MouseComponent
-extends Node2D
+extends Node
 
 @export var clickable_tilemap_layer: TileMapLayer
 @export var mouse_reach: float = 30.0
@@ -11,6 +11,7 @@ var cell_position: Vector2i
 var cell_source_id: int
 var local_cell_position: Vector2
 var distance: float
+
 
 # Information
 # Use - Internal by Child Classes
@@ -25,7 +26,6 @@ var distance: float
 #		Find the position of that cell in terms of the world node
 #		Find the distance to this position
 #	This information is then used by child classes for different uses
-# Debug - N/A
 func GetTargetedCell() -> void:
 	mouse_position = clickable_tilemap_layer.get_local_mouse_position()
 	cell_position = clickable_tilemap_layer.local_to_map(mouse_position)

@@ -5,6 +5,7 @@ extends NodeState
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var hit_component: HitComponent
 
+
 func CheckEquipmentTransitions() -> void:
 	if GameInputEvents.IsUsingEquipment() and player.can_use_equipment:
 		if ToolManager.selected_equipment == DataTypes.Equipments.HOE:

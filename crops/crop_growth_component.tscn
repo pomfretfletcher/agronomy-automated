@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://r4pqn04xv220" path="res://crops/crop_growth_component.gd" id="1_im1nb"]
 
-[node name="CropGrowthComponent" type="Node2D" unique_id=1046199290]
+[node name="CropGrowthComponent" type="Node" unique_id=1655697683]
 script = ExtResource("1_im1nb")

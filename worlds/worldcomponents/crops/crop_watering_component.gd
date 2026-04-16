@@ -6,10 +6,10 @@ var watering_particles_framework: PackedScene = ReusedPackedSceneDictionary.pack
 @export var watering_animation_time: float = 3.0
 var tiles_emitting_in: Array[Vector2i]
 
+
 # Function Information
 # Use - Crop Watering
-# Does - If under correct situation, water cell in front of player
-# Debug - N/A
+# Does - Allows player to water the cell in front of them
 func _unhandled_input(event: InputEvent) -> void:
 	if !player.can_use_equipment:
 		return
@@ -19,6 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			GetCellInFrontOfPlayer()
 			WaterCell()
 
+
 func WaterCell() -> void:
 	if WorldComponentData.planted_crops.has(cell_position):
 		WorldComponentData.planted_crops[cell_position].OnWater()
@@ -27,7 +28,8 @@ func WaterCell() -> void:
 	if cell_position not in tiles_emitting_in:
 		tiles_emitting_in.append(cell_position)
 		call_deferred("SpawnWaterParticles", local_cell_position, cell_position)
-	
+
+
 func SpawnWaterParticles(spawn_position: Vector2, tile_position: Vector2i) -> void:
 	# Spawn particles at world position
 	var particle_instance: GPUParticles2D = watering_particles_framework.instantiate()

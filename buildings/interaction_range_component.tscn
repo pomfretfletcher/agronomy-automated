@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://bff771bj6gu80"]
 
+[ext_resource type="Script" uid="uid://b74q8i3w6c1bp" path="res://buildings/interaction_range_component.gd" id="1_6n6yc"]
+
 [node name="InteractionRangeComponent" type="Area2D" unique_id=1023982529]
+script = ExtResource("1_6n6yc")

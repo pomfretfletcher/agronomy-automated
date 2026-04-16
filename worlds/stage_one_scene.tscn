@@ -1,46 +1,48 @@
 [gd_scene format=4 uid="uid://cmh8gnviwgpcx"]
 
 [ext_resource type="TileSet" uid="uid://bhv21wx1wwpi6" path="res://art/themes-assets-tilemaps/stage_one_tileset.tres" id="1_fji5b"]
-[ext_resource type="Script" uid="uid://c84j2suc4mkjn" path="res://game-ui/ui.gd" id="3_ab71g"]
-[ext_resource type="PackedScene" uid="uid://dgwthxirj1gqt" path="res://game-ui/game_info_interface.tscn" id="3_ywq83"]
-[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://game-ui/inventory/inventory_interface.tscn" id="4_ywq83"]
+[ext_resource type="PackedScene" uid="uid://drdy6a7ubjepa" path="res://persist_save_component.tscn" id="3_3pviu"]
+[ext_resource type="Script" uid="uid://c84j2suc4mkjn" path="res://ui/game_ui.gd" id="3_ab71g"]
+[ext_resource type="PackedScene" uid="uid://dgwthxirj1gqt" path="res://ui/displays/game_info_interface.tscn" id="3_ywq83"]
+[ext_resource type="Script" uid="uid://cou6tup76wjaa" path="res://ui/interface_ui.gd" id="4_3nx2y"]
+[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://ui/inventory/inventory_interface.tscn" id="4_ywq83"]
+[ext_resource type="PackedScene" uid="uid://bt6swo7drjsxb" path="res://buildings/interfaces/shopping_interface.tscn" id="6_50ilp"]
 [ext_resource type="PackedScene" uid="uid://bd7eag1vi5e12" path="res://worlds/worldcomponents/crops/crop_harvest_component.tscn" id="7_87bjb"]
-[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://game-ui/inventory/hotbar_interface.tscn" id="7_ab71g"]
+[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://ui/inventory/hotbar_interface.tscn" id="7_ab71g"]
 [ext_resource type="PackedScene" uid="uid://dlti58wru1h65" path="res://worlds/worldcomponents/crops/crop_planting_component.tscn" id="8_3nx2y"]
-[ext_resource type="PackedScene" uid="uid://70fowkdvyd5r" path="res://worlds/worldcomponents/farmland/land_tilling_component.tscn" id="9_mcc82"]
-[ext_resource type="PackedScene" uid="uid://16sb342i2c85" path="res://worlds/worldcomponents/ui/selected_tile_component.tscn" id="10_ka52a"]
-[ext_resource type="PackedScene" uid="uid://bw2qfibb4d8wa" path="res://worlds/worldcomponents/ui/crop_display_component.tscn" id="11_s660d"]
-[ext_resource type="Script" uid="uid://clscnvyjrg2qr" path="res://worlds/worldcomponents/ui/crop_display_component.gd" id="12_yb8fl"]
-[ext_resource type="PackedScene" uid="uid://crxjclsabdv0t" path="res://worlds/worldcomponents/ui/crop_display_interface.tscn" id="13_benk0"]
+[ext_resource type="PackedScene" uid="uid://70fowkdvyd5r" path="res://worlds/worldcomponents/land/land_tilling_component.tscn" id="9_mcc82"]
+[ext_resource type="PackedScene" uid="uid://16sb342i2c85" path="res://ui/displays/selected_tile_display.tscn" id="10_ka52a"]
+[ext_resource type="PackedScene" uid="uid://c6dtymb87pmpq" path="res://non-specific/globals/menu_manager.tscn" id="10_ywq83"]
+[ext_resource type="PackedScene" uid="uid://bw2qfibb4d8wa" path="res://ui/displays/crop_display_component.tscn" id="11_s660d"]
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="12_lpv2d"]
+[ext_resource type="Script" uid="uid://clscnvyjrg2qr" path="res://ui/displays/crop_display_component.gd" id="12_yb8fl"]
+[ext_resource type="PackedScene" uid="uid://crxjclsabdv0t" path="res://ui/displays/crop_display_interface.tscn" id="13_benk0"]
 [ext_resource type="PackedScene" uid="uid://dagbauowqc6nc" path="res://worlds/worldcomponents/crops/crop_watering_component.tscn" id="14_gco5w"]
-[ext_resource type="PackedScene" uid="uid://crq0114n4xuqv" path="res://worlds/worldcomponents/farmland/watered_soil_component.tscn" id="15_vbjtl"]
-[ext_resource type="PackedScene" uid="uid://ckq7hhclkhf4a" path="res://worlds/worldcomponents/interfaceinteractions/storage_inventory_interaction_component.tscn" id="16_jfjbo"]
-[ext_resource type="PackedScene" uid="uid://dxsl8dngkyccf" path="res://worlds/worldcomponents/interfaceinteractions/shopping_point_inventory_interaction_component.tscn" id="17_3jgal"]
-[ext_resource type="PackedScene" uid="uid://beuhtk26ds6ud" path="res://worlds/worldcomponents/visuals/day_night_component.tscn" id="18_vutw8"]
-[ext_resource type="PackedScene" uid="uid://drv6vrbsrmsuc" path="res://worlds/worldcomponents/grass_storage_component.tscn" id="19_50ilp"]
+[ext_resource type="PackedScene" uid="uid://crq0114n4xuqv" path="res://worlds/worldcomponents/land/watered_soil_component.tscn" id="15_vbjtl"]
+[ext_resource type="PackedScene" uid="uid://ckq7hhclkhf4a" path="res://worlds/worldcomponents/interface/storage_inventory_interaction_component.tscn" id="16_jfjbo"]
+[ext_resource type="PackedScene" uid="uid://dxsl8dngkyccf" path="res://worlds/worldcomponents/interface/shopping_point_inventory_interaction_component.tscn" id="17_3jgal"]
+[ext_resource type="PackedScene" uid="uid://b02uuys7cyoed" path="res://worlds/worldcomponents/crops/crop_removal_component.tscn" id="17_87bjb"]
+[ext_resource type="PackedScene" uid="uid://beuhtk26ds6ud" path="res://ui/sky/day_night_overlay.tscn" id="18_vutw8"]
+[ext_resource type="PackedScene" uid="uid://drv6vrbsrmsuc" path="res://worlds/worldcomponents/land/grass_handling_component.tscn" id="19_50ilp"]
 [ext_resource type="PackedScene" uid="uid://d011s6hh8qi6k" path="res://characters/player/player.tscn" id="19_qe57y"]
 [ext_resource type="PackedScene" uid="uid://b1vvlnvlxhb4o" path="res://worlds/worldcomponents/buildings/building_placing_component.tscn" id="20_ywq83"]
+[ext_resource type="Script" uid="uid://xeg61kg37bwq" path="res://worlds/hotbar_inventory_interaction_component.gd" id="21_3pviu"]
+[ext_resource type="PackedScene" uid="uid://d20ykf7fp5pcs" path="res://buildings/shopping_point.tscn" id="22_ab71g"]
+[ext_resource type="PackedScene" uid="uid://dqle1skanwepp" path="res://worlds/worldcomponents/land/soil_untilling_component.tscn" id="22_ka52a"]
+[ext_resource type="PackedScene" uid="uid://dgw5fy3lir1rl" path="res://worlds/worldcomponents/land/soil_handling_component.tscn" id="23_s660d"]
 
-[sub_resource type="Gradient" id="Gradient_50ilp"]
+[sub_resource type="Gradient" id="Gradient_76coa"]
 offsets = PackedFloat32Array(0, 0.2, 0.5, 0.9, 0.99753696)
 colors = PackedColorArray(0.28235295, 0.15294118, 0.6313726, 1, 0.19607843, 0.15294118, 0.58431375, 1, 0.8666667, 0.627451, 0.34901962, 1, 0.7254902, 0.8392157, 0.6509804, 1, 0.6460658, 0.889722, 0.9875197, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ab71g"]
-gradient = SubResource("Gradient_50ilp")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ka52a"]
+gradient = SubResource("Gradient_76coa")
 
-[sub_resource type="Gradient" id="Gradient_ywq83"]
-offsets = PackedFloat32Array(0, 0.2, 0.5, 0.9, 0.99753696)
-colors = PackedColorArray(0.28235295, 0.15294118, 0.6313726, 1, 0.19607843, 0.15294118, 0.58431375, 1, 0.8666667, 0.627451, 0.34901962, 1, 0.7254902, 0.8392157, 0.6509804, 1, 0.6460658, 0.889722, 0.9875197, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s660d"]
+gradient = SubResource("Gradient_76coa")
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3pviu"]
-gradient = SubResource("Gradient_ywq83")
-
-[sub_resource type="Gradient" id="Gradient_lpv2d"]
-offsets = PackedFloat32Array(0, 0.2, 0.5, 0.9, 0.99753696)
-colors = PackedColorArray(0.28235295, 0.15294118, 0.6313726, 1, 0.19607843, 0.15294118, 0.58431375, 1, 0.8666667, 0.627451, 0.34901962, 1, 0.7254902, 0.8392157, 0.6509804, 1, 0.6460658, 0.889722, 0.9875197, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_87bjb"]
-gradient = SubResource("Gradient_lpv2d")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yb8fl"]
+gradient = SubResource("Gradient_76coa")
 
 [node name="Root" type="Node2D" unique_id=1325143091]
 y_sort_enabled = true
@@ -67,10 +69,21 @@ y_sort_enabled = true
 [node name="Buildings" type="Node2D" parent="World Map" unique_id=1397609085]
 y_sort_enabled = true
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1874955413]
+[node name="ShopPoint" parent="World Map/Buildings" unique_id=2141773489 node_paths=PackedStringArray("interface") instance=ExtResource("22_ab71g")]
+position = Vector2(283, 109)
+interface = NodePath("../../../InterfaceUI/ShoppingInterface")
+starting_inventory = Dictionary[String, int]({
+"wheat_seed": 1
+})
+starting_inventory_order = Array[String](["wheat_seed"])
+
+[node name="PersistSaveComponent" parent="World Map/Buildings/ShopPoint" unique_id=116044357 instance=ExtResource("3_3pviu")]
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=1020443005]
+visible = false
 script = ExtResource("3_ab71g")
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI" unique_id=479772887]
+[node name="MarginContainer2" type="MarginContainer" parent="GameUI" unique_id=479772887]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,12 +92,32 @@ grow_vertical = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="GameInfoInterface" parent="UI/MarginContainer2" unique_id=1351549965 instance=ExtResource("3_ywq83")]
-visible = false
+[node name="GameInfoInterface" parent="GameUI/MarginContainer2" unique_id=1351549965 instance=ExtResource("3_ywq83")]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="InventoryInterface" parent="UI" unique_id=642928065 node_paths=PackedStringArray("hotbar_interface") instance=ExtResource("4_ywq83")]
+[node name="CropDisplayComponent" parent="GameUI" unique_id=666532382 node_paths=PackedStringArray("crop_fields", "display", "clickable_tilemap_layer") instance=ExtResource("11_s660d")]
+script = ExtResource("12_yb8fl")
+crop_fields = NodePath("../../World Map/CropFields")
+display = NodePath("CropDisplayInterface")
+clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+
+[node name="CropDisplayInterface" parent="GameUI/CropDisplayComponent" unique_id=690390973 instance=ExtResource("13_benk0")]
+z_index = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="InterfaceUI" type="CanvasLayer" parent="." unique_id=1874955413]
+visible = false
+script = ExtResource("4_3nx2y")
+
+[node name="InventoryInterface" parent="InterfaceUI" unique_id=642928065 node_paths=PackedStringArray("hotbar_interface") instance=ExtResource("4_ywq83")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,7 +134,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 hotbar_interface = NodePath("../MarginContainer3/HotbarInterface")
 
-[node name="MarginContainer3" type="MarginContainer" parent="UI" unique_id=1932205150]
+[node name="MarginContainer3" type="MarginContainer" parent="InterfaceUI" unique_id=1932205150]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -116,78 +149,118 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_bottom = 8
 
-[node name="HotbarInterface" parent="UI/MarginContainer3" unique_id=1811628432 instance=ExtResource("7_ab71g")]
-visible = false
+[node name="HotbarInterface" parent="InterfaceUI/MarginContainer3" unique_id=1811628432 instance=ExtResource("7_ab71g")]
 layout_mode = 2
+
+[node name="ShoppingInterface" parent="InterfaceUI" unique_id=688741957 node_paths=PackedStringArray("associated_building") instance=ExtResource("6_50ilp")]
+visible = false
+associated_building = NodePath("../../World Map/Buildings/ShopPoint")
+
+[node name="MenuTabs" type="Control" parent="." unique_id=967037391]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 8.0
+
+[node name="InventoryTab" type="CanvasLayer" parent="MenuTabs" unique_id=1920201188]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuTabs/InventoryTab" unique_id=1232914694]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("12_lpv2d")
+theme_type_variation = &"DisplayPanel"
+
+[node name="InterfaceInteractionTab" type="CanvasLayer" parent="MenuTabs" unique_id=842521555]
+visible = false
+
+[node name="FillerTab" type="CanvasLayer" parent="MenuTabs" unique_id=468345013]
+visible = false
 
 [node name="WorldComponents" type="Node" parent="." unique_id=1165545554]
 
-[node name="CropHarvestComponent" parent="WorldComponents" unique_id=1042068280 node_paths=PackedStringArray("crop_fields", "clickable_tilemap_layer") instance=ExtResource("7_87bjb")]
-visible = false
-crop_fields = NodePath("../../World Map/CropFields")
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+[node name="MenuManager" parent="WorldComponents" unique_id=347259592 node_paths=PackedStringArray("game_ui", "menu_tabs") instance=ExtResource("10_ywq83")]
+game_ui = NodePath("../../GameUI")
+tab_order = Array[String](["inventory", "interface_interaction", "filler"])
+menu_tabs = {
+"filler": NodePath("../../MenuTabs/FillerTab"),
+"interface_interaction": NodePath("../../MenuTabs/InterfaceInteractionTab"),
+"inventory": NodePath("../../MenuTabs/InventoryTab")
+}
 
-[node name="CropPlantingComponent" parent="WorldComponents" unique_id=1666948399 node_paths=PackedStringArray("crop_fields", "clickable_tilemap_layer") instance=ExtResource("8_3nx2y")]
-visible = false
-crop_fields = NodePath("../../World Map/CropFields")
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
+[node name="CropComponents" type="Node" parent="WorldComponents" unique_id=1670167373]
 
-[node name="LandTillingComponent" parent="WorldComponents" unique_id=813751801 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "clickable_tilemap_layer") instance=ExtResource("9_mcc82")]
-visible = false
-tilled_soil_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+[node name="CropHarvestComponent" parent="WorldComponents/CropComponents" unique_id=1042068280 node_paths=PackedStringArray("crop_fields", "clickable_tilemap_layer") instance=ExtResource("7_87bjb")]
+crop_fields = NodePath("../../../World Map/CropFields")
+clickable_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
 
-[node name="SelectedTileComponent" parent="WorldComponents" unique_id=929923616 node_paths=PackedStringArray("player", "tilemap_layer") instance=ExtResource("10_ka52a")]
+[node name="CropPlantingComponent" parent="WorldComponents/CropComponents" unique_id=1666948399 node_paths=PackedStringArray("crop_fields", "effected_tilemap_layer") instance=ExtResource("8_3nx2y")]
+crop_fields = NodePath("../../../World Map/CropFields")
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+
+[node name="CropWateringComponent" parent="WorldComponents/CropComponents" unique_id=369769255 node_paths=PackedStringArray("watered_soil_component", "effected_tilemap_layer") instance=ExtResource("14_gco5w")]
+watered_soil_component = NodePath("../../LandComponents/WateredSoilComponent")
+watering_animation_time = 1.0
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+
+[node name="CropRemovalComponent" parent="WorldComponents/CropComponents" unique_id=1917460879 node_paths=PackedStringArray("crop_fields", "effected_tilemap_layer") instance=ExtResource("17_87bjb")]
+crop_fields = NodePath("../../../World Map/CropFields")
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+
+[node name="LandComponents" type="Node" parent="WorldComponents" unique_id=351719506]
+
+[node name="GrassHandlingComponent" parent="WorldComponents/LandComponents" unique_id=1887614850 node_paths=PackedStringArray("grass_tilemap_layer") instance=ExtResource("19_50ilp")]
+grass_tilemap_layer = NodePath("../../../World Map/Tilemap/Grass")
+
+[node name="WateredSoilComponent" parent="WorldComponents/LandComponents" unique_id=1803548869 node_paths=PackedStringArray("watered_soil_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("15_vbjtl")]
+watered_soil_tilemap_layer = NodePath("../../../World Map/Tilemap/WateredSoil")
+tilled_soil_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+
+[node name="LandTillingComponent" parent="WorldComponents/LandComponents" unique_id=813751801 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "effected_tilemap_layer") instance=ExtResource("9_mcc82")]
+tilled_soil_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Grass")
+
+[node name="SoilUntillingComponent" parent="WorldComponents/LandComponents" unique_id=1504621414 node_paths=PackedStringArray("tilled_soil_tilemap_layer", "effected_tilemap_layer") instance=ExtResource("22_ka52a")]
+tilled_soil_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Grass")
+
+[node name="SoilHandlingComponent" parent="WorldComponents/LandComponents" unique_id=626238587 node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("23_s660d")]
+tilled_soil_tilemap_layer = NodePath("../../../World Map/Tilemap/Soil")
+
+[node name="InterfaceComponents" type="Node" parent="WorldComponents" unique_id=1927681753]
+
+[node name="SellPointInventoryInteractionComponent" parent="WorldComponents/InterfaceComponents" unique_id=1398001794 node_paths=PackedStringArray("inventory_interface", "hotbar_interface") groups=["sellpointinventoryinteractioncomponent"] instance=ExtResource("17_3jgal")]
+inventory_interface = NodePath("../../../InterfaceUI/InventoryInterface")
+hotbar_interface = NodePath("../../../InterfaceUI/MarginContainer3/HotbarInterface")
+
+[node name="StorageInventoryInteractionComponent" parent="WorldComponents/InterfaceComponents" unique_id=1589574802 node_paths=PackedStringArray("inventory_interface", "hotbar_interface") groups=["storageinventoryinteractioncomponent"] instance=ExtResource("16_jfjbo")]
+inventory_interface = NodePath("../../../InterfaceUI/InventoryInterface")
+hotbar_interface = NodePath("../../../InterfaceUI/MarginContainer3/HotbarInterface")
+
+[node name="HotbarInventoryInteractionComponent" type="Node" parent="WorldComponents/InterfaceComponents" unique_id=1723010000 node_paths=PackedStringArray("inventory_interface", "hotbar_interface") groups=["hotbarinventoryinteractioncomponent"]]
+script = ExtResource("21_3pviu")
+inventory_interface = NodePath("../../../InterfaceUI/InventoryInterface")
+hotbar_interface = NodePath("../../../InterfaceUI/MarginContainer3/HotbarInterface")
+metadata/_custom_type_script = "uid://4pet3uelngt2"
+
+[node name="BuildingComponents" type="Node" parent="WorldComponents" unique_id=1957482761]
+
+[node name="BuildingPlacingComponent" parent="WorldComponents/BuildingComponents" unique_id=1926762490 node_paths=PackedStringArray("buildings", "ui", "effected_tilemap_layer") instance=ExtResource("20_ywq83")]
+buildings = NodePath("../../../World Map/Buildings")
+ui = NodePath("../../../InterfaceUI")
+effected_tilemap_layer = NodePath("../../../World Map/Tilemap/Grass")
+
+[node name="Player" parent="." unique_id=1935320690 node_paths=PackedStringArray("slow_move_tilemap_layers") instance=ExtResource("19_qe57y")]
+position = Vector2(184, 96)
+slow_move_tilemap_layers = [NodePath("../World Map/Tilemap/Soil")]
+
+[node name="SelectedTileDisplay" parent="." unique_id=929923616 node_paths=PackedStringArray("player", "tilemap_layer") instance=ExtResource("10_ka52a")]
 visible = false
 modulate = Color(1, 1, 1, 0.39215687)
 z_index = -1
-player = NodePath("../../Player")
-tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
+player = NodePath("../Player")
+tilemap_layer = NodePath("../World Map/Tilemap/Grass")
 
-[node name="CropDisplayComponent" parent="WorldComponents" unique_id=666532382 node_paths=PackedStringArray("crop_fields", "display", "clickable_tilemap_layer") instance=ExtResource("11_s660d")]
-visible = false
-script = ExtResource("12_yb8fl")
-crop_fields = NodePath("../../World Map/CropFields")
-display = NodePath("../CropDisplayInterface")
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
-
-[node name="CropDisplayInterface" parent="WorldComponents" unique_id=690390973 instance=ExtResource("13_benk0")]
-visible = false
-z_index = 1
-
-[node name="CropWateringComponent" parent="WorldComponents" unique_id=369769255 node_paths=PackedStringArray("watered_soil_component", "clickable_tilemap_layer") instance=ExtResource("14_gco5w")]
-visible = false
-watered_soil_component = NodePath("../WateredSoilComponent")
-watering_animation_time = 1.0
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
-
-[node name="WateredSoilComponent" parent="WorldComponents" unique_id=1803548869 node_paths=PackedStringArray("watered_soil_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("15_vbjtl")]
-visible = false
-watered_soil_tilemap_layer = NodePath("../../World Map/Tilemap/WateredSoil")
-tilled_soil_tilemap_layer = NodePath("../../World Map/Tilemap/Soil")
-
-[node name="StorageInventoryInteractionComponent" parent="WorldComponents" unique_id=1589574802 node_paths=PackedStringArray("inventory_interface") groups=["storageinventoryinteractioncomponent"] instance=ExtResource("16_jfjbo")]
-visible = false
-inventory_interface = NodePath("../../UI/InventoryInterface")
-
-[node name="SellPointInventoryInteractionComponent" parent="WorldComponents" unique_id=1398001794 node_paths=PackedStringArray("inventory_interface") groups=["sellpointinventoryinteractioncomponent"] instance=ExtResource("17_3jgal")]
-visible = false
-inventory_interface = NodePath("../../UI/InventoryInterface")
-
-[node name="DayNightComponent" parent="WorldComponents" unique_id=1577317201 instance=ExtResource("18_vutw8")]
-summer_gradient = SubResource("GradientTexture1D_ab71g")
-autumn_gradient = SubResource("GradientTexture1D_3pviu")
-winter_gradient = SubResource("GradientTexture1D_87bjb")
-
-[node name="BuildingPlacingComponent" parent="WorldComponents" unique_id=1926762490 node_paths=PackedStringArray("buildings", "ui", "clickable_tilemap_layer") instance=ExtResource("20_ywq83")]
-visible = false
-buildings = NodePath("../../World Map/Buildings")
-ui = NodePath("../../UI")
-clickable_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
-
-[node name="GrassStorageComponent" parent="WorldComponents" unique_id=1887614850 node_paths=PackedStringArray("grass_tilemap_layer") instance=ExtResource("19_50ilp")]
-visible = false
-grass_tilemap_layer = NodePath("../../World Map/Tilemap/Grass")
-
-[node name="Player" parent="." unique_id=1935320690 instance=ExtResource("19_qe57y")]
-position = Vector2(184, 96)
+[node name="DayNightOverlay" parent="." unique_id=1577317201 instance=ExtResource("18_vutw8")]
+summer_gradient = SubResource("GradientTexture1D_ka52a")
+autumn_gradient = SubResource("GradientTexture1D_s660d")
+winter_gradient = SubResource("GradientTexture1D_yb8fl")

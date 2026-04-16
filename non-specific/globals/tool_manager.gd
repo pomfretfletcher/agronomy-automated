@@ -6,6 +6,7 @@ var selected_building: String
 var selected_resource: String
 var selected_seed_crop_scene
 
+
 func GetSaveData() -> Dictionary:
 	var save_data = {
 		"selected_equipment": selected_equipment,
@@ -14,6 +15,7 @@ func GetSaveData() -> Dictionary:
 		"selected_building": selected_building,
 	}
 	return save_data
+
 
 func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 	var applied = ["selected_equipment", "selected_seed", "selected_resource", "selected_building"]	
@@ -25,7 +27,8 @@ func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 		selected_seed_crop_scene = Database.GetCropScene(selected_seed)
 	if loaded_save_data.has("selected_resource"): selected_resource = loaded_save_data["selected_resource"]
 	if loaded_save_data.has("selected_building"): selected_building = loaded_save_data["selected_building"]
-	
+
+
 func EquipTool(tool: String) -> void:
 	UnequipAllTools()
 	
@@ -43,7 +46,8 @@ func EquipTool(tool: String) -> void:
 		
 	elif Database.database[tool].item_type == DataTypes.ItemTypes.BUILDING:
 		selected_building = tool
-		
+
+
 func UnequipAllTools() -> void:
 	selected_equipment = DataTypes.Equipments.NONE
 	selected_seed = DataTypes.Seeds.NONE

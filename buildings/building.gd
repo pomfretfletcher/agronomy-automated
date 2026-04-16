@@ -6,16 +6,27 @@ extends Node2D
 var inventory_interaction_component: InventoryInteractionComponent
 var tilemap_cell_position: Vector2i
 var being_interacted_with: bool = false
+@export var starting_inventory: Dictionary[String, int]
+@export var starting_inventory_order: Array[String]
 
-func interact_with() -> void:
+
+# Function Information
+# Use - Building Interaction
+# Does - Sets up interface and variables for the player to be able to interact with this building
+func InteractWith() -> void:
 	if not being_interacted_with:
 		inventory_interaction_component.OpenInterfaces(interface)
 		being_interacted_with = true
-	
-func uninteract_with() -> void:
+
+
+# Function Information
+# Use - Building Interaction
+# Does - Hides interface and reverts variables used for interaction
+func UninteractWith() -> void:
 	if being_interacted_with:
 		inventory_interaction_component.CloseInterfaces()
 		being_interacted_with = false
+
 
 func GetSaveData() -> Dictionary:
 	var save_data = {
@@ -28,6 +39,7 @@ func GetSaveData() -> Dictionary:
 		"internal_name": internal_name,
 	}
 	return save_data
+
 
 func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 	var applied = ["tilemap_cell_position_x", "tilemap_cell_position_y", "global_position_x", "global_position_y", "current_contents", "current_slots"]	
@@ -42,7 +54,8 @@ func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 			slotcomp.current_contents[key] = loaded_dict[key]
 	if loaded_save_data.has("current_slots"):
 		call_deferred("SetupLoadedSlots", loaded_save_data)
-	
+
+
 func SetupLoadedSlots(loaded_save_data: Dictionary) -> void:
 	var reference_array = loaded_save_data["current_slots"]
 	if gdExtensions.IsArray2D(reference_array):

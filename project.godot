@@ -22,18 +22,17 @@ config/icon="res://art/assets/icon.svg"
 
 TimeManager="*uid://buvio6optjawr"
 InventoryManager="*uid://df5f5t00515jk"
-Constants="*uid://cgk00rffoajuq"
-DataTypes="*uid://00vj72dcbc85"
 ToolManager="*uid://dbv5cngb7w63v"
-ReusedPackedSceneDictionary="*uid://b47xgpv03uw4k"
-WorldComponentData="*uid://4eyj0m5kx8mq"
-GlobalData="*uid://dvtfx77i7wqvm"
-CurrencyManager="*uid://ddc7djq66sa2n"
 SeasonManager="*uid://bubk8o4coy326"
+CurrencyManager="*uid://ddc7djq66sa2n"
 SaveLoadManager="*uid://dhkmbi26p1bgv"
 GameChecker="*uid://q4m5ayyw6bla"
+WorldComponentData="*uid://4eyj0m5kx8mq"
+GlobalData="*uid://dvtfx77i7wqvm"
+Constants="*uid://cgk00rffoajuq"
+DataTypes="*uid://00vj72dcbc85"
 Database="*uid://bschm8i1ni3d2"
-Statuses="*uid://1kn4jw15rp71"
+ReusedPackedSceneDictionary="*uid://b47xgpv03uw4k"
 
 [display]
 
@@ -52,9 +51,9 @@ folder_colors={
 "res://buildings/": "orange",
 "res://characters/": "yellow",
 "res://crops/": "green",
-"res://game-ui/": "teal",
 "res://non-code-or-art/": "blue",
 "res://non-specific/": "purple",
+"res://ui/": "teal",
 "res://worlds/": "pink"
 }
 
@@ -64,6 +63,7 @@ player=""
 storageinventoryinteractioncomponent=""
 sellpointinventoryinteractioncomponent=""
 has_save_data=""
+hotbarinventoryinteractioncomponent=""
 
 [input]
 
@@ -121,11 +121,6 @@ previous_item_in_slot={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-use_equipment={
-"deadzone": 0.2,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
-]
-}
 untill_soil={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
@@ -151,7 +146,7 @@ alternate_crop_info={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":86,"key_label":0,"unicode":118,"location":0,"echo":false,"script":null)
 ]
 }
-interact={
+interact_with_building={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
 ]
@@ -159,6 +154,11 @@ interact={
 open_and_close_inventory={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
+]
+}
+use_equipment={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 test_save={
@@ -174,6 +174,21 @@ test_load={
 place_building={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+next_menu_tab={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194433,"key_label":0,"unicode":42,"location":0,"echo":false,"script":null)
+]
+}
+previous_menu_tab={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194434,"key_label":0,"unicode":47,"location":0,"echo":false,"script":null)
+]
+}
+menu={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

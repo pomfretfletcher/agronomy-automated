@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b02uuys7cyoed"]
+
+[ext_resource type="Script" uid="uid://dyg0jceobfs6u" path="res://worlds/worldcomponents/crops/crop_removal_component.gd" id="1_7v3x2"]
+
+[node name="CropRemovalComponent" type="Node" unique_id=1917460879]
+script = ExtResource("1_7v3x2")

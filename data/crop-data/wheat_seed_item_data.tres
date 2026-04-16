@@ -13,6 +13,7 @@ seed_enum = 1
 crop_name = "wheat_crop"
 item_type = 3
 base_sell_price = 1
+base_purchase_price = 5
 texture = SubResource("AtlasTexture_7eudm")
 internal_name = "wheat_seed"
 display_name = "Wheat Seed"

@@ -7,11 +7,11 @@ var not_saveable: bool = true
 
 var item_framework: PackedScene
 
+
 # Function Information
 # Use - Error Checking
 # Does - Stops game if error occured in dictionary [If empty], then gets some of the most used frameworks into
 #		more accessible variables
-# Debug - N/A
 func _ready() -> void:
 	# Used to prevent errors in packedscenes getting unlinked when folder
 	# system is changed
@@ -20,6 +20,7 @@ func _ready() -> void:
 		print(packed_scene_dictionary.keys())
 		return
 	AssembleDefaultFrameworks()
+
 
 func AssembleDefaultFrameworks() -> void:
 	item_framework = packed_scene_dictionary.get("item_framework")

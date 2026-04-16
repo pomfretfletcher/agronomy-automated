@@ -1,5 +1,7 @@
+## A slot used in the creation and use of a storage building's interface.
 class_name StorageSlot
 extends InterfaceSlot
+
 
 # Function Information
 # Use - Interface Use, Item Shopping
@@ -10,10 +12,10 @@ func AssignAmountLabel() -> void:
 	amount = slot_item_assignment_component.current_contents.get(item_name)
 	super()
 
+
 # Function Information
 # Use - Interface Use, Item Shopping
 # Does - Handles dragging around item stacks inside own interface or emits signal with data
-# Debug - N/A
 func _drop_data(_at_position, data):
 	var from_slot = data["from"] as InterfaceSlot
 	var dragged_item = data["item"] as String

@@ -20,10 +20,10 @@ signal day_passed_with_parameters(day: int)
 signal minute_passed
 signal day_passed
 
+
 # Function Information
 # Use - Game Time
 # Does - Set initial value of time for a translated starting time, then decides how long years will be
-# Debug - N/A
 func _ready() -> void:
 	call_deferred("DecideYearLength")
 	if starting_minute != 0:
@@ -33,27 +33,27 @@ func _ready() -> void:
 	today_time = total_game_time
 	current_day = starting_day
 
+
 # Function Information
 # Use - Game Time
 # Does - Calculates how long year will last
-# Debug - N/A
 func DecideYearLength():
 	year_length = SeasonManager.season_length * len(DataTypes.Seasons.keys())
+
 
 # Function Information
 # Use - Game Time
 # Does - Tick time each frame based on time between frames and game speed
-# Debug - N/A
 func _process(delta: float) -> void:
 	total_game_time += delta * game_speed * Constants.GAME_MINUTE_DURATION
 	today_time += delta * game_speed * Constants.GAME_MINUTE_DURATION
 	CalculateTime()
 
+
 # Function Information
 # Use - Game Time
-# Does - Find the exact day, minute and hour that have passed total in game, then the minute and hour on today.
-#		Then emit signals once thresholds of hours, minutes and days are passed
-# Debug - N/A
+# Does - Find the exact day, minute and hour that have passed total in game, then the minute and 
+#		hour on today. then emit signals once thresholds of hours, minutes and days are passed
 func CalculateTime() -> void:
 	var today_minutes: int = int(today_time / float(Constants.GAME_MINUTE_DURATION))
 	#var today_hours: int = int(today_minutes / float(Constants.MINUTES_PER_HOUR))
@@ -86,6 +86,7 @@ func CalculateTime() -> void:
 		day_passed.emit()
 		day_passed_with_parameters.emit(day)
 
+
 func GetSaveData() -> Dictionary:
 	var save_data = {
 		"total_game_time": total_game_time,
@@ -96,6 +97,7 @@ func GetSaveData() -> Dictionary:
 		"current_minute": current_minute
 	}
 	return save_data
+
 
 func ApplyLoadedData(loaded_save_data: Dictionary) -> void:
 	var applied = ["total_game_time", "today_time", "current_year", "current_day", "current_day_this_year", "current_minute"]	

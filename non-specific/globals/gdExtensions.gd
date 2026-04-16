@@ -3,6 +3,7 @@ extends Node
 
 var not_saveable: bool = true
 
+
 static func GetParentByType(parent_type: String, searching_node: Node) -> Node:
 	var parent = searching_node.get_parent()
 	if parent != null:
@@ -12,11 +13,13 @@ static func GetParentByType(parent_type: String, searching_node: Node) -> Node:
 			return GetParentByType(parent_type, parent)
 	return null
 
+
 static func GetImmediateChildOfType(child_type: String, searching_node: Node) -> Node:
 	for child in searching_node.get_children():
 		if child.get_script() and String(child.get_script().get_global_name()) == child_type:
 			return child
 	return null
+
 
 static func StringArrayToVector2iArray(given_array: Array) -> Array[Vector2i]:
 	var result: Array[Vector2i]
@@ -27,8 +30,10 @@ static func StringArrayToVector2iArray(given_array: Array) -> Array[Vector2i]:
 		result.append(to_append)
 	return result
 
+
 static func ClearTileMapLayer(tilemap_layer: TileMapLayer) -> void:
 	tilemap_layer.set_cells_terrain_connect(tilemap_layer.get_used_cells(), 0, -1, true)
+
 
 static func CheckExportVariablesAssigned(node: Node) -> void:
 	if node.get_script() == null:
@@ -48,6 +53,7 @@ static func CheckExportVariablesAssigned(node: Node) -> void:
 				print("Variable " + str(variable) + " not properly assigned.")
 				return
 
+
 static func CheckPackedScenes(node: Node) -> void:
 	if node.get_script() == null:
 		return
@@ -56,22 +62,27 @@ static func CheckPackedScenes(node: Node) -> void:
 		var value = node.get(variable.name)
 		if value is PackedScene and !value.can_instantiate():
 			print("Packed scene " + str(variable) + " cannot instantiate.")
-				
+			return
+
+
 static func AccessAllChildrenRecursive(node: Node, node_list: Array[Node]) -> void:
 	node_list.append(node)
 	for child in node.get_children():
 		if child is Node:
 			AccessAllChildrenRecursive(child, node_list)
 
+
 static func IsArray2D(array: Array) -> bool:
 	if array[0] is Array:
 		return true
 	return false
 
+
 static func IsArray1D(array: Array) -> bool:
 	if array[0] is Array:
 		return false
 	return true
+
 
 static func GetChildByName(parent: Node, child_name: String) -> Node:
 	var result: Node

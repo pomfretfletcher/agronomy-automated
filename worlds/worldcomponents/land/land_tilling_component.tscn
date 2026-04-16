@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://70fowkdvyd5r"]
+
+[ext_resource type="Script" uid="uid://5mmedkhdswrb" path="res://worlds/worldcomponents/land/land_tilling_component.gd" id="1_ejeld"]
+
+[node name="LandTillingComponent" type="Node" unique_id=559273408]
+script = ExtResource("1_ejeld")

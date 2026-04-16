@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cppb78cn1m2gw"]
+
+[ext_resource type="Script" uid="uid://cj52euqukabvb" path="res://buildings/interfaces/slot-item-assignment/slot_item_assignment_component.gd" id="1_m44rl"]
+
+[node name="SlotItemAssignmentComponent" type="Node" unique_id=1074734077 node_paths=PackedStringArray("interface")]
+script = ExtResource("1_m44rl")
+interface = NodePath("")
+metadata/_custom_type_script = "uid://cj52euqukabvb"

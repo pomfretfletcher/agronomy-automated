@@ -5,6 +5,7 @@ extends Area2D
 
 signal hurt
 
+
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitComponent:
 		var hit_component = area as HitComponent

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6dtymb87pmpq"]
+
+[ext_resource type="Script" uid="uid://b86yo8ouskej" path="res://non-specific/globals/menu_manager.gd" id="1_ntda8"]
+
+[node name="MenuManager" type="Node" unique_id=347259592]
+script = ExtResource("1_ntda8")

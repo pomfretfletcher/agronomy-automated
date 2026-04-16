@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c3h7ddt0xg5l0" path="res://buildings/storage_building.gd" id="1_ls5c6"]
 [ext_resource type="Texture2D" uid="uid://c485tp1bsg8f8" path="res://art/assets/placeholder/objects/crate_sprite.png" id="1_yourn"]
 [ext_resource type="PackedScene" uid="uid://bff771bj6gu80" path="res://buildings/interaction_range_component.tscn" id="3_xu5n6"]
-[ext_resource type="Script" uid="uid://caqwgqqw516uj" path="res://buildings/open_close_interaction_range_component.gd" id="4_m8sg4"]
 [ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="5_1roxs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ls5c6"]
@@ -32,11 +31,9 @@ physics_material_override = SubResource("PhysicsMaterial_ls5c6")
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_yourn")
 
-[node name="InteractionRangeComponent" parent="." unique_id=1023982529 node_paths=PackedStringArray("using_node") instance=ExtResource("3_xu5n6")]
+[node name="InteractionRangeComponent" parent="." unique_id=1023982529 instance=ExtResource("3_xu5n6")]
 collision_layer = 64
 collision_mask = 4
-script = ExtResource("4_m8sg4")
-using_node = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRangeComponent" unique_id=155612327]
 position = Vector2(0, -7)

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dxjtjpgwnrale"]
-
-[ext_resource type="Script" uid="uid://c02en7yx47v5k" path="res://game-ui/inventory/inventory_slot_item_assignment_component.gd" id="1_rmoga"]
-
-[node name="InventorySlotItemAssignmentComponent" type="Control" unique_id=550056062]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_rmoga")

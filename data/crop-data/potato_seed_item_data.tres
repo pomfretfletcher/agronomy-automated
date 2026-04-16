@@ -13,6 +13,7 @@ seed_enum = 2
 crop_name = "potato_crop"
 item_type = 3
 base_sell_price = 1
+base_purchase_price = 6
 texture = SubResource("AtlasTexture_vpjco")
 internal_name = "potato_seed"
 display_name = "Potato Seed"

@@ -4,15 +4,16 @@ extends TileComponent
 @export var buildings: Node2D
 @export var ui: CanvasLayer
 
+
 # Function Information
 # Use - Building Placing
-# Does - If under correct situation, place building in front of player
-# Debug - N/A
+# Does - Allows player to place a building object in front of them
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("place_building"):
 		if ToolManager.selected_building != "":
 			GetCellInFrontOfPlayer()
 			PlaceBuilding()
+
 
 func PlaceBuilding() -> void:
 	if ToolManager.selected_building == "":
@@ -32,6 +33,7 @@ func PlaceBuilding() -> void:
 		building.interface = interface
 		interface.associated_building = building
 		interface.hide()
+
 
 func CanBuild() -> bool:
 	return cell_position not in WorldComponentData.built_tiles.keys() and player.can_build

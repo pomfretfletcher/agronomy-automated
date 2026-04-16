@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drv6vrbsrmsuc"]
+
+[ext_resource type="Script" uid="uid://c181qaepdww5w" path="res://worlds/worldcomponents/land/grass_handling_component.gd" id="1_ao6ft"]
+
+[node name="GrassHandlingComponent" type="Node" unique_id=1403785804]
+script = ExtResource("1_ao6ft")

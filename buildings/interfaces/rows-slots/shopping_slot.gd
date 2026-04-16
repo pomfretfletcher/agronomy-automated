@@ -1,5 +1,7 @@
-class_name ShopSlot
+## A slot used in the creation and use of a shopping building's interface.
+class_name ShoppingSlot
 extends InterfaceSlot
+
 
 # Function Information
 # Use - Interface Use, Item Shopping
@@ -9,11 +11,11 @@ extends InterfaceSlot
 func AssignAmountLabel() -> void:
 	amount = slot_item_assignment_component.current_contents.get(item_name)
 	super()
-	
+
+
 # Function Information
 # Use - Interface Use, Item Shopping
 # Does - Emits signal that an item stack is dragged with data
-# Debug - N/A
 func _drop_data(_at_position, data) -> void:
 	var from_slot = data["from"]
 	

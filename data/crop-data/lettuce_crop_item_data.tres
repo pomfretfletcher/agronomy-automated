@@ -12,6 +12,7 @@ script = ExtResource("1_xdi8d")
 crop = "lettuce_crop"
 item_type = 5
 base_sell_price = 12
+base_purchase_price = 18
 texture = SubResource("AtlasTexture_p414c")
 internal_name = "potato_item"
 display_name = "Potato"

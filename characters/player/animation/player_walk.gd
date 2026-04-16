@@ -1,9 +1,7 @@
 extends PlayerNodeState
 
-@export var speed: int = 50
 
-@warning_ignore("unused_parameter")
-func _on_physics_process(delta : float) -> void:
+func _on_physics_process(_delta : float) -> void:
 	if !player.can_move:
 		return
 		
@@ -30,8 +28,9 @@ func _on_physics_process(delta : float) -> void:
 		player.player_move_direction = move_direction
 	
 		# Apply velocity / movement
-		player.velocity = move_direction * speed
+		player.velocity = move_direction * DecideMoveSpeed()
 		player.move_and_slide()
+
 
 func _on_next_transitions() -> void:
 	GameInputEvents.GetMoveDirection()
@@ -41,5 +40,22 @@ func _on_next_transitions() -> void:
 	
 	CheckEquipmentTransitions()
 
+
 func _on_exit() -> void:
 	animated_sprite_2d.stop()
+
+
+func DecideMoveSpeed() -> float:
+	# Default return value
+	var return_speed = player.regular_move_speed
+	
+	for tilemap in player.slow_move_tilemap_layers:
+		# Find player current position on tilemap and what tile is below them on that map
+		var cell_position = tilemap.local_to_map(player.position)
+		var cell_source_id = tilemap.get_cell_source_id(cell_position)
+		
+		# If there is a tile on the cell, set return speed to the slow move speed
+		if cell_source_id != -1:
+			return_speed = player.slow_move_speed
+		
+	return return_speed
