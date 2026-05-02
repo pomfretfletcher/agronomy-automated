@@ -1,21 +1,24 @@
 extends PanelContainer
 
+
 @export var time_label: Label
 @export var day_label: Label
 @export var year_label: Label
+@export var currency_label: Label
 
 
 # Function Information
 # Use - Game UI
 # Does - Connect signals
 func _ready() -> void:
-	TimeManager.minute_passed_with_parameters.connect(UpdateLabels)
+	TimeManager.minute_passed_with_parameters.connect(UpdateTimeSeasonLabels)
+	CurrencyManager.current_money_changed.connect(UpdateCurrencyLabel)
 
 
 # Function Information
 # Use - Game UI
 # Does - Keep labels in parity with global time, season values
-func UpdateLabels(day: int, hour: int, minute: int) -> void:
+func UpdateTimeSeasonLabels(day: int, hour: int, minute: int) -> void:
 	# Constructs time label to always have 4 digits, with 0's making up space to keep length of time label
 	time_label.text = ""
 	if len(str(hour)) == 1:
@@ -36,3 +39,7 @@ func UpdateLabels(day: int, hour: int, minute: int) -> void:
 	
 	# Sets year label to the current in game year
 	year_label.text = "Year " + str(TimeManager.current_year)
+
+
+func UpdateCurrencyLabel() -> void:
+	currency_label.text = GlobalData.currency_symbol + str(CurrencyManager.current_money)

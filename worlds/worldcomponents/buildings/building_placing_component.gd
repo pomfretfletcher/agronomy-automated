@@ -27,12 +27,13 @@ func PlaceBuilding() -> void:
 		building.tilemap_cell_position = cell_position
 		WorldComponentData.built_tiles[cell_position] = building
 		
-		var interface_data = Database.database[building_data.interface_name] as InterfaceData
-		var interface = interface_data.interface_scene.instantiate() as BuildingInterface
-		ui.add_child(interface)
-		building.interface = interface
-		interface.associated_building = building
-		interface.hide()
+		#var interface_data = Database.database[building_data.interface_name] as InterfaceData
+		"""need to add seting up an interface"""
+		#var interface = interface_data.interface_scene.instantiate() as BuildingInterface
+		#ui.add_child(interface)
+		#building.interface = interface
+		#interface.associated_building = building
+		#interface.hide()
 
 
 func CanBuild() -> bool:

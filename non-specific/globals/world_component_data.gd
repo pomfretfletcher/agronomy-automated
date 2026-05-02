@@ -10,12 +10,19 @@ var grass_component: GrassHandlingComponent
 var soil_component: SoilHandlingComponent
 var watered_soil_component: WateredSoilComponent
 
+var interface_ui: InterfaceUI
+var menu_manager: MenuManager
+var player_inventory_interface_handler: InventoryInterfaceHandler
+
 
 func _ready() -> void:
 	grass_component = get_tree().current_scene.find_child("GrassHandlingComponent", true, false)
 	soil_component = get_tree().current_scene.find_child("SoilHandlingComponent", true, false)
 	watered_soil_component = get_tree().current_scene.find_child("WateredSoilComponent", true, false)
-
+	interface_ui = get_tree().current_scene.find_child("InterfaceUI", true, false)
+	menu_manager = get_tree().current_scene.find_child("MenuManager", true, false)
+	player_inventory_interface_handler = get_tree().current_scene.find_child("InventoryInterfaceHandler", true, false)
+	
 
 func GetSaveData() -> Dictionary:
 	var planted_crops_save_form = {}

@@ -12,6 +12,7 @@ var can_use_equipment: bool = true
 var can_plant: bool = true
 var can_build: bool = true
 var has_control: bool = true
+var can_interact: bool = true
 
 var internal_name: String = "player"
 
@@ -35,6 +36,7 @@ func RemoveControl() -> void:
 	can_plant = false
 	can_build = false
 	has_control = false
+	can_interact = false
 
 
 # Function Information
@@ -46,6 +48,7 @@ func ReturnControl() -> void:
 	can_plant = true
 	can_build = true
 	has_control = true
+	can_interact = true
 
 
 func GetSaveData() -> Dictionary:
@@ -53,7 +56,6 @@ func GetSaveData() -> Dictionary:
 		"has_control": has_control,
 		"global_position_x": global_position.x,
 		"global_position_y": global_position.y,
-		"internal_name": internal_name
 	}
 	return save_data
 

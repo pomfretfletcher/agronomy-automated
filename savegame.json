@@ -1,96 +1,267 @@
 {
   "TimeManager": {
-    "total_game_time": 69.5323726376233,
-    "today_time": 0.414515697348653,
+    "total_game_time": 10.1766639117552,
+    "today_time": 3.88789936873341,
     "current_year": 1,
-    "current_day": 12,
-    "current_day_this_year": 11,
-    "current_minute": 94
+    "current_day": 2,
+    "current_day_this_year": 1,
+    "current_minute": 891
   },
   "InventoryManager": {
     "inventory": {
       "hoe": 1.0,
-      "shopping_point_item": 1.0,
+      "watering_can": 1.0,
+      "wheat_seed": 1.0,
       "potato_seed": 1.0,
-      "lettuce_seed": 1.0
+      "lettuce_seed": 5.0,
+      "shopping_point_item": 1.0,
+      "crate_item": 1.0
     }
   },
   "ToolManager": {
-    "selected_equipment": 1,
+    "selected_equipment": 0,
     "selected_seed": 0,
     "selected_resource": "",
-    "selected_building": ""
+    "selected_building": "crate_item"
   },
   "SeasonManager": {
     "current_season": 0
   },
   "CurrencyManager": {
-    "current_money": 1
+    "current_money": 0
   },
   "WorldComponentData": {
     "watered_tiles": [],
-    "tilled_tiles": ["(12, 7)"],
+    "tilled_tiles": [],
     "planted_crops": {
     },
     "grass_tiles": ["(3, 3)", "(4, 3)", "(5, 3)", "(4, 4)", "(3, 4)", "(4, 5)", "(11, 6)", "(10, 6)", "(10, 7)", "(11, 7)", "(11, 5)", "(12, 5)", "(12, 6)", "(18, 4)", "(18, 5)", "(17, 5)", "(18, 6)", "(19, 5)", "(20, 5)", "(20, 6)", "(20, 4)", "(21, 5)", "(20, 7)", "(19, 7)", "(18, 7)", "(17, 7)", "(18, 8)", "(21, 7)", "(8, 1)", "(9, 1)", "(9, 3)", "(8, 3)", "(14, 3)", "(12, 1)", "(15, 1)", "(15, 4)", "(14, 4)", "(15, 3)", "(15, 5)", "(15, 6)", "(15, 7)", "(15, 8)", "(22, 5)", "(22, 4)", "(21, 6)", "(21, 4)", "(19, 8)", "(19, 6)", "(19, 4)", "(19, 3)", "(19, 2)", "(18, 3)", "(18, 2)", "(17, 8)", "(17, 6)", "(17, 4)", "(17, 3)", "(17, 2)", "(17, 1)", "(16, 8)", "(16, 7)", "(16, 6)", "(16, 5)", "(16, 4)", "(16, 3)", "(16, 2)", "(16, 1)", "(15, 9)", "(15, 2)", "(14, 9)", "(14, 8)", "(14, 7)", "(14, 6)", "(14, 5)", "(13, 9)", "(13, 8)", "(13, 7)", "(13, 6)", "(13, 5)", "(13, 4)", "(13, 0)", "(12, 9)", "(12, 8)", "(12, 7)", "(12, 4)", "(11, 9)", "(11, 8)", "(11, 4)", "(10, 9)", "(10, 8)", "(10, 5)", "(9, 9)", "(9, 8)", "(9, 7)", "(9, 2)", "(9, 0)", "(8, 9)", "(8, 8)", "(8, 7)", "(8, 6)", "(8, 4)", "(8, 2)", "(8, 0)", "(7, 8)", "(7, 7)", "(7, 6)", "(7, 4)", "(7, 3)", "(7, 2)", "(7, 1)", "(7, 0)", "(6, 8)", "(6, 7)", "(6, 6)", "(6, 3)", "(6, 1)", "(5, 8)", "(5, 7)", "(5, 6)", "(5, 5)", "(5, 2)", "(5, 1)", "(4, 8)", "(4, 7)", "(4, 6)", "(4, 2)", "(3, 2)", "(5, 4)", "(6, 4)", "(6, 5)", "(7, 5)", "(8, 5)", "(6, 2)", "(9, 5)", "(9, 6)", "(9, 4)", "(10, 4)", "(13, 1)", "(12, 0)", "(11, 1)", "(11, 2)", "(12, 2)", "(13, 3)", "(11, 3)", "(10, 3)", "(10, 2)", "(10, 1)", "(13, 2)", "(14, 2)", "(14, 1)", "(10, 0)", "(11, 0)", "(12, 3)", "(2, 4)", "(2, 5)", "(2, 6)", "(3, 6)", "(3, 5)", "(3, 7)", "(3, 8)", "(3, 9)", "(4, 9)", "(5, 9)", "(7, 9)", "(6, 9)", "(5, 10)", "(6, 10)", "(7, 10)", "(4, 10)", "(8, 10)", "(9, 10)", "(10, 10)", "(11, 10)", "(12, 10)", "(13, 10)", "(14, 10)", "(16, 9)", "(16, 10)", "(15, 10)", "(17, 9)", "(20, 8)", "(19, 9)", "(18, 9)", "(14, 0)", "(15, 0)", "(16, 0)", "(18, 1)", "(19, 1)", "(20, 2)", "(20, 3)", "(20, 1)", "(21, 2)", "(22, 3)", "(21, 3)", "(23, 4)", "(24, 4)", "(24, 5)", "(23, 5)", "(23, 6)", "(22, 6)", "(22, 7)", "(24, 6)", "(23, 7)", "(21, 8)", "(17, 10)", "(14, 11)", "(13, 11)", "(12, 11)", "(11, 11)", "(10, 11)", "(8, 11)", "(9, 11)", "(7, 11)", "(6, 11)"],
     "built_tiles": {
-      "(13, 5)": "shopping_point"
+      "(14, 6)": "crate",
+      "(0, 0)": "shopping_point",
+      "(16, 6)": "crate"
     }
   },
   "shopping_point0": {
     "tilemap_cell_position_x": 0,
     "tilemap_cell_position_y": 0,
-    "global_position_x": 283.0,
-    "global_position_y": 109.0,
-    "current_contents": {
-      "wheat_seed": 1
-    },
-    "current_slots": [
-      ["wheat_seed", "", ""],
-      ["", "", ""]
+    "global_position_x": 134.0,
+    "global_position_y": 99.0,
+    "slot_items": [
+      [
+  ["wheat_seed", "potato_seed"],
+  ["lettuce_seed", ""],
+  ["", ""],
+  ["", ""]
+]
     ],
-    "internal_name": "shopping_point",
-    "persisting_node": true
-  },
-  "shopping_point1": {
-    "tilemap_cell_position_x": 13,
-    "tilemap_cell_position_y": 5,
-    "global_position_x": 216.0,
-    "global_position_y": 88.0,
-    "current_contents": {
-      "crate_item": 1,
-      "watering_can": 1
-    },
-    "current_slots": [
-      ["crate_item", "watering_can", ""],
-      ["", "", ""]
+    "slot_amounts": [
+      [
+  [5, 4],
+  [3, 0],
+  [0, 0],
+  [0, 0]
+]
     ],
     "internal_name": "shopping_point"
   },
-  "inventory_interface0": {
-    "current_contents": {
-      "hoe": 1,
-      "shopping_point_item": 1,
-      "potato_seed": 1,
-      "lettuce_seed": 1
-    },
-    "current_slots": [
-      ["potato_seed", "lettuce_seed", "", "", ""],
-      ["", "", "", "", ""],
-      ["", "", "", "", ""]
+  "shopping_point1": {
+    "tilemap_cell_position_x": 0,
+    "tilemap_cell_position_y": 0,
+    "global_position_x": 134.0,
+    "global_position_y": 99.0,
+    "slot_items": [
+      [
+  ["wheat_seed", "potato_seed"],
+  ["lettuce_seed", ""],
+  ["", ""],
+  ["", ""]
+]
     ],
-    "internal_name": "inventory_interface"
+    "slot_amounts": [
+      [
+  [5, 4],
+  [3, 0],
+  [0, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "shopping_point"
   },
-  "hotbar_interface0": {
-    "hotbar_slots": ["hoe", "", "shopping_point_item", "", "", "", "", "", "", ""],
-    "internal_name": "hotbar_interface",
-    "current_slot_index": 0,
-    "current_item": "hoe"
+  "shopping_point2": {
+    "tilemap_cell_position_x": 0,
+    "tilemap_cell_position_y": 0,
+    "global_position_x": 134.0,
+    "global_position_y": 99.0,
+    "slot_items": [
+      [
+  ["wheat_seed", "potato_seed"],
+  ["lettuce_seed", ""],
+  ["", ""],
+  ["", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [5, 4],
+  [3, 0],
+  [0, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "shopping_point"
+  },
+  "shopping_point3": {
+    "tilemap_cell_position_x": 0,
+    "tilemap_cell_position_y": 0,
+    "global_position_x": 134.0,
+    "global_position_y": 99.0,
+    "slot_items": [
+      [
+  ["wheat_seed", "potato_seed"],
+  ["lettuce_seed", ""],
+  ["", ""],
+  ["", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [5, 4],
+  [3, 0],
+  [0, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "shopping_point"
+  },
+  "shopping_point4": {
+    "tilemap_cell_position_x": 0,
+    "tilemap_cell_position_y": 0,
+    "global_position_x": 134.0,
+    "global_position_y": 99.0,
+    "slot_items": [
+      [
+  ["wheat_seed", "potato_seed"],
+  ["lettuce_seed", ""],
+  ["", ""],
+  ["", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [5, 4],
+  [3, 0],
+  [0, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "shopping_point"
+  },
+  "crate0": {
+    "tilemap_cell_position_x": 14,
+    "tilemap_cell_position_y": 6,
+    "global_position_x": 232.0,
+    "global_position_y": 104.0,
+    "slot_items": [
+      [
+  ["", ""],
+  ["", ""],
+  ["", ""],
+  ["lettuce_seed", ""]
+],
+      [
+  ["", ""],
+  ["", ""],
+  ["potato_seed", ""],
+  ["", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [5, 0]
+],
+      [
+  [0, 0],
+  [0, 0],
+  [1, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "crate"
+  },
+  "crate1": {
+    "tilemap_cell_position_x": 16,
+    "tilemap_cell_position_y": 6,
+    "global_position_x": 264.0,
+    "global_position_y": 104.0,
+    "slot_items": [
+      [
+  ["", ""],
+  ["", ""],
+  ["", ""],
+  ["", ""]
+],
+      [
+  ["", ""],
+  ["", ""],
+  ["", ""],
+  ["", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0]
+],
+      [
+  [0, 0],
+  [0, 0],
+  [0, 0],
+  [0, 0]
+]
+    ],
+    "internal_name": "crate"
   },
   "player0": {
     "has_control": true,
-    "global_position_x": 198.749649047852,
-    "global_position_y": 118.934539794922,
+    "global_position_x": 251.598648071289,
+    "global_position_y": 101.321624755859,
     "internal_name": "player"
+  },
+  "inventory_interface_handler0": {
+    "slot_items": [
+      [
+  ["", "", "", ""],
+  ["", "", "", ""],
+  ["", "", "", ""]
+],
+      [
+  ["", "", "", ""],
+  ["", "", "", ""],
+  ["", "", "", ""]
+]
+    ],
+    "slot_amounts": [
+      [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0]
+],
+      [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0]
+]
+    ],
+    "hotbar_items": ["hoe", "watering_can", "wheat_seed", "", "", "shopping_point_item", "crate_item", "", "", ""],
+    "hotbar_amounts": [1, 1, 1, 0, 0, 1, 1, 0, 0, 0],
+    "current_hotbar_slot_index": 6,
+    "current_hotbar_item": "crate_item",
+    "internal_name": "inventory_interface_handler"
   }
 }

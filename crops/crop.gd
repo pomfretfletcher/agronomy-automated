@@ -64,7 +64,6 @@ func GetSaveData() -> Dictionary:
 		"tilemap_cell_position_y": tilemap_cell_position.y,
 		"current_degree": crop_sway_component.current_degree,
 		"sway_direction": crop_sway_component.sway_direction,
-		"internal_name": internal_name,
 	}
 	return save_data
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://butncmqd8577l"]
+
+[ext_resource type="Script" uid="uid://bm7u334bg8c4i" path="res://non-specific/parentclasses/interface_handler.gd" id="1_w10kb"]
+
+[node name="InterfaceHandlerComponent" type="Node" unique_id=1222612748]
+script = ExtResource("1_w10kb")
+page_count = 2
+row_count = 3
+col_count = 4
+interface_internal_name = "new_interface"

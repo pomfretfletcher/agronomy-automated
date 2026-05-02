@@ -1,3 +1,4 @@
+class_name MenuManager
 extends Node
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
@@ -7,6 +8,7 @@ extends Node
 var current_tab: CanvasLayer
 var current_tab_index: int
 var is_open: bool = false
+var open_interfaces: Array[InterfaceHandler]
 
 
 # Function Information
@@ -122,6 +124,10 @@ func MoveToTabOfName(tab_name: String) -> void:
 	UpdateTabVisibility()
 
 
+func GetTabNameOfIndex(index: int) -> String:
+	return tab_order[index]
+
+
 # Function Information
 # Use - Menu Navigation
 # Does - Hides all but the current tab, makes current tab visible
@@ -133,6 +139,15 @@ func UpdateTabVisibility() -> void:
 		elif tab == current_tab:
 			tab = tab as CanvasLayer
 			tab.visible = true
+	
+	HandleTabsChanged()
+
+
+func HandleTabsChanged() -> void:
+	CloseInterfaceInteractionHandlers()
+	if GetTabNameOfIndex(current_tab_index) == "inventory":
+		WorldComponentData.player_inventory_interface_handler.OpenInterface()
+		open_interfaces.append(WorldComponentData.player_inventory_interface_handler)
 
 
 # Function Information
@@ -157,3 +172,30 @@ func CloseMenu() -> void:
 	player.ReturnControl()
 	current_tab.visible = false
 	game_ui.show()
+	CloseInterfaceInteractionHandlers()
+
+
+func OpenInterfaceInteractionTab(interface_handler: InterfaceHandler) -> void:
+	if interface_handler == null:
+		return
+	
+	OpenMenu()
+	MoveToTabOfName("interface_interaction")
+	
+	interface_handler.OpenInterface()
+	interface_handler.in_interaction = true
+	WorldComponentData.player_inventory_interface_handler.OpenInterface()
+	WorldComponentData.player_inventory_interface_handler.in_interaction = true
+	open_interfaces.append(interface_handler)
+	open_interfaces.append(WorldComponentData.player_inventory_interface_handler)
+
+
+func CloseInterfaceInteractionHandlers() -> void:
+	for interface_handler in open_interfaces:
+		interface_handler.CloseInterface()
+		interface_handler.in_interaction = false
+	
+	open_interfaces.clear()
+
+	if WorldComponentData.player_inventory_interface_handler.interface_is_open:
+		WorldComponentData.player_inventory_interface_handler.CloseInterface()

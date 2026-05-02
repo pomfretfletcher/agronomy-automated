@@ -11,6 +11,7 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_6aev3")
 equipment_enum = 3
 item_type = 2
+is_stackable = false
 texture = SubResource("AtlasTexture_6mg0p")
 internal_name = "watering_can"
 display_name = "Watering Can"

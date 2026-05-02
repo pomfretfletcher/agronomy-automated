@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c485tp1bsg8f8" path="res://art/assets/placeholder/objects/crate_sprite.png" id="1_yourn"]
 [ext_resource type="PackedScene" uid="uid://bff771bj6gu80" path="res://buildings/interaction_range_component.tscn" id="3_xu5n6"]
 [ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="5_1roxs"]
+[ext_resource type="PackedScene" uid="uid://bpeen1uafoati" path="res://buildings/interfaces/building_interface_handler.tscn" id="5_lxjk3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ls5c6"]
 
@@ -13,9 +14,10 @@ size = Vector2(14, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sg4"]
 size = Vector2(14, 26)
 
-[node name="Crate" type="Node2D" unique_id=2141773489]
+[node name="Crate" type="Node2D" unique_id=2141773489 node_paths=PackedStringArray("interface_handler")]
 script = ExtResource("1_ls5c6")
 internal_name = "crate"
+interface_handler = NodePath("BuildingInterfaceHandler")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649253566]
 position = Vector2(0, -1)
@@ -40,6 +42,10 @@ position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_m8sg4")
 
 [node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("5_1roxs")]
+
+[node name="BuildingInterfaceHandler" parent="." unique_id=1248026831 node_paths=PackedStringArray("connected_building") instance=ExtResource("5_lxjk3")]
+connected_building = NodePath("..")
+page_count = 2
 
 [connection signal="body_entered" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_exited"]

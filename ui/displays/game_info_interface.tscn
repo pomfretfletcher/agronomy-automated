@@ -22,7 +22,19 @@ font = SubResource("FontVariation_skjma")
 font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[node name="GameInfoInterface" type="PanelContainer" unique_id=1351549965 node_paths=PackedStringArray("time_label", "day_label", "year_label")]
+[sub_resource type="FontVariation" id="FontVariation_pbp55"]
+base_font = ExtResource("2_a68o5")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_bw8vq"]
+line_spacing = 0.0
+font = SubResource("FontVariation_pbp55")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameInfoInterface" type="PanelContainer" unique_id=1351549965 node_paths=PackedStringArray("time_label", "day_label", "year_label", "currency_label")]
 offset_right = 16.0
 offset_bottom = 16.0
 size_flags_horizontal = 0
@@ -33,6 +45,7 @@ script = ExtResource("2_8ayom")
 time_label = NodePath("MarginContainer/VBoxContainer/TimeLabel")
 day_label = NodePath("MarginContainer/VBoxContainer/DayLabel")
 year_label = NodePath("MarginContainer/VBoxContainer/YearLabel")
+currency_label = NodePath("MarginContainer/VBoxContainer/CurrencyLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1663169464]
 layout_mode = 2
@@ -64,4 +77,10 @@ vertical_alignment = 2
 layout_mode = 2
 text = "19:30"
 label_settings = SubResource("LabelSettings_30pnv")
+horizontal_alignment = 1
+
+[node name="CurrencyLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=9682563]
+layout_mode = 2
+text = "£0"
+label_settings = SubResource("LabelSettings_bw8vq")
 horizontal_alignment = 1

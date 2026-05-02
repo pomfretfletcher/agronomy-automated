@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PreviewCursorData" format=3 uid="uid://dloiyr4r2cj73"]
+
+[ext_resource type="Script" uid="uid://c7hoax4scbjcb" path="res://data/specific-data/preview_cursor_data.gd" id="1_627na"]
+[ext_resource type="PackedScene" uid="uid://xwsdqsg37i5i" path="res://non-specific/frameworks/preview_cursor.tscn" id="1_mq33v"]
+
+[resource]
+script = ExtResource("1_627na")
+cursor_scene = ExtResource("1_mq33v")
+internal_name = "preview_cursor"
+metadata/_custom_type_script = "uid://c7hoax4scbjcb"

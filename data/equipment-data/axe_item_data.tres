@@ -11,6 +11,7 @@ region = Rect2(32, 0, 16, 16)
 script = ExtResource("1_r68pb")
 equipment_enum = 2
 item_type = 2
+is_stackable = false
 texture = SubResource("AtlasTexture_buifm")
 internal_name = "axe"
 display_name = "Axe"

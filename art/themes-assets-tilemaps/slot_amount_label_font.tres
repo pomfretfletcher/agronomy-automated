@@ -1,16 +1,11 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://bo8wnephgr41r"]
 
-[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="1_x0mv7"]
-
-[sub_resource type="FontVariation" id="FontVariation_xoqf5"]
-base_font = ExtResource("1_x0mv7")
-spacing_glyph = -3
-spacing_bottom = 1
+[ext_resource type="FontVariation" uid="uid://c6uae8x8fe5fq" path="res://art/assets/placeholder/fonts/zx_palm_variation.tres" id="1_0wfxr"]
 
 [resource]
 line_spacing = 0.0
-font = SubResource("FontVariation_xoqf5")
-font_size = 8
+font = ExtResource("1_0wfxr")
+font_size = 6
 font_color = Color(0, 0, 0, 1)
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)

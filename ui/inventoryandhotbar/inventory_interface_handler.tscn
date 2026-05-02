@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bgsxweclb33yf"]
+
+[ext_resource type="Script" uid="uid://bta6k1bf3gio4" path="res://ui/inventoryandhotbar/inventory_interface_handler.gd" id="1_4tens"]
+[ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="2_axaii"]
+
+[node name="InventoryInterfaceHandler" type="Node" unique_id=682039014]
+script = ExtResource("1_4tens")
+metadata/_custom_type_script = "uid://bta6k1bf3gio4"
+
+[node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("2_axaii")]

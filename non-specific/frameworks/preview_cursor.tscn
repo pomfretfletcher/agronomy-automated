@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://xwsdqsg37i5i"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_1cbi2"]
+[ext_resource type="Script" uid="uid://cvl4kqasfpnrl" path="res://non-specific/frameworks/preview_cursor.gd" id="1_75kpy"]
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="2_75kpy"]
+[ext_resource type="FontVariation" uid="uid://c6uae8x8fe5fq" path="res://art/assets/placeholder/fonts/zx_palm_variation.tres" id="3_1cbi2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbupr"]
+line_spacing = 0.0
+font = ExtResource("3_1cbi2")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_664o5"]
+base_font = ExtResource("2_75kpy")
+spacing_glyph = -3
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt156"]
+line_spacing = 0.0
+font = SubResource("FontVariation_664o5")
+font_size = 6
+font_color = Color(0.8363938, 0.49665132, 0.11118583, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PreviewCursor" type="Panel" unique_id=34364472 node_paths=PackedStringArray("icon", "amount_label", "price_label")]
+z_index = 100
+custom_minimum_size = Vector2(16, 16)
+offset_right = 24.0
+offset_bottom = 24.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("1_1cbi2")
+theme_type_variation = &"BlankSlot"
+script = ExtResource("1_75kpy")
+icon = NodePath("Icon")
+amount_label = NodePath("AmountLabel")
+price_label = NodePath("PriceLabel")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=746771720]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="." unique_id=142216244]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 23.0
+offset_bottom = 24.0
+label_settings = SubResource("LabelSettings_tbupr")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="." unique_id=1750470906]
+layout_mode = 0
+offset_top = -9.0
+offset_right = 30.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_nt156")
+horizontal_alignment = 1
+vertical_alignment = 2

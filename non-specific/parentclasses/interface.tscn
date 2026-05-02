@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://g33iyfsvyeox"]
+
+[ext_resource type="Script" uid="uid://byicxmux7mcgb" path="res://non-specific/parentclasses/interface.gd" id="1_8t3h5"]
+
+[node name="Interface" type="Control" unique_id=1848577380]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_8t3h5")

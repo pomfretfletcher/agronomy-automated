@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bpeen1uafoati"]
+
+[ext_resource type="Script" uid="uid://chlhj2iqsdech" path="res://buildings/interfaces/building_interface_handler.gd" id="1_3ofws"]
+
+[node name="BuildingInterfaceHandler" type="Node" unique_id=1248026831]
+script = ExtResource("1_3ofws")
+page_count = 1
+row_count = 4
+col_count = 2
+interface_internal_name = "building_interface"
+internal_name = "building_interface_handler"
+metadata/_custom_type_script = "uid://chlhj2iqsdech"

@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://c84j2suc4mkjn" path="res://ui/game_ui.gd" id="3_ab71g"]
 [ext_resource type="PackedScene" uid="uid://dgwthxirj1gqt" path="res://ui/displays/game_info_interface.tscn" id="3_ywq83"]
 [ext_resource type="Script" uid="uid://cou6tup76wjaa" path="res://ui/interface_ui.gd" id="4_3nx2y"]
-[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://ui/inventory/inventory_interface.tscn" id="4_ywq83"]
-[ext_resource type="PackedScene" uid="uid://bt6swo7drjsxb" path="res://buildings/interfaces/shopping_interface.tscn" id="6_50ilp"]
+[ext_resource type="PackedScene" path="res://ui/inventory/inventory_interface.tscn" id="4_ywq83"]
+[ext_resource type="PackedScene" path="res://buildings/interfaces/shopping_interface.tscn" id="6_50ilp"]
 [ext_resource type="PackedScene" uid="uid://bd7eag1vi5e12" path="res://worlds/worldcomponents/crops/crop_harvest_component.tscn" id="7_87bjb"]
-[ext_resource type="PackedScene" uid="uid://dpv1sihyxtody" path="res://ui/inventory/hotbar_interface.tscn" id="7_ab71g"]
+[ext_resource type="PackedScene" path="res://ui/inventory/hotbar_interface.tscn" id="7_ab71g"]
 [ext_resource type="PackedScene" uid="uid://dlti58wru1h65" path="res://worlds/worldcomponents/crops/crop_planting_component.tscn" id="8_3nx2y"]
 [ext_resource type="PackedScene" uid="uid://70fowkdvyd5r" path="res://worlds/worldcomponents/land/land_tilling_component.tscn" id="9_mcc82"]
 [ext_resource type="PackedScene" uid="uid://16sb342i2c85" path="res://ui/displays/selected_tile_display.tscn" id="10_ka52a"]
@@ -19,17 +19,18 @@
 [ext_resource type="PackedScene" uid="uid://crxjclsabdv0t" path="res://ui/displays/crop_display_interface.tscn" id="13_benk0"]
 [ext_resource type="PackedScene" uid="uid://dagbauowqc6nc" path="res://worlds/worldcomponents/crops/crop_watering_component.tscn" id="14_gco5w"]
 [ext_resource type="PackedScene" uid="uid://crq0114n4xuqv" path="res://worlds/worldcomponents/land/watered_soil_component.tscn" id="15_vbjtl"]
-[ext_resource type="PackedScene" uid="uid://ckq7hhclkhf4a" path="res://worlds/worldcomponents/interface/storage_inventory_interaction_component.tscn" id="16_jfjbo"]
-[ext_resource type="PackedScene" uid="uid://dxsl8dngkyccf" path="res://worlds/worldcomponents/interface/shopping_point_inventory_interaction_component.tscn" id="17_3jgal"]
+[ext_resource type="PackedScene" path="res://worlds/worldcomponents/interface/storage_inventory_interaction_component.tscn" id="16_jfjbo"]
+[ext_resource type="PackedScene" path="res://worlds/worldcomponents/interface/shopping_point_inventory_interaction_component.tscn" id="17_3jgal"]
 [ext_resource type="PackedScene" uid="uid://b02uuys7cyoed" path="res://worlds/worldcomponents/crops/crop_removal_component.tscn" id="17_87bjb"]
 [ext_resource type="PackedScene" uid="uid://beuhtk26ds6ud" path="res://ui/sky/day_night_overlay.tscn" id="18_vutw8"]
 [ext_resource type="PackedScene" uid="uid://drv6vrbsrmsuc" path="res://worlds/worldcomponents/land/grass_handling_component.tscn" id="19_50ilp"]
 [ext_resource type="PackedScene" uid="uid://d011s6hh8qi6k" path="res://characters/player/player.tscn" id="19_qe57y"]
 [ext_resource type="PackedScene" uid="uid://b1vvlnvlxhb4o" path="res://worlds/worldcomponents/buildings/building_placing_component.tscn" id="20_ywq83"]
-[ext_resource type="Script" uid="uid://xeg61kg37bwq" path="res://worlds/hotbar_inventory_interaction_component.gd" id="21_3pviu"]
+[ext_resource type="Script" path="res://worlds/hotbar_inventory_interaction_component.gd" id="21_3pviu"]
 [ext_resource type="PackedScene" uid="uid://d20ykf7fp5pcs" path="res://buildings/shopping_point.tscn" id="22_ab71g"]
 [ext_resource type="PackedScene" uid="uid://dqle1skanwepp" path="res://worlds/worldcomponents/land/soil_untilling_component.tscn" id="22_ka52a"]
 [ext_resource type="PackedScene" uid="uid://dgw5fy3lir1rl" path="res://worlds/worldcomponents/land/soil_handling_component.tscn" id="23_s660d"]
+[ext_resource type="PackedScene" uid="uid://butncmqd8577l" path="res://non-specific/parentclasses/interface_handler_component.tscn" id="31_s660d"]
 
 [sub_resource type="Gradient" id="Gradient_76coa"]
 offsets = PackedFloat32Array(0, 0.2, 0.5, 0.9, 0.99753696)
@@ -259,6 +260,8 @@ modulate = Color(1, 1, 1, 0.39215687)
 z_index = -1
 player = NodePath("../Player")
 tilemap_layer = NodePath("../World Map/Tilemap/Grass")
+
+[node name="InterfaceHandlerComponent" parent="." unique_id=1222612748 instance=ExtResource("31_s660d")]
 
 [node name="DayNightOverlay" parent="." unique_id=1577317201 instance=ExtResource("18_vutw8")]
 summer_gradient = SubResource("GradientTexture1D_ka52a")

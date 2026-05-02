@@ -7,6 +7,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygtid"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tdh1k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdh1k"]
+texture = ExtResource("2_s807l")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 20, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygtid"]
 atlas = ExtResource("1_vpm02")
 
@@ -79,6 +89,10 @@ region_rect = Rect2(0, 0, 20, 20)
 [resource]
 BlankPanel/base_type = &"PanelContainer"
 BlankPanel/styles/panel = SubResource("StyleBoxEmpty_ygtid")
+BlankSlot/base_type = &"Panel"
+BlankSlot/styles/panel = SubResource("StyleBoxEmpty_tdh1k")
+CustomButton/base_type = &"Panel"
+CustomButton/styles/panel = SubResource("StyleBoxTexture_tdh1k")
 DisplayPanel/base_type = &"PanelContainer"
 DisplayPanel/styles/panel = SubResource("StyleBoxTexture_gxtyd")
 HotbarSlot/base_type = &"Panel"

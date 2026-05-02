@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="InterfaceData" format=3 uid="uid://cytw8hgymagbp"]
+[gd_resource type="Resource" script_class="InterfaceData" format=3 uid="uid://bjcrm1sgncnqc"]
 
-[ext_resource type="PackedScene" uid="uid://1r4ulhcrv3v1" path="res://ui/inventory/inventory_interface.tscn" id="1_e1u5d"]
-[ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="1_uuoq1"]
-[ext_resource type="PackedScene" uid="uid://bre3x3juy43m7" path="res://ui/inventory/inventory_row.tscn" id="2_20dx3"]
-[ext_resource type="PackedScene" uid="uid://4k7bsw42v5r0" path="res://ui/inventory/inventory_slot.tscn" id="4_85g7q"]
+[ext_resource type="PackedScene" uid="uid://g33iyfsvyeox" path="res://non-specific/parentclasses/interface.tscn" id="1_dxi65"]
+[ext_resource type="PackedScene" uid="uid://d1ttc13pqp2ji" path="res://non-specific/parentclasses/interface_page.tscn" id="2_4yobh"]
+[ext_resource type="PackedScene" uid="uid://dapg0f5r643rr" path="res://non-specific/parentclasses/interface_row.tscn" id="3_55twk"]
+[ext_resource type="Script" uid="uid://b76dbbjea0843" path="res://data/interface_data.gd" id="4_7f8cm"]
+[ext_resource type="PackedScene" uid="uid://d3xbaw5b4a1dq" path="res://non-specific/parentclasses/inventory_slot.tscn" id="5_5nt2o"]
 
 [resource]
-script = ExtResource("1_uuoq1")
-interface_scene = ExtResource("1_e1u5d")
-slot_scene = ExtResource("4_85g7q")
-row_scene = ExtResource("2_20dx3")
+script = ExtResource("4_7f8cm")
+interface_scene = ExtResource("1_dxi65")
+page_scene = ExtResource("2_4yobh")
+slot_scene = ExtResource("5_5nt2o")
+row_scene = ExtResource("3_55twk")
 internal_name = "inventory_interface"
-display_name = "Inventory Interface"
 metadata/_custom_type_script = "uid://b76dbbjea0843"

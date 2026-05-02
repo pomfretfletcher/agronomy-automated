@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bcfb20imxotdd"]
+
+[ext_resource type="Theme" uid="uid://cdfmexnbew1ku" path="res://art/themes-assets-tilemaps/placeholder_theme.tres" id="1_sr4tc"]
+[ext_resource type="Script" uid="uid://syyuhhyltvru" path="res://ui/inventoryandhotbar/hotbar_slot.gd" id="2_sr4tc"]
+[ext_resource type="FontFile" uid="uid://bn3ryvj32vtqm" path="res://art/assets/placeholder/fonts/zx_palm.ttf" id="3_ublg6"]
+
+[sub_resource type="FontVariation" id="FontVariation_xoqf5"]
+base_font = ExtResource("3_ublg6")
+spacing_glyph = -3
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_42vj4"]
+line_spacing = 0.0
+font = SubResource("FontVariation_xoqf5")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_664o5"]
+base_font = ExtResource("3_ublg6")
+spacing_glyph = -3
+spacing_bottom = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_r41af"]
+line_spacing = 0.0
+font = SubResource("FontVariation_664o5")
+font_size = 8
+font_color = Color(0.8363938, 0.49665132, 0.11118583, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HotbarSlot" type="Panel" unique_id=66218328 node_paths=PackedStringArray("slot_icon", "amount_label", "price_label")]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+theme = ExtResource("1_sr4tc")
+theme_type_variation = &"OnInterfaceSlot"
+script = ExtResource("2_sr4tc")
+slot_icon = NodePath("MarginContainer/Icon")
+amount_label = NodePath("AmountLabel")
+price_label = NodePath("PriceLabel")
+metadata/_custom_type_script = "uid://b52ywri2fn52i"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1796335236]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer" unique_id=502435796]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="." unique_id=304046756]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 28.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_42vj4")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PriceLabel" type="Label" parent="." unique_id=757875613]
+layout_mode = 0
+offset_top = -9.0
+offset_right = 30.0
+offset_bottom = -1.0
+label_settings = SubResource("LabelSettings_r41af")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

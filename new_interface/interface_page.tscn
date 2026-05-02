@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://d1ttc13pqp2ji"]
-
-[node name="InterfacePage" type="PanelContainer" unique_id=913092592]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

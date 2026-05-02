@@ -1,5 +1,6 @@
 extends Node
 
+
 var game_speed: float = 100.0
 var year_length: int = 0
 

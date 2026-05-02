@@ -2,13 +2,17 @@ extends Node
 
 var current_money: int = 0
 
+signal current_money_changed
+
 
 func GainMoney(amount: int) -> void:
 	current_money += amount
+	current_money_changed.emit()
 
 
 func ReduceMoney(amount: int) -> void:
 	current_money -= amount
+	current_money_changed.emit()
 
 
 func CanSpendMoney(amount: int) -> bool:
@@ -18,12 +22,12 @@ func CanSpendMoney(amount: int) -> bool:
 		return false
 
 
-func DecideBuyPrice(item: String, amount: int) -> int:
-	var price_per_unit = Database.database[item].base_sell_price
+func GetBasePurchasePrice(item: String, amount: int) -> int:
+	var price_per_unit = Database.database[item].base_purchase_price
 	return price_per_unit * amount
 
 
-func DecideSellPrice(item: String, amount: int) -> int:
+func DecideBaseSellPrice(item: String, amount: int) -> int:
 	var price_per_unit = Database.database[item].base_sell_price
 	return price_per_unit * amount
 

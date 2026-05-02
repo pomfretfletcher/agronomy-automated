@@ -16,32 +16,32 @@
 [ext_resource type="Resource" uid="uid://b180gkraxt7mj" path="res://data/crop-data/potato_seed_item_data.tres" id="14_3j3d3"]
 [ext_resource type="Resource" uid="uid://fan5kp6hu2ku" path="res://data/building-data/crate_data.tres" id="15_3j3d3"]
 [ext_resource type="Resource" uid="uid://byrn2gtr4jx5f" path="res://data/building-data/shopping_point_data.tres" id="16_gghn8"]
-[ext_resource type="Resource" uid="uid://di7a1mespyvw4" path="res://data/interface-data/hotbar_interface_data.tres" id="17_prtq6"]
-[ext_resource type="Resource" uid="uid://hdme75rjum2c" path="res://data/interface-data/storage_interface_data.tres" id="18_hiv4t"]
-[ext_resource type="Resource" uid="uid://c5mue2kpjtvlt" path="res://data/interface-data/shopping_interface_data.tres" id="19_mpb23"]
-[ext_resource type="Resource" uid="uid://cytw8hgymagbp" path="res://data/interface-data/inventory_interface_data.tres" id="20_fvxw6"]
 [ext_resource type="Resource" uid="uid://3e1bkwgo3m5f" path="res://data/building-data/crate_item_data.tres" id="21_mpb23"]
+[ext_resource type="Resource" uid="uid://5bpo8mgehjrf" path="res://data/interface-data/building_interface_data.tres" id="22_eu0ql"]
 [ext_resource type="Resource" uid="uid://ddan6vf3by5" path="res://data/building-data/shopping_point_item_data.tres" id="22_fvxw6"]
+[ext_resource type="Resource" uid="uid://bpqc81uqv26bc" path="res://data/interface-data/hotbar_interface_data.tres" id="22_mpb23"]
+[ext_resource type="Resource" uid="uid://dloiyr4r2cj73" path="res://data/specific-data/preview_cursor_data.tres" id="24_eu0ql"]
+[ext_resource type="Resource" uid="uid://bjcrm1sgncnqc" path="res://data/interface-data/inventory_interface_data.tres" id="25_28ieh"]
 
 [node name="Database" type="Node" unique_id=148834324]
 script = ExtResource("1_lutyc")
 database = Dictionary[String, ExtResource("2_4we8j")]({
 "axe": ExtResource("10_s4ibd"),
+"building_interface": ExtResource("22_eu0ql"),
 "crate": ExtResource("15_3j3d3"),
 "crate_item": ExtResource("21_mpb23"),
 "hoe": ExtResource("9_rle6h"),
-"hotbar_interface": ExtResource("17_prtq6"),
-"inventory_interface": ExtResource("20_fvxw6"),
+"hotbar_interface": ExtResource("22_mpb23"),
+"inventory_interface": ExtResource("25_28ieh"),
 "lettuce_crop": ExtResource("4_wayqt"),
 "lettuce_item": ExtResource("7_nsqou"),
 "lettuce_seed": ExtResource("13_6w7l4"),
 "potato_crop": ExtResource("5_hdv4a"),
 "potato_item": ExtResource("8_qn8on"),
 "potato_seed": ExtResource("14_3j3d3"),
-"shopping_interface": ExtResource("19_mpb23"),
+"preview_cursor": ExtResource("24_eu0ql"),
 "shopping_point": ExtResource("16_gghn8"),
 "shopping_point_item": ExtResource("22_fvxw6"),
-"storage_interface": ExtResource("18_hiv4t"),
 "watering_can": ExtResource("11_hnq8a"),
 "wheat_crop": ExtResource("3_4we8j"),
 "wheat_item": ExtResource("6_lisl3"),
@@ -49,21 +49,21 @@ database = Dictionary[String, ExtResource("2_4we8j")]({
 })
 backup_dictionary = Dictionary[String, ExtResource("2_4we8j")]({
 "axe": ExtResource("10_s4ibd"),
+"building_interface": ExtResource("22_eu0ql"),
 "crate": ExtResource("15_3j3d3"),
 "crate_item": ExtResource("21_mpb23"),
 "hoe": ExtResource("9_rle6h"),
-"hotbar_interface": ExtResource("17_prtq6"),
-"inventory_interface": ExtResource("20_fvxw6"),
+"hotbar_interface": ExtResource("22_mpb23"),
+"inventory_interface": ExtResource("25_28ieh"),
 "lettuce_crop": ExtResource("4_wayqt"),
 "lettuce_item": ExtResource("7_nsqou"),
 "lettuce_seed": ExtResource("13_6w7l4"),
 "potato_crop": ExtResource("5_hdv4a"),
 "potato_item": ExtResource("8_qn8on"),
 "potato_seed": ExtResource("14_3j3d3"),
-"shop_point": ExtResource("16_gghn8"),
-"shopping_interface": ExtResource("19_mpb23"),
+"preview_cursor": ExtResource("24_eu0ql"),
+"shopping_point": ExtResource("16_gghn8"),
 "shopping_point_item": ExtResource("22_fvxw6"),
-"storage_interface": ExtResource("18_hiv4t"),
 "watering_can": ExtResource("11_hnq8a"),
 "wheat_crop": ExtResource("3_4we8j"),
 "wheat_item": ExtResource("6_lisl3"),

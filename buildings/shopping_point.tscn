@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dkxuqm6fuo8x" path="res://buildings/shopping_point.gd" id="1_cg4aj"]
 [ext_resource type="Texture2D" uid="uid://d168j4cglfe4x" path="res://art/assets/placeholder/shop_bay.png" id="2_lpita"]
 [ext_resource type="PackedScene" uid="uid://bff771bj6gu80" path="res://buildings/interaction_range_component.tscn" id="3_f87qj"]
+[ext_resource type="PackedScene" uid="uid://bpeen1uafoati" path="res://buildings/interfaces/building_interface_handler.tscn" id="5_cg4aj"]
 [ext_resource type="PackedScene" uid="uid://dpvs5kjop3eaj" path="res://non-specific/components/save_data_component.tscn" id="5_vgecg"]
+[ext_resource type="Script" uid="uid://cayh0sdfom3qt" path="res://buildings/interfaces/shopping_interface_handler.gd" id="6_lpita"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ls5c6"]
 
@@ -13,9 +15,10 @@ size = Vector2(14, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sg4"]
 size = Vector2(14, 26)
 
-[node name="ShoppingPoint" type="Node2D" unique_id=2141773489]
+[node name="ShoppingPoint" type="Node2D" unique_id=2141773489 node_paths=PackedStringArray("interface_handler")]
 script = ExtResource("1_cg4aj")
 internal_name = "shopping_point"
+interface_handler = NodePath("BuildingInterfaceHandler")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649253566]
 position = Vector2(0, -1)
@@ -40,6 +43,10 @@ position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_m8sg4")
 
 [node name="SaveDataComponent" parent="." unique_id=865744670 instance=ExtResource("5_vgecg")]
+
+[node name="BuildingInterfaceHandler" parent="." unique_id=1248026831 node_paths=PackedStringArray("connected_building") instance=ExtResource("5_cg4aj")]
+script = ExtResource("6_lpita")
+connected_building = NodePath("..")
 
 [connection signal="body_entered" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionRangeComponent" to="InteractionRangeComponent" method="_on_body_exited"]

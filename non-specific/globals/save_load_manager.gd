@@ -11,8 +11,7 @@ var root: Node
 var crop_fields: Node2D
 var buildings: Node2D
 var interface_ui: CanvasLayer
-var inventory_interface: InventoryInterface
-var hotbar_interface: HotbarInterface
+var inventory_interface_handler: InventoryInterfaceHandler
 
 const SAVE_PATH =  "res://savegame.json"
 
@@ -47,17 +46,7 @@ func _ready() -> void:
 	crop_fields = gdExtensions.GetChildByName(root, "CropFields")
 	buildings = gdExtensions.GetChildByName(root, "Buildings")
 	interface_ui = gdExtensions.GetChildByName(root, "InterfaceUI")
-	inventory_interface = gdExtensions.GetChildByName(root, "InventoryInterface")
-	hotbar_interface = gdExtensions.GetChildByName(root, "HotbarInterface")
-
-
-# Placeholder Function
-func _unhandled_input(event: InputEvent) -> void:
-	# Placeholder methods - will make into menu called methods
-	if event.is_action_pressed("test_save") and can_save:
-		SaveData()
-	elif event.is_action_pressed("test_load") and can_load:
-		LoadData()
+	inventory_interface_handler = gdExtensions.GetChildByName(root, "InventoryInterfaceHandler")
 
 
 # Function Information
@@ -66,6 +55,9 @@ func _unhandled_input(event: InputEvent) -> void:
 # Debug - Error Statements
 #		Identify and flag issues with save processe
 func SaveData() -> void:
+	if not can_save:
+		return
+		
 	# Get save data of global scripts/nodes
 	for global in globals:
 		global = global as Node
@@ -94,7 +86,8 @@ func SaveData() -> void:
 			if saveable.is_in_group("persisting_node"):
 				data.set("persisting_node", true)
 				
-			if data.has("internal_name"):
+			if saveable.get("internal_name"):
+				data.set("internal_name", saveable.get("internal_name"))
 				save_data.set(entry_key, data)
 			else:
 				# Future proof error - Allow developer to not miss why data not being saved
@@ -115,6 +108,9 @@ func SaveData() -> void:
 # Debug - Error Statements
 #		Identify and flag issues with load processe
 func LoadData() -> void:
+	if not can_load:
+		return
+	
 	if not FileAccess.file_exists(SAVE_PATH):
 		return
 	
@@ -136,7 +132,7 @@ func LoadData() -> void:
 	ApplyLoadedGlobalData()
 	AssembleCropFields()
 	SetupBuildings()
-	LoadUserInterfaces()
+	#LoadUserInterfaces()
 	
 	var applied_customly = ["inventory_interface", "hotbar_interface"]
 	""" Need to change following as it applies only really to persist nodes, must construct a persist
@@ -153,10 +149,9 @@ func LoadData() -> void:
 			
 		var internal_name = saveable.internal_name
 		var loaded_data = FindSaveDataEntryWithName(save_data, internal_name)
-		
+
 		# No data found for saveable node
 		if len(loaded_data) == 0 and internal_name not in applied_customly:
-			print("Issue applying loaded data to node " + str(saveable) + ", no data for it in save file.")
 			continue
 			
 		# Applies loaded data to the saveable node if there is a save data entry for it
@@ -332,24 +327,15 @@ func SetupBuildings() -> void:
 			buildings.add_child(building_instance)
 			WorldComponentData.built_tiles[tilemap_cell_position] = building_instance
 			
-			# Builds correct interface scene for loaded building
-			var interface_data = Database.database[building_data.interface_name] as InterfaceData
-			var interface = interface_data.interface_scene.instantiate() as BuildingInterface
-			
-			# Places interface in proper node structure, connects needed references and hides the interface
-			interface_ui.add_child(interface)
-			building_instance.interface = interface
-			interface.associated_building = building_instance
-			interface.hide()
-			
 			# Applies global data and marks not to use loaded data again
 			building_instance.ApplyLoadedData(loaded_data)
 			entries_to_remove.append(entry_key)
-			
+
 	for entry in entries_to_remove:
 		save_data.erase(entry)
 
 
+"""need to change"""
 # Function Information
 # Use - Saving/Loading Game Data
 # Does - Applies loaded data for each interface that sustains between game instances to the 
@@ -362,10 +348,8 @@ func LoadUserInterfaces() -> void:
 		var interface_internal_name = loaded_data["internal_name"]
 		
 		# Applies loaded data to appropiate interface
-		if interface_internal_name == inventory_interface.internal_name:
-			inventory_interface.ApplyLoadedData(loaded_data)
-		elif interface_internal_name == hotbar_interface.internal_name:
-			hotbar_interface.ApplyLoadedData(loaded_data)
+		if interface_internal_name == inventory_interface_handler.internal_name:
+			inventory_interface_handler.ApplyLoadedData(loaded_data)
 		else:
 			# If not one of the interfaces, avoid adding to entries to remove
 			continue
